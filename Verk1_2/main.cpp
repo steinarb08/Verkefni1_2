@@ -1,7 +1,11 @@
 #include <QCoreApplication>
 #include <iostream>
 #include <person.h>
+<<<<<<< HEAD
 #include <replayer.h>
+=======
+#include <datalayer.h>
+>>>>>>> fa8204fbbc0061e7caea5002ee057d0695c865fe
 using namespace std;
 
 
@@ -17,6 +21,10 @@ void addPerson(Person newPerson)
 int main(int argc, char *argv[])
 {
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa8204fbbc0061e7caea5002ee057d0695c865fe
     QCoreApplication a(argc, argv);
     return 0;
 }
