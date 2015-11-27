@@ -1,6 +1,7 @@
 #include <QCoreApplication>
 #include <iostream>
 #include <person.h>
+#include <replayer.h>
 using namespace std;
 
 
@@ -15,8 +16,7 @@ void addPerson(Person newPerson)
 
 int main(int argc, char *argv[])
 {
-    Person person1("Jón","male",1985,2016);
-    addPerson(person1);
+
     QCoreApplication a(argc, argv);
     return 0;
 }
