@@ -9,10 +9,14 @@ using namespace std;
 class RepLayer
 {
 public:
-    RepLayer();
-    void printList(list <Person> personList);
+    RepLayer(list <Person> _mainList);
+    void printList(list <Person> _personList);
     void test();
+    void startScreen();
+    void addToList(list <Person> _personList);
 
+private:
+    list<Person> mainList;
 };
 
 #endif // REPLAYER_H
