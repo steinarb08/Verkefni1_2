@@ -13,7 +13,9 @@ public:
     void printList(list <Person> _personList);
     void test();
     void startScreen();
-    void addToList(list <Person> _personList);
+    void addToList();
+    void searchList();
+    void sortList();
 
 private:
     list<Person> mainList;
