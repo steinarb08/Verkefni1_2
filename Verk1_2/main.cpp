@@ -15,6 +15,7 @@ void addPerson(Person newPerson)
 
 int main(int argc, char *argv[])
 {
+    cout << "flot" << endl;
     Person person1("Jón","male",1985,2016);
     addPerson(person1);
     QCoreApplication a(argc, argv);
