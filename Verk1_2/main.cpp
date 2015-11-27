@@ -1,6 +1,7 @@
 #include <QCoreApplication>
 #include <iostream>
 #include <person.h>
+#include <datalayer.h>
 using namespace std;
 
 
@@ -15,9 +16,9 @@ void addPerson(Person newPerson)
 
 int main(int argc, char *argv[])
 {
-    cout << "flot" << endl;
-    Person person1("Jón","male",1985,2016);
-    addPerson(person1);
+    DataLayer d1;
+
+    d1.test();
     QCoreApplication a(argc, argv);
     return 0;
 }
