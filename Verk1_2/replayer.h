@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include<list>
-#include "person.h";
+#include "person.h"
 using namespace std;
 
 class RepLayer
