@@ -16,9 +16,8 @@ void addPerson(Person newPerson)
 
 int main(int argc, char *argv[])
 {
-    DataLayer d1;
 
-    d1.test();
+
     QCoreApplication a(argc, argv);
     return 0;
 }
