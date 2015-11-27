@@ -14,6 +14,8 @@ public:
     void test();
     void startScreen();
     void addToList();
+    void loadFromFile();
+    void saveToFile();
     void searchList();
     void sortList();
 

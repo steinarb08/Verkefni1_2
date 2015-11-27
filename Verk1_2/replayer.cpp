@@ -51,9 +51,11 @@ void RepLayer::startScreen()
         break;
 
     case 3:
+        loadFromFile();
         break;
 
     case 4:
+        saveToFile();
         break;
 
     case 5:
@@ -154,7 +156,15 @@ void RepLayer::sortList()
 
 }
 
+void RepLayer::loadFromFile()
+{
+    cout << "Load from file";
+}
 
+void RepLayer::saveToFile()
+{
+    cout << "Save to file";
+}
 
 
 
