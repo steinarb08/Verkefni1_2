@@ -11,10 +11,7 @@ vector<Person> personList;
 int main(int argc, char *argv[])
 {
     RepLayer userInt(personList);
-    while (true)
-    {
-        userInt.startScreen();
-    }
+
    Person p1("Jon", "male", 2005, 2010);
    Person p2("Siggi", "male", 1909, 2000);
    Person p3 ("Gummi", "male", 1980, 2050);
