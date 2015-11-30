@@ -15,6 +15,7 @@ class RepLayer
 public:
     RepLayer(vector <Person> _mainList);
     void printList(vector <Person> _personList);
+    void printList(vector <Person> _personList,bool b);
     void test();
     void startScreen();
     void addToList();
@@ -22,6 +23,7 @@ public:
     void saveToFile();
     void searchList();
     void sortList();
+    void removeFromList();
     string fixName(string name);
     vector<Person> searchNameFunc(string searchString);
     vector<Person> searchGenderFunc(string searchString);

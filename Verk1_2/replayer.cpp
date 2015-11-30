@@ -20,6 +20,23 @@ void RepLayer::printList(vector <Person> personList)
     cout << "---------------------------------------------" << endl;
 }
 
+void RepLayer::printList(vector <Person> personList,bool b)
+{
+    cout << "Nr - Name - Gender - Year of birth - Year of death" << endl;
+    cout << "--------------------------------------------------" << endl;
+    int size = personList.size();
+    for(int i = 0; i < size; i++)
+    {
+        cout << i;
+        cout << ") ";
+        cout << personList.at(i).getName() << " - ";
+        cout << personList.at(i).getGender() << " - ";
+        cout << personList.at(i).getBirthYear() << " - ";
+        cout << personList.at(i).getDeathYear() << endl;
+    }
+    cout << "--------------------------------------------------" << endl;
+}
+
 void RepLayer::test()
 {
     startScreen();
@@ -33,8 +50,8 @@ void RepLayer::startScreen()
     cout << "2) Add to list" << endl;
     cout << "3) Search " << endl;
     cout << "4) Sort " << endl;
-    cout << "5) Quit " << endl;
-
+    cout << "5) Remove from list " << endl;
+    cout << "6) Quit " << endl;
     int choice;
     string tmpChoice = "";
     cin >> tmpChoice;
@@ -59,6 +76,10 @@ void RepLayer::startScreen()
         break;
 
     case 5:
+        removeFromList();
+        break;
+
+    case 6:
         exit(0);
         break;
 
@@ -354,4 +375,14 @@ string RepLayer::fixName(string name)
     return tmpName;
 }
 
-
+void RepLayer::removeFromList()
+{
+    printList(mainList,true);
+    cout<< "Choose a nr to remove: ";
+    string tmp = "";
+    cin>>tmp;
+    int choice = atoi(tmp.c_str());
+    mainList.erase(mainList.begin() + choice);
+    DataLayer d1;
+    d1.save(mainList);
+}
