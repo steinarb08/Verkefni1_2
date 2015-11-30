@@ -2,15 +2,16 @@
 #define REPLAYER_H
 
 #include <iostream>
-#include<list>
+#include<vector>
 #include "person.h"
+
 using namespace std;
 
 class RepLayer
 {
 public:
-    RepLayer(list <Person> _mainList);
-    void printList(list <Person> _personList);
+    RepLayer(vector <Person> _mainList);
+    void printList(vector <Person> _personList);
     void test();
     void startScreen();
     void addToList();
@@ -20,7 +21,7 @@ public:
     void sortList();
 
 private:
-    list<Person> mainList;
+    vector<Person> mainList;
 };
 
 #endif // REPLAYER_H

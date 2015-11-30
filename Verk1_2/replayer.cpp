@@ -1,21 +1,20 @@
 #include "replayer.h"
 
-RepLayer::RepLayer(list<Person> _mainList)
+RepLayer::RepLayer(vector<Person> _mainList)
 {
     mainList = _mainList;
 }
 
-void RepLayer::printList(list <Person> personList)
+void RepLayer::printList(vector <Person> personList)
 {
     cout << "Name - Gender - Year of birth - Year of death" << endl;
     int size = personList.size();
     for(int i = 0; i < size; i++)
     {
-        cout << personList.front().getName() << " - ";
-        cout << personList.front().getGender() << " - ";
-        cout << personList.front().getBirthYear() << " - ";
-        cout << personList.front().getDeathYear() << endl;
-        personList.pop_front();
+        cout << personList.at(i).getName() << " - ";
+        cout << personList.at(i).getGender() << " - ";
+        cout << personList.at(i).getBirthYear() << " - ";
+        cout << personList.at(i).getDeathYear() << endl;
     }
 }
 
@@ -97,6 +96,16 @@ void RepLayer::addToList()
 
 }
 
+void RepLayer::loadFromFile()
+{
+    cout << "Load from file"; //ÓKLÁRAÐ
+}
+
+void RepLayer::saveToFile()
+{
+    cout << "Save to file";  //ÓKLÁRAÐ
+}
+
 void RepLayer::searchList()
 {
     string searchString;
@@ -156,15 +165,6 @@ void RepLayer::sortList()
 
 }
 
-void RepLayer::loadFromFile()
-{
-    cout << "Load from file";
-}
-
-void RepLayer::saveToFile()
-{
-    cout << "Save to file";
-}
 
 
 
