@@ -8,6 +8,7 @@ RepLayer::RepLayer(vector<Person> _mainList)
 void RepLayer::printList(vector <Person> personList)
 {
     cout << "Name - Gender - Year of birth - Year of death" << endl;
+    cout << "---------------------------------------------" << endl;
     int size = personList.size();
     for(int i = 0; i < size; i++)
     {
@@ -16,6 +17,7 @@ void RepLayer::printList(vector <Person> personList)
         cout << personList.at(i).getBirthYear() << " - ";
         cout << personList.at(i).getDeathYear() << endl;
     }
+    cout << "---------------------------------------------" << endl;
 }
 
 void RepLayer::test()
