@@ -14,6 +14,7 @@ int main(int argc, char *argv[])
 
 
    RepLayer rep1(personList);
+   rep1.loadFromFile();
    while(true)
    {
        rep1.startScreen();
