@@ -118,6 +118,7 @@ void RepLayer::addToList()
         if(newBirthYear > 2015)
         {
             cout << "Invalid birth year" << endl;
+            cout << "-------------------" << endl;
             addToList();
         }
         else
@@ -129,6 +130,7 @@ void RepLayer::addToList()
             if(newBirthYear > newDeathYear)
             {
                cout << "Invalid year of death" << endl;
+               cout << "-------------------" << endl;
                addToList();
             }
             else
