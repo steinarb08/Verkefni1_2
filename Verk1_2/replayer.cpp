@@ -104,8 +104,9 @@ void RepLayer::addToList()
     cin >> newGender;
     newGender = fixName(newGender);
     if(newGender != "Male" && newGender != "Female")
-    {    cout << newGender;
+    {
          cout << "Invalid input" << endl;
+         cout << "-------------------" << endl;
          addToList();
     }
     else
