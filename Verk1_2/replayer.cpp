@@ -79,8 +79,7 @@ void RepLayer::addToList()
 
     cout << "Input gender: ";
     cin >> newGender;
-    newGender[0] = toupper(newGender[0]);
-
+    newGender = fixName(newGender);
     if(newGender != "Male" && newGender != "Female")
     {    cout << newGender;
          cout << "Invalid input" << endl;
@@ -156,19 +155,24 @@ void RepLayer::searchList()
         break;
     case 2:
         cout << "Type a gender: ";
-        cin >> searchGender;
-        printList(searchGenderFunc(searchGender));
+        cin.ignore();
+        getline(cin,searchGender);
+        printList(searchGenderFunc(fixName(searchGender)));
         break;
 
     case 3:
         cout << "Type a year of birth: ";
-        cin >> searchBirthYear;
+        cin.ignore();
+        getline(cin,tmpChoice);
+        searchBirthYear = atoi(tmpChoice.c_str());
         printList(searchBirthYearFunc(searchBirthYear));
         break;
 
     case 4:
         cout << "Type a year of death: ";
-        cin >> searchDeathYear;
+        cin.ignore();
+        getline(cin,tmpChoice);
+        searchDeathYear = atoi(tmpChoice.c_str());
         printList(searchDeathYearFunc(searchDeathYear));
         break;
 
