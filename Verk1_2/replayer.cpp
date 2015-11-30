@@ -29,11 +29,9 @@ void RepLayer::startScreen()
     cout << "Choose one option: " << endl;
     cout << "1) Print list" << endl;
     cout << "2) Add to list" << endl;
-    cout << "3) Load from file" << endl;
-    cout << "4) Save to file" << endl;
-    cout << "5) Search " << endl;
-    cout << "6) Sort " << endl;
-    cout << "7) Quit " << endl;
+    cout << "3) Search " << endl;
+    cout << "4) Sort " << endl;
+    cout << "5) Quit " << endl;
 
     int choice;
 
@@ -50,22 +48,14 @@ void RepLayer::startScreen()
         break;
 
     case 3:
-        loadFromFile();
-        break;
-
-    case 4:
-        saveToFile();
-        break;
-
-    case 5:
         searchList();
         break;
 
-    case 6:
+    case 4:
         sortList();
         break;
 
-    case 7:
+    case 5:
         exit(0);
         break;
 
@@ -145,7 +135,9 @@ void RepLayer::searchList()
     {
     case 1:
         cout << "Type a name: ";
-        cin >> searchName;
+        cin.ignore();
+        getline(cin,searchName);
+        searchName = fixName(searchName);
         printList(searchNameFunc(searchName));
         break;
     case 2:
