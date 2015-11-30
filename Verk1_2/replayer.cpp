@@ -187,7 +187,7 @@ void RepLayer::searchList()
 void RepLayer::sortList()
 {
     int sortChoice;
-
+    DomainLayer d1;
     cout << "Select option: " << endl;
     cout << "1) Sort by name, ascending" << endl;
     cout << "2) Sort by name, decending" << endl;
@@ -204,27 +204,43 @@ void RepLayer::sortList()
     switch(sortChoice)
     {
     case 1:
+        mainList = d1.sortFromAtoZ(mainList);
+        printList(mainList);
         break;
 
     case 2:
+        mainList = d1.reverse(mainList);
+        printList(mainList);
         break;
 
     case 3:
+        mainList = d1.sortGender(mainList);
+        printList(mainList);
         break;
 
     case 4:
+        mainList = d1.reverseGender(mainList);
+        printList(mainList);
         break;
 
     case 5:
+        mainList = d1.sortBirthYear(mainList);
+        printList(mainList);
         break;
 
     case 6:
+        mainList = d1.sortBirthYearDescending(mainList);
+        printList(mainList);
         break;
 
     case 7:
+        mainList = d1.sortDeathYear(mainList);
+        printList(mainList);
         break;
 
     case 8:
+        mainList = d1.sortDeathYearDescending(mainList);
+        printList(mainList);
         break;
 
     default:
