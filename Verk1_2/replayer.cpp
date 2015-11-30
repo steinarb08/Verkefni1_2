@@ -83,27 +83,51 @@ void RepLayer::addToList()
     int newBirthYear, newDeathYear;
     cout << "Creating new person" << endl;
     cout << "Input name: ";
-    cin >> newName;
+    cin.ignore();
+    getline(cin,newName);
+
     cout << "Input gender: ";
     cin >> newGender;
-    cout << "Input year of birth: ";
-    cin >> newBirthYear;
-    cout << "Input year of death: ";
-    cin >> newDeathYear;
+    newGender[0] = toupper(newGender[0]);
 
-    Person newP(newName, newGender, newBirthYear, newDeathYear);
-    mainList.push_back(newP);
+    if(newGender != "Male" && newGender != "Female")
+    {    cout << newGender;
+         cout << "Invalid input" << endl;
+         addToList();
+    }
+    else
+    {
+        cout << "Input year of birth: ";
+        cin >> newBirthYear;
+        cout << "Input year of death: ";
+        cin >> newDeathYear;
+
+        if(newBirthYear > newDeathYear)
+        {
+           cout << "Invalid year of death" << endl;
+           addToList();
+        }
+        else
+        {
+            newName[0] = toupper(newName[0]);
+            Person newP(newName, newGender, newBirthYear, newDeathYear);
+            mainList.push_back(newP);
+            saveToFile();
+        }
+    }
 
 }
 
 void RepLayer::loadFromFile()
 {
-    cout << "Load from file"; //ÓKLÁRAÐ
+    DataLayer d1;
+    mainList = d1.load();
 }
 
 void RepLayer::saveToFile()
 {
-    cout << "Save to file";  //ÓKLÁRAÐ
+    DataLayer d1;
+    d1.save(mainList);
 }
 
 void RepLayer::searchList()

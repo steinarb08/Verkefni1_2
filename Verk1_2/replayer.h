@@ -5,6 +5,8 @@
 #include<vector>
 #include<algorithm>
 #include "person.h"
+#include <datalayer.h>
+#include <domainlayer.h>
 
 using namespace std;
 
