@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include<vector>
+#include<algorithm>
 #include "person.h"
 
 using namespace std;
@@ -19,6 +20,10 @@ public:
     void saveToFile();
     void searchList();
     void sortList();
+    vector<Person> searchNameFunc(string searchString);
+    vector<Person> searchGenderFunc(string searchString);
+    vector<Person> searchBirthYearFunc(int searchString);
+    vector<Person> searchDeathYearFunc(int searchString);
 
 private:
     vector<Person> mainList;

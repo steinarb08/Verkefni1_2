@@ -108,9 +108,48 @@ void RepLayer::saveToFile()
 
 void RepLayer::searchList()
 {
-    string searchString;
-    cout << "Search: ";
-    cin >> searchString;
+    int searchChoice;
+    cout << "1) Search by name" << endl;
+    cout << "2) Search by gender" << endl;
+    cout << "3) Search by year of birth" << endl;
+    cout << "4) Search by year of death" << endl;
+
+    int searchBirthYear, searchDeathYear;
+    string searchName, searchGender;
+    cin >> searchChoice;
+    switch(searchChoice)
+    {
+    case 1:
+        cout << "Type a name: ";
+        cin >> searchName;
+        printList(searchNameFunc(searchName));
+        break;
+    case 2:
+        cout << "Type a gender: ";
+        cin >> searchGender;
+        printList(searchGenderFunc(searchGender));
+        break;
+
+    case 3:
+        cout << "Type a year of birth: ";
+        cin >> searchBirthYear;
+        printList(searchBirthYearFunc(searchBirthYear));
+        break;
+
+    case 4:
+        cout << "Type a year of death: ";
+        cin >> searchDeathYear;
+        printList(searchDeathYearFunc(searchDeathYear));
+        break;
+
+     default:
+        cout << "Number not available"<< endl;
+        searchList();
+
+
+
+
+    }
 
     // To Be Continued....
 }
@@ -165,10 +204,72 @@ void RepLayer::sortList()
 
 }
 
+vector<Person> RepLayer::searchNameFunc(string searchString)
+{
+    vector<Person> newVector;
+    int sizeOfList = mainList.size();
+    for(int i = 0; i < sizeOfList; i++)
+    {
+         int it;
+         it = mainList.at(i).getName().find(searchString);
+         if(it != -1)
+         {
+             newVector.push_back(mainList.at(i));
+         }
 
 
+    }
+    return newVector;
+}
+
+vector<Person> RepLayer::searchGenderFunc(string searchString)
+{
+    vector<Person> newVector;
+    int sizeOfList = mainList.size();
+    for(int i = 0; i < sizeOfList; i++)
+    {
+         int it;
+         it = mainList.at(i).getGender().find(searchString);
+         if(it != -1)
+         {
+             newVector.push_back(mainList.at(i));
+         }
 
 
+    }
+    return newVector;
+}
+
+vector<Person> RepLayer::searchBirthYearFunc(int searchString)
+{
+    vector<Person> newVector;
+    int sizeOfList = mainList.size();
+    for(int i = 0; i < sizeOfList; i++)
+    {
+         if(mainList.at(i).getBirthYear() == searchString)
+         {
+             newVector.push_back(mainList.at(i));
+         }
+
+
+    }
+    return newVector;
+}
+
+vector<Person> RepLayer::searchDeathYearFunc(int searchString)
+{
+    vector<Person> newVector;
+    int sizeOfList = mainList.size();
+    for(int i = 0; i < sizeOfList; i++)
+    {
+         if(mainList.at(i).getDeathYear() == searchString)
+         {
+             newVector.push_back(mainList.at(i));
+         }
+
+    }
+    return newVector;
+}
 
 
 
