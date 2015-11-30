@@ -109,7 +109,7 @@ void RepLayer::addToList()
         }
         else
         {
-            newName[0] = toupper(newName[0]);
+            newName = fixName(newName);
             Person newP(newName, newGender, newBirthYear, newDeathYear);
             mainList.push_back(newP);
             saveToFile();
@@ -295,5 +295,33 @@ vector<Person> RepLayer::searchDeathYearFunc(int searchString)
     return newVector;
 }
 
+
+string RepLayer::fixName(string name)
+{
+    string tmpName = name;
+    char lastChar = 'A';
+    for(int i =0;i<name.size();i++)
+    {
+        if(i==0)
+        {
+            tmpName[0] = toupper(name[0]);
+        }
+        else
+        {
+            if(lastChar == ' ')
+            {
+                tmpName[i] = toupper(name[i]);
+            }
+            else
+            {
+                tmpName[i] = tolower(name[i]);
+            }
+
+        }
+        lastChar = name[i];
+
+    }
+    return tmpName;
+}
 
 

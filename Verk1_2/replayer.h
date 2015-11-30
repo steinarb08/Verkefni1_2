@@ -22,6 +22,7 @@ public:
     void saveToFile();
     void searchList();
     void sortList();
+    string fixName(string name);
     vector<Person> searchNameFunc(string searchString);
     vector<Person> searchGenderFunc(string searchString);
     vector<Person> searchBirthYearFunc(int searchString);
