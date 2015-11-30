@@ -3,14 +3,16 @@
 #include <replayer.h>
 #include <iostream>
 #include <fstream>
+#include <stdlib.h>
 
 class DataLayer
 {
 public:
     DataLayer();
     void test();
-    void save(list<Person> getList);
-    list<Person> load(string fileName);
+    void save(vector<Person> getList);
+    vector<Person> load();
+    Person getString(string line);
 };
 
 #endif // DATALAYER_H
