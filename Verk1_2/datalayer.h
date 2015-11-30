@@ -3,7 +3,7 @@
 #include <replayer.h>
 #include <iostream>
 #include <fstream>
-
+#include <stdlib.h>
 
 class DataLayer
 {
