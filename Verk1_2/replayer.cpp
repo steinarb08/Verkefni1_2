@@ -34,8 +34,9 @@ void RepLayer::startScreen()
     cout << "5) Quit " << endl;
 
     int choice;
-
-    cin >> choice;
+    string tmpChoice = "";
+    cin >> tmpChoice;
+    choice = atoi(tmpChoice.c_str());
 
     switch(choice)
     {
@@ -88,21 +89,32 @@ void RepLayer::addToList()
     else
     {
         cout << "Input year of birth: ";
-        cin >> newBirthYear;
-        cout << "Input year of death: ";
-        cin >> newDeathYear;
-
-        if(newBirthYear > newDeathYear)
+        string tmpYear = "";
+        cin >> tmpYear;
+        newBirthYear = atoi(tmpYear.c_str());
+        if(newBirthYear > 2015)
         {
-           cout << "Invalid year of death" << endl;
-           addToList();
+            cout << "Invalid birth year" << endl;
+            addToList();
         }
         else
         {
-            newName = fixName(newName);
-            Person newP(newName, newGender, newBirthYear, newDeathYear);
-            mainList.push_back(newP);
-            saveToFile();
+            cout << "Input year of death: ";
+            cin >> tmpYear;
+            newDeathYear = atoi(tmpYear.c_str());
+
+            if(newBirthYear > newDeathYear)
+            {
+               cout << "Invalid year of death" << endl;
+               addToList();
+            }
+            else
+            {
+                newName = fixName(newName);
+                Person newP(newName, newGender, newBirthYear, newDeathYear);
+                mainList.push_back(newP);
+                saveToFile();
+            }
         }
     }
 
@@ -130,7 +142,9 @@ void RepLayer::searchList()
 
     int searchBirthYear, searchDeathYear;
     string searchName, searchGender;
-    cin >> searchChoice;
+    string tmpChoice = "";
+    cin >> tmpChoice;
+    searchChoice = atoi(tmpChoice.c_str());
     switch(searchChoice)
     {
     case 1:
@@ -183,7 +197,9 @@ void RepLayer::sortList()
     cout << "6) Sort by year of birth, decending" << endl;
     cout << "7) Sort by year of death, ascending" << endl;
     cout << "8) Sort by year of death, decending" << endl;
-    cin >> sortChoice;
+    string tmpChoice = "";
+    cin >> tmpChoice;
+    sortChoice = atoi(tmpChoice.c_str());
 
     switch(sortChoice)
     {
@@ -212,7 +228,7 @@ void RepLayer::sortList()
         break;
 
     default:
-        exit(0);
+        sortList();
         break;
 
 
