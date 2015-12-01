@@ -52,7 +52,6 @@ void RepLayer::printListNum(vector <Person> personList)
 void RepLayer::test()
 {
     startScreen();
-    //printList(mainList); BARA TIL AÐ TÉKKA Á Á addToList;
 }
 
 // Start screen of the program, gives the user options to chose from.
@@ -184,6 +183,7 @@ void RepLayer::saveToFile()
 void RepLayer::searchList()
 {
     int searchChoice;
+    cout << "Choose one option: " << endl;
     cout << "1) Search by name" << endl;
     cout << "2) Search by gender" << endl;
     cout << "3) Search by year of birth" << endl;
