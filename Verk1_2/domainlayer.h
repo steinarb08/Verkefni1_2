@@ -38,6 +38,11 @@ public:
 
     void swap(Person& per1, Person& per2);
     //Swaps two elements.
+
+    vector<Person> searchNameFunc(string searchString,vector<Person> mainList);
+    vector<Person> searchGenderFunc(string searchString,vector<Person> mainList);
+    vector<Person> searchBirthYearFunc(int searchString,vector<Person> mainList);
+    vector<Person> searchDeathYearFunc(int searchString,vector<Person> mainList);
 };
 
 #endif // DOMAINLAYER_H

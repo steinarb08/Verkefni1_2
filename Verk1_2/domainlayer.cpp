@@ -158,3 +158,71 @@ vector<Person> DomainLayer::sortDeathYearDescending(vector<Person> personList){ 
 
     return personList;
 }
+
+vector<Person> DomainLayer::searchNameFunc(string searchString,vector<Person> mainList)
+{
+    vector<Person> newVector;
+    int sizeOfList = mainList.size();
+
+    for(int i = 0; i < sizeOfList; i++)
+    {
+        int it=0;
+         it = mainList.at(i).getName().find(searchString);
+         if(it != -1)
+         {
+             newVector.push_back(mainList.at(i));
+         }
+
+
+    }
+    return newVector;
+}
+
+vector<Person> DomainLayer::searchGenderFunc(string searchString,vector<Person> mainList)
+{
+    vector<Person> newVector;
+    int sizeOfList = mainList.size();
+    for(int i = 0; i < sizeOfList; i++)
+    {
+         int it;
+         it = mainList.at(i).getGender().find(searchString);
+         if(it != -1)
+         {
+             newVector.push_back(mainList.at(i));
+         }
+
+
+    }
+    return newVector;
+}
+
+vector<Person> DomainLayer::searchBirthYearFunc(int searchString,vector<Person> mainList)
+{
+    vector<Person> newVector;
+    int sizeOfList = mainList.size();
+    for(int i = 0; i < sizeOfList; i++)
+    {
+         if(mainList.at(i).getBirthYear() == searchString)
+         {
+             newVector.push_back(mainList.at(i));
+         }
+
+
+    }
+    return newVector;
+}
+
+vector<Person> DomainLayer::searchDeathYearFunc(int searchString,vector<Person> mainList)
+{
+    vector<Person> newVector;
+    int sizeOfList = mainList.size();
+    for(int i = 0; i < sizeOfList; i++)
+    {
+         if(mainList.at(i).getDeathYear() == searchString)
+         {
+             newVector.push_back(mainList.at(i));
+         }
+
+    }
+    return newVector;
+}

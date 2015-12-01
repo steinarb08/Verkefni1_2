@@ -25,10 +25,7 @@ public:
     void sortList();
     void removeFromList();
     string fixName(string name);
-    vector<Person> searchNameFunc(string searchString);
-    vector<Person> searchGenderFunc(string searchString);
-    vector<Person> searchBirthYearFunc(int searchString);
-    vector<Person> searchDeathYearFunc(int searchString);
+
 
 private:
     vector<Person> mainList;
