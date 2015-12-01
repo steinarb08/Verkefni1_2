@@ -17,7 +17,15 @@ void RepLayer::printList(vector <Person> personList)
         cout << personList.at(i).getName() << " - ";
         cout << personList.at(i).getGender() << " - ";
         cout << personList.at(i).getBirthYear() << " - ";
-        cout << personList.at(i).getDeathYear() << endl;
+        // If not still alive
+        if(personList.at(i).getDeathYear() != -1)
+        {
+            cout << personList.at(i).getDeathYear() << endl;
+        }
+        else
+        {
+            cout << "alive"<<endl;
+        }
     }
     cout << "---------------------------------------------" << endl;
 }
@@ -129,11 +137,18 @@ void RepLayer::addToList()
         }
         else
         {
-            cout << "Input year of death: ";
+            cout << "Input year of death (-1 if still alive): ";
             cin >> tmpYear;
             newDeathYear = atoi(tmpYear.c_str());
 
-            if(newBirthYear > newDeathYear)
+            if(newDeathYear == -1)
+            {
+                newName = fixName(newName);
+                Person newP(newName, newGender, newBirthYear, newDeathYear);
+                mainList.push_back(newP);
+                saveToFile();
+            }
+            else if(newBirthYear > newDeathYear)
             {
                cout << "Invalid year of death" << endl;
                cout << "-------------------" << endl;
