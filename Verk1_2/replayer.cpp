@@ -1,10 +1,12 @@
 #include "replayer.h"
 
+// Constructor, needs a vector of Persons to work with as input.
 RepLayer::RepLayer(vector<Person> _mainList)
 {
     mainList = _mainList;
 }
 
+// Prints a list of every Person in a list.
 void RepLayer::printList(vector <Person> personList)
 {
     cout << "Name - Gender - Year of birth - Year of death" << endl;
@@ -20,7 +22,8 @@ void RepLayer::printList(vector <Person> personList)
     cout << "---------------------------------------------" << endl;
 }
 
-void RepLayer::printList(vector <Person> personList,bool b)
+// Prints a list of every Person in a list and numbers them.
+void RepLayer::printListNum(vector <Person> personList)
 {
     cout << "Nr - Name - Gender - Year of birth - Year of death" << endl;
     cout << "--------------------------------------------------" << endl;
@@ -37,12 +40,14 @@ void RepLayer::printList(vector <Person> personList,bool b)
     cout << "--------------------------------------------------" << endl;
 }
 
+// Used while making the program for testing.
 void RepLayer::test()
 {
     startScreen();
     //printList(mainList); BARA TIL AÐ TÉKKA Á Á addToList;
 }
 
+// Start screen of the program, gives the user options to chose from.
 void RepLayer::startScreen()
 {
     cout << "Choose one option: " << endl;
@@ -91,6 +96,7 @@ void RepLayer::startScreen()
     }
 }
 
+// Add a person to the list
 void RepLayer::addToList()
 {
     string newName, newGender;
@@ -145,18 +151,21 @@ void RepLayer::addToList()
 
 }
 
+// Loads a list from file by calling to the data layer.
 void RepLayer::loadFromFile()
 {
     DataLayer d1;
     mainList = d1.load();
 }
 
+// Save the current list to file by calling the data layer
 void RepLayer::saveToFile()
 {
     DataLayer d1;
     d1.save(mainList);
 }
 
+// Screen that gives the user several search options and then calls the appropriate DomainLayer search function and prints the results.
 void RepLayer::searchList()
 {
     int searchChoice;
@@ -216,6 +225,7 @@ void RepLayer::searchList()
     // To Be Continued....
 }
 
+// Screen that gives the user several sorting options and then calls the appropriate DomainLayer sorting function and prints the results.
 void RepLayer::sortList()
 {
     int sortChoice;
@@ -284,9 +294,7 @@ void RepLayer::sortList()
 
 }
 
-
-
-
+// Used to put names in standard format (capital letter at the begining and only at the begining of each name).
 string RepLayer::fixName(string name)
 {
     string tmpName = name;
@@ -315,9 +323,10 @@ string RepLayer::fixName(string name)
     return tmpName;
 }
 
+// Prints a list of all Person to the screen and numbers them. Then user can remove an individual from the list.
 void RepLayer::removeFromList()
 {
-    printList(mainList,true);
+    printListNum(mainList);
     cout<< "Choose a nr to remove: ";
     string tmp = "";
     cin>>tmp;

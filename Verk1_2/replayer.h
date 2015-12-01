@@ -14,20 +14,43 @@ class RepLayer
 {
 public:
     RepLayer(vector <Person> _mainList);
-    void printList(vector <Person> _personList);
-    void printList(vector <Person> _personList,bool b);
-    void test();
-    void startScreen();
-    void addToList();
-    void loadFromFile();
-    void saveToFile();
-    void searchList();
-    void sortList();
-    void removeFromList();
-    string fixName(string name);
+    // Constructor, needs a vector of Persons to work with as input.
 
+    void printList(vector <Person> _personList);
+    // Prints a list of every Person in a list.
+
+    void printListNum(vector <Person> _personList);
+    // Prints a list of every Person in a list and numbers them.
+
+    void test();
+    // Used while making the program for testing.
+
+    void startScreen();
+    // Start screen of the program, gives the user options to chose from.
+
+    void addToList();
+    // Add a person to the list
+
+    void loadFromFile();
+    // Loads a list from file by calling to the data layer.
+
+    void saveToFile();
+    // Save the current list to file by calling the data layer
+
+    void searchList();
+    // Screen that gives the user several search options and then calls the appropriate DomainLayer search function and prints the results.
+
+    void sortList();
+    // Screen that gives the user several sorting options and then calls the appropriate DomainLayer sorting function and prints the results.
+
+    void removeFromList();
+    // Prints a list of all Person to the screen and numbers them. Then user can remove an individual from the list.
+
+    string fixName(string name);
+    // Used to put names in standard format (capital letter at the begining and only at the begining of each name).
 
 private:
+    // List of Persons to work with.
     vector<Person> mainList;
 };
 
