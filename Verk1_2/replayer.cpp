@@ -186,7 +186,6 @@ void RepLayer::searchList()
         cout << "Type a name: ";
         cin.ignore();
         getline(cin,searchName);
-        searchName = fixName(searchName);
         printList(d1.searchNameFunc(searchName,mainList));
         break;
     case 2:
