@@ -291,7 +291,7 @@ string RepLayer::fixName(string name)
 {
     string tmpName = name;
     char lastChar = 'A';
-    for(int i =0;i<name.size();i++)
+    for(unsigned int i =0;i<name.size();i++)
     {
         if(i==0)
         {

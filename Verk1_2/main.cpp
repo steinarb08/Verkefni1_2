@@ -10,11 +10,13 @@ using namespace std;
 vector<Person> personList;
 int main(int argc, char *argv[])
 {
-   RepLayer userInt(personList);
-
-
+    //Create a user interface (RepLayer)
    RepLayer rep1(personList);
+
+   // Load data from file
    rep1.loadFromFile();
+
+   // Run the welcome screen until user decides to quit.
    while(true)
    {
        rep1.startScreen();
