@@ -7,6 +7,7 @@
 #include "person.h"
 #include <datalayer.h>
 #include <domainlayer.h>
+#include "computer.h"
 
 using namespace std;
 
@@ -15,6 +16,9 @@ class RepLayer
 public:
     RepLayer(vector <Person> _mainList);
     // Constructor, needs a vector of Persons to work with as input.
+
+    RepLayer(vector <Computer> _mainCompList);
+    // Constructor, needs a vector of Computer to work with as input.
 
     void printList(vector <Person> _personList);
     // Prints a list of every Person in a list.
@@ -26,7 +30,7 @@ public:
     // Used while making the program for testing.
 
     void startScreen();
-    // Start screen of the program, gives the user options to chose from.
+    // Start screen of the program for persons, gives the user options to chose from.
 
     void addToList();
     // Add a person to the list
@@ -49,9 +53,20 @@ public:
     string fixName(string name);
     // Used to put names in standard format (capital letter at the begining and only at the begining of each name).
 
+    void firstStartScreen();
+    // Start screen of the program, gives the user options to chose from.
+
+    void startScreenComputer();
+    // Start screen of the program for computers, gives the user options to chose from.
+
+    void addToListComp();
+    // Add computers to list
+
 private:
     // List of Persons to work with.
     vector<Person> mainList;
+    //List of Computer to work with.
+    vector<Computer> mainCompList;
 };
 
 #endif // REPLAYER_H

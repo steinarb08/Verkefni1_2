@@ -6,6 +6,11 @@ RepLayer::RepLayer(vector<Person> _mainList)
     mainList = _mainList;
 }
 
+RepLayer::RepLayer(vector<Computer> _mainCompList)
+{
+   mainCompList = _mainCompList;
+}
+
 // Prints a list of every Person in a list.
 void RepLayer::printList(vector <Person> personList)
 {
@@ -348,4 +353,103 @@ void RepLayer::removeFromList()
     mainList.erase(mainList.begin() + choice);
     DataLayer d1;
     d1.save(mainList);
+}
+
+void RepLayer::firstStartScreen()
+{
+    cout << "Choose one option" << endl;
+    cout << "1) Persons" << endl;
+    cout << "2) Computer" << endl;
+    cout << "3) Exit" << endl;
+    int choice;
+    string tmpChoice = "";
+    cin >> tmpChoice;
+    choice = atoi(tmpChoice.c_str());
+
+    switch(choice)
+    {
+    case 1:
+        startScreen();
+        break;
+
+    case 2:
+        startScreenComputer();
+        break;
+
+    case 3:
+        exit(0);
+        break;
+    }
+
+}
+
+void RepLayer::startScreenComputer()
+{
+    cout << "Choose one option" << endl;
+    cout << "1) Print list" << endl;
+    cout << "2) Add to list" << endl;
+    cout << "3) Search" << endl;
+    cout << "4) Remove from list" << endl;
+    cout << "5) Exit" << endl;
+    int choice;
+    string tmpChoice = "";
+    cin >> tmpChoice;
+    choice = atoi(tmpChoice.c_str());
+
+    switch(choice)
+    {
+    case 1:
+            //Sort og svo Print list;
+        break;
+
+    case 2:
+        addToListComp();
+        break;
+
+    case 3:
+        // Search choice
+        break;
+
+    case 4:
+        // Remove..
+        break;
+
+    case 5:
+        exit(0);
+        break;
+
+    }
+
+}
+
+void RepLayer::addToListComp()
+{
+    string newComp, newType, newBuiltComp ;
+    int  newBuiltYear;
+    cout << "Creating new computer" << endl;
+    cout << "Input computer name: ";
+    cin.ignore();
+    getline(cin,newComp);
+
+    cout << "Input building year: ";
+    cin >> newBuiltYear;
+
+    cout << "Input a type: ";
+    cin.ignore();
+    getline(cin,newType);
+
+    cout << "Was the computer built: ";
+    cin.ignore();
+    getline(cin,newBuiltComp);
+
+
+    newComp = fixName(newComp);
+    Computer newC(newComp, newBuiltYear, newType, newBuiltComp);
+    mainCompList.push_back(newC);
+    //saveToFile();
+
+
+
+
+
 }
