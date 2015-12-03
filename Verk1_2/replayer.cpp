@@ -56,7 +56,44 @@ void RepLayer::printListNum(vector <Person> personList)
 // Used while making the program for testing.
 void RepLayer::test()
 {
-    startScreen();
+    // Create test data
+
+    Person p1("john","male",1693,1750);
+    Person p2("Ivan","male",1723,1800);
+    Person p3("Steve","male",1980,-1);
+    Person p4("Charles","male",1842,1903);
+    Person p5("Rachel","female",1693,1762);
+    Person p6("Hilda","female",1743,1820);
+    Person p7("Catherin","female",1920,1999);
+
+    Computer c1("Super1",1923,"mechanical","yes");
+    Computer c2("Super2",1930,"mechanical","yes");
+    Computer c3("BetterSuper1",1931,"electrical","yes");
+    Computer c4("Super3",1935,"mechanical","yes");
+    Computer c5("MuchBetterSuper1",1938,"mechanical","yes");
+
+    vector<Person> testList;
+    testList.push_back(p1);
+    testList.push_back(p2);
+    testList.push_back(p3);
+    testList.push_back(p4);
+    testList.push_back(p5);
+    testList.push_back(p6);
+    testList.push_back(p7);
+
+    vector<Computer> testComputerList;
+
+    testComputerList.push_back(c1);
+    testComputerList.push_back(c2);
+    testComputerList.push_back(c3);
+    testComputerList.push_back(c4);
+    testComputerList.push_back(c5);
+
+
+    // Apply test data to our lists
+    mainList = testList;
+    mainCompList = testComputerList;
+
 }
 
 // Start screen of the program, gives the user options to chose from.
@@ -361,6 +398,10 @@ void RepLayer::firstStartScreen()
     cout << "1) Persons" << endl;
     cout << "2) Computer" << endl;
     cout << "3) Exit" << endl;
+    //TAKE OUT BEFORE HANDIN
+    cout << "0) Use test data" <<endl;
+    //
+
     int choice;
     string tmpChoice = "";
     cin >> tmpChoice;
@@ -379,6 +420,12 @@ void RepLayer::firstStartScreen()
     case 3:
         exit(0);
         break;
+
+        //TAKE OUT BEFORE HANDIN
+    case 0:
+        test();
+        break;
+        //
     }
 
 }
