@@ -13,6 +13,9 @@ public:
     Computer(string _name, int _builtYear, string _type, string _builtComputer);
     // Constructor that sets name, builtYear, type and builtComputer to input value.
 
+    Computer(string _name, int _builtYear, string _type, string _builtComputer,int _id);
+    // Constructor that sets name, builtYear, type,builtComputer and id to input value.
+
     string getName();
     // Returns the name of a Computer instance
 
@@ -24,6 +27,9 @@ public:
 
     string getBuiltComputer();
     // Returns whether a Computer was built or not
+
+    int getId();
+    // Returns the computer id
 
     void setName(string _name);
     // Sets the name of a Computer instance to input value
@@ -37,11 +43,15 @@ public:
     void setBuiltComputer(string _builtComputer);
     // Sets whether a Computer was built or not
 
+    void setId(int _id);
+    // Sets the computers id
+
 private:
     string name;
     int builtYear;
     string type;
     string builtComputer;
+    int id;
 };
 
 #endif // COMPUTER_H

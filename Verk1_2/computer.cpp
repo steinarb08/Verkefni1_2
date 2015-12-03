@@ -14,6 +14,16 @@ Computer::Computer(string _name, int _builtYear, string _type, string _builtComp
     builtComputer = _builtComputer;
 }
 
+// Constructor that sets name, builtYear, type,builtComputer and id to input value.
+Computer::Computer(string _name, int _builtYear, string _type, string _builtComputer,int _id)
+{
+    name = _name;
+    builtYear = _builtYear;
+    type = _type;
+    builtComputer = _builtComputer;
+    id = _id;
+}
+
 // Returns the name of a Computer instance
 string Computer::getName()
 {
@@ -38,6 +48,12 @@ string Computer::getBuiltComputer()
     return builtComputer;
 }
 
+// Returns the computers id
+int Computer::getId()
+{
+    return id;
+}
+
 // Sets the name of a Computer instance to input value
 void Computer::setName(string _name)
 {
@@ -60,5 +76,10 @@ void Computer::setType(string _type)
 void Computer::setBuiltComputer(string _builtComputer)
 {
     builtComputer = _builtComputer;
+}
+
+void Computer::setId(int _id)
+{
+    id = _id;
 }
 
