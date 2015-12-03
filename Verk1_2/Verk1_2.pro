@@ -11,11 +11,13 @@ SOURCES += main.cpp \
     datalayer.cpp \
     domainlayer.cpp \
     person.cpp \
-    replayer.cpp
+    replayer.cpp \
+    computer.cpp
 
 HEADERS += \
     datalayer.h \
     domainlayer.h \
     person.h \
-    replayer.h
+    replayer.h \
+    computer.h
 
