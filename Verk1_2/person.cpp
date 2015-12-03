@@ -15,6 +15,16 @@ Person::Person(string _name,string _gender,int _birthyear,int _deathyear)
     deathYear = _deathyear;
 }
 
+// Constructor that sets name,gender,birthyear,deathyear and id to input value.
+Person::Person(string _name,string _gender,int _birthyear,int _deathyear,int _id)
+{
+    name = _name;
+    gender = _gender;
+    birthYear = _birthyear;
+    deathYear = _deathyear;
+    id = _id;
+}
+
 
 // Returns the name of a Person instance
 string Person::getName()
@@ -40,6 +50,12 @@ int Person::getDeathYear()
     return deathYear;
 }
 
+// Returns the id of a Person instance
+int Person::getId()
+{
+    return id;
+}
+
 // Sets the name of a Person instance to input value
 void Person::setName(string _name)
 {
@@ -62,4 +78,10 @@ void Person::setBirthYear(int _birthYear)
 void Person::setDeathYear(int _deathYear)
 {
     deathYear = _deathYear;
+}
+
+// Sets the id of a Person instance to input value
+void Person::setId(int _id)
+{
+    id = _id;
 }
