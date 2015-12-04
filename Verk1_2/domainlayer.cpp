@@ -110,7 +110,7 @@ vector<Person> DomainLayer::loadPerson(){
     return data1.loadDbPerson();
 }
 
-vector<Computer> loadComputer(){
+vector<Computer> DomainLayer::loadComputer(){
     DataLayer data1;
 
     return data1.loadDbComputer();

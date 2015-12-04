@@ -1,14 +1,10 @@
 #include "replayer.h"
 
 // Constructor, needs a vector of Persons to work with as input.
-RepLayer::RepLayer(vector<Person> _mainList)
+RepLayer::RepLayer(vector<Person> _mainList, vector<Computer> _mainCompList)
 {
     mainList = _mainList;
-}
-
-RepLayer::RepLayer(vector<Computer> _mainCompList)
-{
-   mainCompList = _mainCompList;
+    mainCompList = _mainCompList;
 }
 
 // Prints a list of every Person in a list.
@@ -225,7 +221,10 @@ void RepLayer::addToList()
 // Loads a list from file by calling to the data layer.
 void RepLayer::loadFromFile()
 {
+    DomainLayer d1;
 
+    mainList = d1.loadPerson();
+    mainCompList = d1.loadComputer();
 }
 
 // Save the current list to file by calling the data layer

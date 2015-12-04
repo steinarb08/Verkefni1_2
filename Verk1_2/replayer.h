@@ -14,10 +14,10 @@ using namespace std;
 class RepLayer
 {
 public:
-    RepLayer(vector <Person> _mainList);
+    RepLayer(vector <Person> _mainList, vector<Computer> _mainCompList);
     // Constructor, needs a vector of Persons to work with as input.
 
-    RepLayer(vector <Computer> _mainCompList);
+    //RepLayer(vector <Computer> _mainCompList);
     // Constructor, needs a vector of Computer to work with as input.
 
     void printList(vector <Person> _personList);

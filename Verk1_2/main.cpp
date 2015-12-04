@@ -9,10 +9,11 @@
 #include <computer.h>
 using namespace std;
 vector<Person> personList;
+vector<Computer> computerList;
 int main(int argc, char *argv[])
 {
     //Create a user interface (RepLayer)
-   RepLayer rep1(personList);
+   RepLayer rep1(personList, computerList);
 
    // Load data from file
    rep1.loadFromFile();
