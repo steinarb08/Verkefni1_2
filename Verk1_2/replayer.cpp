@@ -225,6 +225,7 @@ void RepLayer::addToList()
 // Loads a list from file by calling to the data layer.
 void RepLayer::loadFromFile()
 {
+
 }
 
 // Save the current list to file by calling the data layer
@@ -528,8 +529,6 @@ void RepLayer::addToListComp()
     Computer newC(newComp, newBuiltYear, newType, newBuiltComp);
     d1.addComputerToDB(newC);
     mainCompList.push_back(newC);
-
-    //saveToFile();
 
 }
 

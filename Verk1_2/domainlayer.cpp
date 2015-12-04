@@ -102,3 +102,16 @@ void DomainLayer::addComputerToDB(Computer newComputer)
     DataLayer data1;
     data1.insertToDbComputer(newComputer);
 }
+
+
+vector<Person> DomainLayer::loadPerson(){
+    DataLayer data1;
+
+    return data1.loadDbPerson();
+}
+
+vector<Computer> loadComputer(){
+    DataLayer data1;
+
+    return data1.loadDbComputer();
+}

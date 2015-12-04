@@ -60,6 +60,10 @@ public:
     void addComputerToDB(Computer newComputer);
     // Add a person to database
 
+    vector<Person> loadPerson();
+
+    vector<Computer> loadComputer();
+
     string intToString(int n);
     // Convert int to string
 };
