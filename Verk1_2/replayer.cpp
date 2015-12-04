@@ -163,12 +163,6 @@ void RepLayer::addToList()
     cin >> tmpGender;
     genderChoice = atoi(tmpGender.c_str());
 
-    if(genderChoice != 0 && genderChoice != 1)
-    {
-         cout << "Invalid input" << endl;
-         cout << "-------------------" << endl;
-         addToList();
-    }
     if(genderChoice == 0)
     {
         newGender = "Female";
@@ -177,8 +171,11 @@ void RepLayer::addToList()
     {
         newGender = "Male";
     }
-    else
-    {
+    else{
+        cout << "Invalid input" << endl;
+        cout << "-------------------" << endl;
+        addToList();
+    }
         cout << "Input year of birth: ";
         string tmpYear = "";
         cin >> tmpYear;
@@ -218,8 +215,6 @@ void RepLayer::addToList()
                 saveToFile();
             }
         }
-    }
-
 }
 
 // Loads a list from file by calling to the data layer.
@@ -489,18 +484,42 @@ void RepLayer::addToListComp()
     getline(cin,newComp);
 
     cout << "Input building year: ";
-    cin >> newBuiltYear;
+    string tmpBuiltYear = "";
+    cin >> tmpBuiltYear;
+    newBuiltYear = atoi(tmpBuiltYear.c_str());
+    if(newBuiltYear < 0 && newBuiltYear > 2015){
+        cout << "Invalid year of built!" << endl;
+        cout << "-------------------" << endl;
+        addToList();
+    }
 
     cout << "Input a type: ";
     cin.ignore();
     getline(cin,newType);
 
-    cout << "Was the computer built: ";
-    cin.ignore();
-    getline(cin,newBuiltComp);
+    cout << "Was the computer built(0 for YES and 1 for NO): ";
+    string tmpBuiltComp = "";
+    cin >> tmpBuiltComp;
+    int coicheBuiltComp = atoi(tmpBuiltComp.c_str());
 
+    if(coicheBuiltComp != 0 && coicheBuiltComp != 1){
+        cout << "Invalid input!" << endl;
+        cout << "-------------------" << endl;
+        addToList();
+    }
+    if(coicheBuiltComp == 0){
+        newBuiltComp = "Yes";
+    }
+    if(coicheBuiltComp == 1){
+        newBuiltComp = "No";
+    }
 
     newComp = fixName(newComp);
+    newType = fixName(newType);
+
+    cout << newComp << " has been added!" << endl;
+    cout << endl;
+
     Computer newC(newComp, newBuiltYear, newType, newBuiltComp);
     d1.addComputerToDB(newC);
     mainCompList.push_back(newC);
