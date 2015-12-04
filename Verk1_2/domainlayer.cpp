@@ -16,131 +16,48 @@ void DomainLayer::swap(Person& per1, Person& per2){
     per2 = temp;
 }
 
+string DomainLayer::intToString(int n)
+{
+    ostringstream convert;
+    convert<< n;
+    return convert.str();
+}
+
 vector<Person> DomainLayer::reverse(vector<Person> personList){             //Sorts the names in reverse alphabetical order (Z-A) using bubble sort.
     DataLayer d1;
     return d1.loadDbPersonSort("name",0);
 }
 
 vector<Person> DomainLayer::sortGender(vector<Person> personList){          //Sorts the list by gender in alphabetical order using bubble sort.
-    personList = sortFromAtoZ(personList);
-    bool genderSwapped;
-    do
-    {
-        genderSwapped = false;
-        for(unsigned int i = 1; i < personList.size(); i++)
-        {
-            //Swapping elements in if statement.
-            if(personList.at(i-1).getGender() > personList.at(i).getGender())
-            {
-                swap(personList.at(i-1), personList.at(i));
-                genderSwapped = true;
-            }
-        }
-    } while(genderSwapped);
-
-    return personList;
+    DataLayer d1;
+    return d1.loadDbPersonSort("gender",1);
 }
 
 vector<Person> DomainLayer::reverseGender(vector<Person> personList){       //Sorts the list by gender in reverse alphabetical order using bubble sort.
-    personList = sortFromAtoZ(personList);
-    bool genderSwapped;
-    do
-    {
-        genderSwapped = false;
-        for(unsigned int i = 1; i < personList.size(); i++)
-        {
-            //Swapping elements in if statement.
-            if(personList.at(i-1).getGender() < personList.at(i).getGender())
-            {
-                swap(personList.at(i-1), personList.at(i));
-                genderSwapped = true;
-            }
-        }
-    } while(genderSwapped);
-
-    return personList;
+    DataLayer d1;
+    return d1.loadDbPersonSort("gender",0);
 }
 
 vector<Person> DomainLayer::sortBirthYear(vector<Person> personList){           //Sorts the list by year of birth in ascending order using bubble sort.
-    personList = sortFromAtoZ(personList);
-    bool birthSwapped;
-    do
-    {
-        birthSwapped = false;
-        for(unsigned int i = 1; i < personList.size(); i++)
-        {
-            //Swapping elements in if statement.
-            if(personList.at(i-1).getBirthYear() > personList.at(i).getBirthYear())
-            {
-                swap(personList.at(i-1), personList.at(i));
-                birthSwapped = true;
-            }
-        }
-    } while(birthSwapped);
-
-    return personList;
+    DataLayer d1;
+    return d1.loadDbPersonSort("birthyear",1);
 }
 
 vector<Person> DomainLayer::sortBirthYearDescending(vector<Person> personList){     //Sorts the list by year of birth in descending order using bubble sort.
-    personList = sortFromAtoZ(personList);
-    bool birthSwapped;
-    do
-    {
-        birthSwapped = false;
-        for(unsigned int i = 1; i < personList.size(); i++)
-        {
-            //Swapping elements in if statement.
-            if(personList.at(i-1).getBirthYear() < personList.at(i).getBirthYear())
-            {
-                swap(personList.at(i-1), personList.at(i));
-                birthSwapped = true;
-            }
-        }
-    } while(birthSwapped);
-
-    return personList;
+    DataLayer d1;
+    return d1.loadDbPersonSort("birthyear",0);
 }
 
 
 vector<Person> DomainLayer::sortDeathYear(vector<Person> personList){               //Sorts the list by year of death in ascending order using bubble sort.
-    personList = sortFromAtoZ(personList);
-    bool deathSwapped;
-    do
-    {
-        deathSwapped = false;
-        for(unsigned int i = 1; i < personList.size(); i++)
-        {
-            //Swapping elements in if statement.
-            if(personList.at(i-1).getDeathYear() > personList.at(i).getDeathYear())
-            {
-                swap(personList.at(i-1), personList.at(i));
-                deathSwapped = true;
-            }
-        }
-    } while(deathSwapped);
-
-    return personList;
+    DataLayer d1;
+    return d1.loadDbPersonSort("deathyear",1);
 }
 
 
 vector<Person> DomainLayer::sortDeathYearDescending(vector<Person> personList){     //Sorts the list by year of death in descending order using bubble sort.
-    personList = sortFromAtoZ(personList);
-    bool deathSwapped;
-    do
-    {
-        deathSwapped = false;
-        for(unsigned int i = 1; i < personList.size(); i++)
-        {
-            //Swapping elements in if statement.
-            if(personList.at(i-1).getDeathYear() < personList.at(i).getDeathYear())
-            {
-                swap(personList.at(i-1), personList.at(i));
-                deathSwapped = true;
-            }
-        }
-    } while(deathSwapped);
-
-    return personList;
+    DataLayer d1;
+    return d1.loadDbPersonSort("deathyear",0);
 }
 
 

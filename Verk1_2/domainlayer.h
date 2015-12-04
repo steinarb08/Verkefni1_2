@@ -8,6 +8,7 @@
 #include <vector>
 #include <iterator>
 #include <algorithm>
+#include <sstream>
 using namespace std;
 
 class DomainLayer
@@ -58,6 +59,9 @@ public:
 
     void addComputerToDB(Computer newComputer);
     // Add a person to database
+
+    string intToString(int n);
+    // Convert int to string
 };
 
 #endif // DOMAINLAYER_H
