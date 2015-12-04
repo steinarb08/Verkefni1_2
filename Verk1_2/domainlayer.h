@@ -64,6 +64,10 @@ public:
 
     vector<Computer> loadComputer();
 
+    vector<Computer> sortFromAtoZ(vector<Computer> personList);
+
+    vector<Computer> reverse(vector<Computer> personList);
+
     string intToString(int n);
     // Convert int to string
 };

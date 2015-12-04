@@ -115,3 +115,15 @@ vector<Computer> DomainLayer::loadComputer(){
 
     return data1.loadDbComputer();
 }
+
+vector<Computer> DomainLayer::sortFromAtoZ(vector<Computer> personList){
+    DataLayer data1;
+
+    return data1.loadDbComputerSort("name", 1);
+}
+
+vector<Computer> DomainLayer::reverse(vector<Computer> personList){
+    DataLayer data1;
+
+    return data1.loadDbComputerSort("name", 0);
+}
