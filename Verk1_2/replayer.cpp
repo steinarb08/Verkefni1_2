@@ -167,54 +167,59 @@ void RepLayer::addToList()
     {
         newGender = "Female";
     }
-    if(genderChoice == 1)
+    else if(genderChoice == 1)
     {
         newGender = "Male";
     }
-    else{
+    else
+    {
         cout << "Invalid input" << endl;
         cout << "-------------------" << endl;
         addToList();
     }
-        cout << "Input year of birth: ";
-        string tmpYear = "";
+
+    cout << "Input year of birth: ";
+    string tmpYear = "";
+    cin >> tmpYear;
+    newBirthYear = atoi(tmpYear.c_str());
+    if(newBirthYear > 2015)
+    {
+        cout << "Invalid birth year" << endl;
+        cout << "-------------------" << endl;
+        addToList();
+    }
+    else
+    {
+        cout << "Input year of death (-1 if still alive): ";
         cin >> tmpYear;
-        newBirthYear = atoi(tmpYear.c_str());
-        if(newBirthYear > 2015)
+        newDeathYear = atoi(tmpYear.c_str());
+
+        if(newDeathYear == -1)
         {
-            cout << "Invalid birth year" << endl;
-            cout << "-------------------" << endl;
-            addToList();
+            newName = fixName(newName);
+            Person newP(newName, newGender, newBirthYear, newDeathYear);
+            mainList.push_back(newP);
+            d1.addPersonToDB(newP);
+            saveToFile();
+        }
+        else if(newBirthYear > newDeathYear)
+        {
+           cout << "Invalid year of death" << endl;
+           cout << "-------------------" << endl;
+           addToList();
         }
         else
         {
-            cout << "Input year of death (-1 if still alive): ";
-            cin >> tmpYear;
-            newDeathYear = atoi(tmpYear.c_str());
-
-            if(newDeathYear == -1)
-            {
-                newName = fixName(newName);
-                Person newP(newName, newGender, newBirthYear, newDeathYear);
-                mainList.push_back(newP);
-                d1.addPersonToDB(newP);
-                saveToFile();
-            }
-            else if(newBirthYear > newDeathYear)
-            {
-               cout << "Invalid year of death" << endl;
-               cout << "-------------------" << endl;
-               addToList();
-            }
-            else
-            {
-                newName = fixName(newName);
-                Person newP(newName, newGender, newBirthYear, newDeathYear);
-                mainList.push_back(newP);
-                d1.addPersonToDB(newP);
-                saveToFile();
-            }
+            newName = fixName(newName);
+            Person newP(newName, newGender, newBirthYear, newDeathYear);
+            mainList.push_back(newP);
+            d1.addPersonToDB(newP);
+            saveToFile();// delete these
         }
+
+        cout << newName << " has been added!" << endl;
+        cout << endl;
+    }
 }
 
 // Loads a list from file by calling to the data layer.
