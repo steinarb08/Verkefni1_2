@@ -49,6 +49,13 @@ public:
 
     void deleteFromDbLink(CPlink delLink);
     // Deletes a link from database
+
+    Person getPersonFromId(int id);
+    // Return a Person from a specific id
+
+    Computer getComputerFromId(int id);
+    // Return a Computer from a specific id
+
 private:
     QSqlDatabase db;
 };

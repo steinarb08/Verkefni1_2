@@ -98,8 +98,28 @@ void DataLayer::deleteFromDbPerson(Person delPerson)
     db.close();
 }
 
+Person DataLayer::getPersonFromId(int id)
+{
+    db.open();
+    QSqlQuery query(db);
+    query.prepare("Select * from Person where id=?");
+    query.addBindValue(id);
+    query.exec();
 
+    Person newPerson;
+    while(query.next())
+    {
+        string name = query.value("name").toString().toStdString();
+        string gender = query.value("gender").toString().toStdString();
+        int byear = query.value("birthyear").toInt();
+        int dyear = query.value("deathyear").toInt();
+        int id = query.value("id").toInt();
+        newPerson = Person(name,gender,byear,dyear,id);
+    }
+    db.close();
 
+    return newPerson;
+}
 
 
 
@@ -164,6 +184,29 @@ void DataLayer::deleteFromDbComputer(Computer delComputer)
     db.close();
 }
 
+Computer DataLayer::getComputerFromId(int id)
+{
+    db.open();
+    QSqlQuery query(db);
+    query.prepare("Select * from Computer where id=?");
+    query.addBindValue(id);
+    query.exec();
+
+    Computer newComputer;
+    while(query.next())
+    {
+        string name = query.value("name").toString().toStdString();
+        string type = query.value("type").toString().toStdString();
+        int byear = query.value("byear").toInt();
+        string made = query.value("made").toString().toStdString();
+        int id = query.value("id").toInt();
+        newComputer = Computer(name,byear,type,made,id);
+    }
+    db.close();
+
+    return newComputer;
+
+}
 
 
 
