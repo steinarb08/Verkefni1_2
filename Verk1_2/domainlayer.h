@@ -2,6 +2,8 @@
 #define DOMAINLAYER_H
 #include "replayer.h"
 #include "person.h"
+#include "computer.h"
+#include "datalayer.h"
 #include <iostream>
 #include <vector>
 #include <iterator>
@@ -50,6 +52,13 @@ public:
 
     vector<Person> searchDeathYearFunc(int searchString,vector<Person> mainList);
     // Searches for a specific year of death in a list of Persons and return a list with all those who have that year of death.
+
+    void addPersonToDB(Person newPerson);
+    // Add a person to database
+
+    void addComputerToDB(Computer newComputer);
+    // Add a person to database
 };
 
 #endif // DOMAINLAYER_H
+

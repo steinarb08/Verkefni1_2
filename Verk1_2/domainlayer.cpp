@@ -231,3 +231,16 @@ vector<Person> DomainLayer::searchDeathYearFunc(int searchString,vector<Person> 
     }
     return newVector;
 }
+
+// Add a person to database
+void DomainLayer::addPersonToDB(Person newPerson){
+    DataLayer data1;
+    data1.insertToDbPerson(newPerson);
+}
+
+// Add a person to database
+void DomainLayer::addComputerToDB(Computer newComputer)
+{
+    DataLayer data1;
+    data1.insertToDbComputer(newComputer);
+}

@@ -148,21 +148,34 @@ void RepLayer::startScreen()
 // Add a person to the list
 void RepLayer::addToList()
 {
+    DomainLayer d1;
     string newName, newGender;
     int newBirthYear, newDeathYear;
+    int genderChoice;
+
     cout << "Creating new person" << endl;
     cout << "Input name: ";
     cin.ignore();
     getline(cin,newName);
 
-    cout << "Input gender: ";
-    cin >> newGender;
-    newGender = fixName(newGender);
-    if(newGender != "Male" && newGender != "Female")
+    cout << "Input Gender(0 for female and 1 for male):";
+    string tmpGender = "";
+    cin >> tmpGender;
+    genderChoice = atoi(tmpGender.c_str());
+
+    if(genderChoice != 0 && genderChoice != 1)
     {
          cout << "Invalid input" << endl;
          cout << "-------------------" << endl;
          addToList();
+    }
+    if(genderChoice == 0)
+    {
+        newGender = "Female";
+    }
+    if(genderChoice == 1)
+    {
+        newGender = "Male";
     }
     else
     {
@@ -187,6 +200,7 @@ void RepLayer::addToList()
                 newName = fixName(newName);
                 Person newP(newName, newGender, newBirthYear, newDeathYear);
                 mainList.push_back(newP);
+                d1.addPersonToDB(newP);
                 saveToFile();
             }
             else if(newBirthYear > newDeathYear)
@@ -200,6 +214,7 @@ void RepLayer::addToList()
                 newName = fixName(newName);
                 Person newP(newName, newGender, newBirthYear, newDeathYear);
                 mainList.push_back(newP);
+                d1.addPersonToDB(newP);
                 saveToFile();
             }
         }
@@ -465,6 +480,7 @@ void RepLayer::startScreenComputer()
 
 void RepLayer::addToListComp()
 {
+    DomainLayer d1;
     string newComp, newType, newBuiltComp ;
     int  newBuiltYear;
     cout << "Creating new computer" << endl;
@@ -486,11 +502,10 @@ void RepLayer::addToListComp()
 
     newComp = fixName(newComp);
     Computer newC(newComp, newBuiltYear, newType, newBuiltComp);
+    d1.addComputerToDB(newC);
     mainCompList.push_back(newC);
+
     //saveToFile();
 
-
-
-
-
 }
+
