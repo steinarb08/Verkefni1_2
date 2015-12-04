@@ -64,73 +64,30 @@ vector<Person> DomainLayer::sortDeathYearDescending(vector<Person> personList){ 
 // Searches for a substring (searchString) in the name of each Person in a list, returns a sublist that has those substrings
 vector<Person> DomainLayer::searchNameFunc(string searchString,vector<Person> mainList)
 {
-    vector<Person> newVector;
-    int sizeOfList = mainList.size();
+    DataLayer d1;
+    return d1.searchDbPerson("name", searchString);
 
-    for(int i = 0; i < sizeOfList; i++)
-    {
-        int it=0;
-         it = mainList.at(i).getName().find(searchString);
-         if(it != -1)
-         {
-             newVector.push_back(mainList.at(i));
-         }
-
-
-    }
-    return newVector;
 }
 
 // Searches for a specific gender in a list og Persons and returns a list with all of the searched for gender.
 vector<Person> DomainLayer::searchGenderFunc(string searchString,vector<Person> mainList)
 {
-    vector<Person> newVector;
-    int sizeOfList = mainList.size();
-    for(int i = 0; i < sizeOfList; i++)
-    {
-         int it;
-         it = mainList.at(i).getGender().find(searchString);
-         if(it != -1)
-         {
-             newVector.push_back(mainList.at(i));
-         }
-
-
-    }
-    return newVector;
+    DataLayer d1;
+    return d1.searchDbPerson("gender", searchString);
 }
 
 // Searches for a specific year of birth in a list of Persons and return a list with all those who have that year of birth.
 vector<Person> DomainLayer::searchBirthYearFunc(int searchString,vector<Person> mainList)
 {
-    vector<Person> newVector;
-    int sizeOfList = mainList.size();
-    for(int i = 0; i < sizeOfList; i++)
-    {
-         if(mainList.at(i).getBirthYear() == searchString)
-         {
-             newVector.push_back(mainList.at(i));
-         }
-
-
-    }
-    return newVector;
+    DataLayer d1;
+    return d1.searchDbPerson("year of birth", intToString(searchString));
 }
 
 // Searches for a specific year of death in a list of Persons and return a list with all those who have that year of death.
 vector<Person> DomainLayer::searchDeathYearFunc(int searchString,vector<Person> mainList)
 {
-    vector<Person> newVector;
-    int sizeOfList = mainList.size();
-    for(int i = 0; i < sizeOfList; i++)
-    {
-         if(mainList.at(i).getDeathYear() == searchString)
-         {
-             newVector.push_back(mainList.at(i));
-         }
-
-    }
-    return newVector;
+    DataLayer d1;
+    return d1.searchDbPerson("year of death", intToString(searchString));
 }
 
 // Add a person to database
