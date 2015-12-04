@@ -210,15 +210,11 @@ void RepLayer::addToList()
 // Loads a list from file by calling to the data layer.
 void RepLayer::loadFromFile()
 {
-    DataLayer d1;
-    mainList = d1.load();
 }
 
 // Save the current list to file by calling the data layer
 void RepLayer::saveToFile()
 {
-    DataLayer d1;
-    d1.save(mainList);
 }
 
 // Screen that gives the user several search options and then calls the appropriate DomainLayer search function and prints the results.
@@ -388,8 +384,6 @@ void RepLayer::removeFromList()
     cin>>tmp;
     int choice = atoi(tmp.c_str());
     mainList.erase(mainList.begin() + choice);
-    DataLayer d1;
-    d1.save(mainList);
 }
 
 void RepLayer::firstStartScreen()

@@ -1,89 +1,223 @@
 #include "datalayer.h"
-#include <cstddef>
 
 DataLayer::DataLayer()
 {
-
+    db = QSqlDatabase::addDatabase("QSQLITE");
+    QString name = "data.db";
+    db.setDatabaseName(name);
 }
 
-void DataLayer::test()
+DataLayer::DataLayer(string dbName)
 {
-    Person p1("Jón","male",1985,2016);
-    Person p2("Erla","female",1980,2046);
-    Person p3("Aron","male",1975,2036);
-    vector<Person> perList;
-    perList.push_back(p1);
-    perList.push_back(p2);
-    perList.push_back(p3);
-    string data_test = "Testing this file";
-
-    /*ofstream myfile;
-    myfile.open("datafile.txt");
-    myfile << data_test << endl;
-    myfile.close();
-
-    cout << "HI WORLD" << endl;*/
-    //save(perList);
-    vector<Person> loadList = load();
-    cout << loadList.at(0).getName();
-
-
+    db = QSqlDatabase::addDatabase("QSQLITE");
+    QString name = QString::fromStdString(dbName);
+    db.setDatabaseName(name);
 }
 
-void DataLayer::save(vector<Person> getList)
+void DataLayer::createTables()
 {
-    ofstream myfile;
-    myfile.open("datafile.txt");
+    db.open();
+    QSqlQuery query(db);
 
-    int size = getList.size();
 
-    for (int i = 0; i < size; i++)
+    query.exec("create table Person(id INTEGER PRIMARY KEY AUTOINCREMENT,name varchar(100),gender varchar(6),birthyear int,deathyear int)");
+    query.exec("create table Computer(id INTEGER PRIMARY KEY AUTOINCREMENT,name varchar(100),byear int,type varchar(100),made varchar(10))");
+    query.exec("create table CPlink(id INTEGER PRIMARY KEY AUTOINCREMENT,personId int, computerId int, FOREIGN KEY(personId) REFERENCES Person(id),FOREIGN KEY(computerId) REFERENCES Computer(id))");
+    db.close();
+}
+
+void DataLayer::dropTables()
+{
+    db.open();
+    QSqlQuery query(db);
+    query.exec("drop table CPlink");
+    query.exec("drop table Person");
+    query.exec("drop table Computer");
+    db.close();
+}
+
+
+
+
+/*
+ *
+ *
+ *
+ * Functions that modify Person table
+ *
+ *
+ *
+ *
+ *
+ * */
+
+void DataLayer::insertToDbPerson(Person newPerson)
+{
+    QString _name = QString::fromStdString(newPerson.getName());
+    QString _gender = QString::fromStdString(newPerson.getGender());
+    db.open();
+    QSqlQuery query(db);
+    query.prepare("insert into Person(name,gender,birthyear,deathyear) values(?,?,?,?)");
+    query.addBindValue(_name);
+    query.addBindValue(_gender);
+    query.addBindValue(newPerson.getBirthYear());
+    query.addBindValue(newPerson.getDeathYear());
+    query.exec();
+    db.close();
+}
+
+vector<Person> DataLayer::loadDbPerson()
+{
+    vector<Person> personList;
+    db.open();
+    QSqlQuery query(db);
+    query.exec("select * from Person");
+
+    while(query.next())
     {
-        myfile << getList.at(i).getName() << ":";
-        myfile << getList.at(i).getGender() << ":";
-        myfile << getList.at(i).getBirthYear() << ":";
-        myfile << getList.at(i).getDeathYear() << endl;
+        string name = query.value("name").toString().toStdString();
+        string gender = query.value("gender").toString().toStdString();
+        int byear = query.value("birthyear").toInt();
+        int dyear = query.value("deathyear").toInt();
+        int id = query.value("id").toInt();
+        Person newPerson(name,gender,byear,dyear,id);
+        personList.push_back(newPerson);
     }
-    myfile.close();
-
+    db.close();
+    return personList;
 }
-vector<Person> DataLayer::load()
-{
-    vector<Person> list;
-    string line;
 
-    ifstream myfile ("datafile.txt");
-    if (myfile.is_open())
+
+void DataLayer::deleteFromDbPerson(Person delPerson)
+{
+    db.open();
+    QSqlQuery query(db);
+    query.prepare("Delete from Person where id=?");
+    query.addBindValue(delPerson.getId());
+    query.exec();
+    db.close();
+}
+
+
+
+
+
+
+/*
+ *
+ *
+ *
+ *
+ * Functions that modify Computer
+ *
+ *
+ *
+ *
+ * */
+
+
+void DataLayer::insertToDbComputer(Computer newComputer)
+{
+    QString _name = QString::fromStdString(newComputer.getName());
+    QString _type = QString::fromStdString(newComputer.getType());
+    QString _made = QString::fromStdString(newComputer.getBuiltComputer());
+    db.open();
+    QSqlQuery query(db);
+    query.prepare("insert into Computer(name,byear,type,made) values(?,?,?,?)");
+    query.addBindValue(_name);
+    query.addBindValue(newComputer.getBuiltYear());
+    query.addBindValue(_type);
+    query.addBindValue(_made);
+    query.exec();
+    db.close();
+}
+
+vector<Computer> DataLayer::loadDbComputer()
+{
+    vector<Computer> computerList;
+    db.open();
+    QSqlQuery query(db);
+    query.exec("select * from Computer");
+
+    while(query.next())
     {
-        while ( getline(myfile,line) )
-        {
-            list.push_back(getString(line));
-        }
-        myfile.close();
+        string name = query.value("name").toString().toStdString();
+        int byear = query.value("byear").toInt();
+        string type = query.value("type").toString().toStdString();
+        string made = query.value("made").toString().toStdString();
+        int id = query.value("id").toInt();
+        Computer newComputer(name,byear,type,made,id);
+        computerList.push_back(newComputer);
     }
-    return list;
+    db.close();
+    return computerList;
 }
 
-Person DataLayer::getString(string line)
+
+void DataLayer::deleteFromDbComputer(Computer delComputer)
 {
-    int pos = line.find_first_of(':');
-    string name = line.substr(0,pos);
-
-    line.erase(0, pos +1);
-
-
-    pos = line.find_first_of(':');
-    string gender = line.substr(0, pos);
-    line.erase(0, pos + 1);
-
-
-    pos = line.find_first_of(':');
-    int birth = atoi(line.substr(0, pos).c_str());
-    line.erase(0, pos +1);
-
-    int death = atoi(line.c_str());
-
-    Person retP(name,gender,birth,death);
-    return retP;
+    db.open();
+    QSqlQuery query(db);
+    query.prepare("Delete from Computer where id=?");
+    query.addBindValue(delComputer.getId());
+    query.exec();
+    db.close();
 }
 
+
+
+
+/*
+ *
+ *
+ *
+ *
+ * Functions that modify the link between Computers and Person (CPlink)
+ *
+ *
+ *
+ *
+ *
+ * */
+
+void DataLayer::insertToDbCPLink(Computer newComputer, Person newPerson)
+{
+    db.open();
+    QSqlQuery query(db);
+    query.prepare("insert into CPlink(personId,computerId) values(?,?)");
+    query.addBindValue(newPerson.getId());
+    query.addBindValue(newComputer.getId());
+    query.exec();
+    db.close();
+}
+
+vector<CPlink> DataLayer::loadDbCPlink()
+{
+    vector<CPlink> newList;
+    db.open();
+    QSqlQuery query(db);
+    query.exec("Select * from CPlink");
+
+    while(query.next())
+    {
+        int computerId = query.value("computerId").toInt();
+        int personId = query.value("personId").toInt();
+        int id = query.value("id").toInt();
+
+        CPlink newLink(computerId,personId,id);
+        newList.push_back(newLink);
+    }
+    db.close();
+    return newList;
+}
+
+
+void DataLayer::deleteFromDbLink(CPlink delLink)
+{
+    db.open();
+    QSqlQuery query(db);
+    query.prepare("Delete from CPlink where id=?");
+    query.addBindValue(delLink.getLinkId());
+    query.exec();
+    db.close();
+}
