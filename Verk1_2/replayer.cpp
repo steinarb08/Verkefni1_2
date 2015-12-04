@@ -259,7 +259,6 @@ void RepLayer::searchList()
         cout << "Type a gender: ";
         cin.ignore();
         getline(cin,searchGender);
-        searchName = fixName(searchGender);
         printList(d1.searchGenderFunc(searchGender,mainList));
         break;
 
