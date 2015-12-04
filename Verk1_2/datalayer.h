@@ -56,6 +56,16 @@ public:
     Computer getComputerFromId(int id);
     // Return a Computer from a specific id
 
+    vector<Person> loadDbPersonSortName();
+    // Sort list order by names
+
+    vector<Person> loadDbPersonReverseName();
+    // Reverse list order by names
+
+    vector<Person> loadDbPersonSortGender();
+    // Sort list order by gender
+
+
 private:
     QSqlDatabase db;
 };
