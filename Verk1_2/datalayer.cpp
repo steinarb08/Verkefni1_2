@@ -147,6 +147,37 @@ vector<Person> DataLayer::loadDbPersonSortGender()
     return personList;
 }
 
+vector<Person> DataLayer::loadDbPersonSort(string column,bool ascending)
+{
+    string com;
+    if(ascending)
+    {
+        com = "select * from Person order by" + column + "asc";
+    }
+    else
+    {
+        com = "select * from Person order by" + column + "desc";
+    }
+    QString command = QString::fromStdString(com);
+    vector<Person> personList;
+    db.open();
+    QSqlQuery query(db);
+    query.exec(command);
+
+    while(query.next())
+    {
+        string name = query.value("name").toString().toStdString();
+        string gender = query.value("gender").toString().toStdString();
+        int byear = query.value("birthyear").toInt();
+        int dyear = query.value("deathyear").toInt();
+        int id = query.value("id").toInt();
+        Person newPerson(name,gender,byear,dyear,id);
+        personList.push_back(newPerson);
+    }
+    db.close();
+    return personList;
+}
+
 
 
 void DataLayer::deleteFromDbPerson(Person delPerson)

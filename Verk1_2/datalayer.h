@@ -56,6 +56,9 @@ public:
     Computer getComputerFromId(int id);
     // Return a Computer from a specific id
 
+    vector<Person> loadDbPersonSort(string column,bool ascending);
+    // Sort list of Person by column
+
     vector<Person> loadDbPersonSortName();
     // Sort list order by names
 
