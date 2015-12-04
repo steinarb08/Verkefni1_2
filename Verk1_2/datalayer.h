@@ -59,15 +59,6 @@ public:
     vector<Person> loadDbPersonSort(string column,bool ascending);
     // Sort list of Person by column
 
-    vector<Person> loadDbPersonSortName();
-    // Sort list order by names
-
-    vector<Person> loadDbPersonReverseName();
-    // Reverse list order by names
-
-    vector<Person> loadDbPersonSortGender();
-    // Sort list order by gender
-
 
 private:
     QSqlDatabase db;

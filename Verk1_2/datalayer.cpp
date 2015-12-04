@@ -84,69 +84,6 @@ vector<Person> DataLayer::loadDbPerson()
     return personList;
 }
 
-vector<Person> DataLayer::loadDbPersonSortName()
-{
-    vector<Person> personList;
-    db.open();
-    QSqlQuery query(db);
-    query.exec("select * from Person order by name ASC");
-
-    while(query.next())
-    {
-        string name = query.value("name").toString().toStdString();
-        string gender = query.value("gender").toString().toStdString();
-        int byear = query.value("birthyear").toInt();
-        int dyear = query.value("deathyear").toInt();
-        int id = query.value("id").toInt();
-        Person newPerson(name,gender,byear,dyear,id);
-        personList.push_back(newPerson);
-    }
-    db.close();
-    return personList;
-}
-
-vector<Person> DataLayer::loadDbPersonReverseName()
-{
-    vector<Person> personList;
-    db.open();
-    QSqlQuery query(db);
-    query.exec("select * from Person order by name DESC");
-
-    while(query.next())
-    {
-        string name = query.value("name").toString().toStdString();
-        string gender = query.value("gender").toString().toStdString();
-        int byear = query.value("birthyear").toInt();
-        int dyear = query.value("deathyear").toInt();
-        int id = query.value("id").toInt();
-        Person newPerson(name,gender,byear,dyear,id);
-        personList.push_back(newPerson);
-    }
-    db.close();
-    return personList;
-}
-
-vector<Person> DataLayer::loadDbPersonSortGender()
-{
-    vector<Person> personList;
-    db.open();
-    QSqlQuery query(db);
-    query.exec("select * from Person order by gender ASC");
-
-    while(query.next())
-    {
-        string name = query.value("name").toString().toStdString();
-        string gender = query.value("gender").toString().toStdString();
-        int byear = query.value("birthyear").toInt();
-        int dyear = query.value("deathyear").toInt();
-        int id = query.value("id").toInt();
-        Person newPerson(name,gender,byear,dyear,id);
-        personList.push_back(newPerson);
-    }
-    db.close();
-    return personList;
-}
-
 vector<Person> DataLayer::loadDbPersonSort(string column,bool ascending)
 {
     string com;
