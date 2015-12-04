@@ -1,5 +1,8 @@
 #include "replayer.h"
 
+DomainLayer d1;
+
+
 // Constructor, needs a vector of Persons to work with as input.
 RepLayer::RepLayer(vector<Person> _mainList, vector<Computer> _mainCompList)
 {
@@ -144,7 +147,6 @@ void RepLayer::startScreen()
 // Add a person to the list
 void RepLayer::addToList()
 {
-    DomainLayer d1;
     string newName, newGender;
     int newBirthYear, newDeathYear;
     int genderChoice;
@@ -221,8 +223,6 @@ void RepLayer::addToList()
 // Loads a list from file by calling to the data layer.
 void RepLayer::loadFromFile()
 {
-    DomainLayer d1;
-
     mainList = d1.loadPerson();
     mainCompList = d1.loadComputer();
 }
@@ -242,7 +242,6 @@ void RepLayer::searchList()
     cout << "3) Search by year of birth" << endl;
     cout << "4) Search by year of death" << endl;
 
-    DomainLayer d1;
     int searchBirthYear, searchDeathYear;
     string searchName, searchGender;
     string tmpChoice = "";
@@ -296,7 +295,6 @@ void RepLayer::searchList()
 void RepLayer::sortList()
 {
     int sortChoice;
-    DomainLayer d1;
     cout << "Select option: " << endl;
     cout << "1) Sort by name, ascending" << endl;
     cout << "2) Sort by name, decending" << endl;
@@ -480,7 +478,6 @@ void RepLayer::startScreenComputer()
 
 void RepLayer::addToListComp()
 {
-    DomainLayer d1;
     string newComp, newType, newBuiltComp ;
     int  newBuiltYear;
     cout << "Creating new computer" << endl;

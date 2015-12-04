@@ -70,6 +70,8 @@ public:
 
     string intToString(int n);
     // Convert int to string
+private:
+    DataLayer d1;
 };
 
 #endif // DOMAINLAYER_H

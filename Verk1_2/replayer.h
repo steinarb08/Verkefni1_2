@@ -1,12 +1,11 @@
 #ifndef REPLAYER_H
 #define REPLAYER_H
-
+#include <domainlayer.h>
 #include <iostream>
 #include<vector>
 #include<algorithm>
 #include "person.h"
 #include <datalayer.h>
-#include <domainlayer.h>
 #include "computer.h"
 
 using namespace std;

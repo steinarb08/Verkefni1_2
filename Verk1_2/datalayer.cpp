@@ -89,11 +89,11 @@ vector<Person> DataLayer::loadDbPersonSort(string column,bool ascending)
     string com;
     if(ascending)
     {
-        com = "select * from Person order by" + column + " asc";
+        com = "select * from Person order by " + column + " asc";
     }
     else
     {
-        com = "select * from Person order by" + column + " desc";
+        com = "select * from Person order by " + column + " desc";
     }
     QString command = QString::fromStdString(com);
     vector<Person> personList;
@@ -118,7 +118,7 @@ vector<Person> DataLayer::loadDbPersonSort(string column,bool ascending)
 vector<Person> DataLayer::searchDbPerson(string column, string value)
 {
     string com;
-    com = "select * from Person where " + column + "=" + value;
+    com = "select * from Person where " + column + "=" + "'" + value +"'";
     QString command = QString::fromStdString(com);
     vector<Person> personList;
     db.open();
@@ -258,7 +258,7 @@ vector<Computer> DataLayer::loadDbComputerSort(string column,bool ascending)
 vector<Computer> DataLayer::searchDbComputer(string column, string value)
 {
     string com;
-    com = "select * from Computer where " + column + "=" + value;
+    com = "select * from Computer where " + column + "=" + "'" + value + "'";
     QString command = QString::fromStdString(com);
     vector<Computer> computerList;
     db.open();
