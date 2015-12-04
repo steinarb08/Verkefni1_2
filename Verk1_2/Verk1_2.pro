@@ -1,4 +1,5 @@
 QT += core
+QT += sql
 QT -= gui
 
 TARGET = Verk1_2
@@ -12,12 +13,14 @@ SOURCES += main.cpp \
     domainlayer.cpp \
     person.cpp \
     replayer.cpp \
-    computer.cpp
+    computer.cpp \
+    cplink.cpp
 
 HEADERS += \
     datalayer.h \
     domainlayer.h \
     person.h \
     replayer.h \
-    computer.h
+    computer.h \
+    cplink.h
 
