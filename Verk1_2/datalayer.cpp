@@ -89,11 +89,11 @@ vector<Person> DataLayer::loadDbPersonSort(string column,bool ascending)
     string com;
     if(ascending)
     {
-        com = "select * from Person order by" + column + "asc";
+        com = "select * from Person order by" + column + " asc";
     }
     else
     {
-        com = "select * from Person order by" + column + "desc";
+        com = "select * from Person order by" + column + " desc";
     }
     QString command = QString::fromStdString(com);
     vector<Person> personList;
@@ -200,6 +200,36 @@ vector<Computer> DataLayer::loadDbComputer()
     return computerList;
 }
 
+vector<Computer> DataLayer::loadDbComputerSort(string column,bool ascending)
+{
+    string com;
+    if(ascending)
+    {
+        com = "select * from Computer order by " + column + " asc";
+    }
+    else
+    {
+        com = "select * from Computer order by " + column + " desc";
+    }
+    QString command = QString::fromStdString(com);
+    vector<Computer> computerList;
+    db.open();
+    QSqlQuery query(db);
+    query.exec(command);
+
+    while(query.next())
+    {
+        string name = query.value("name").toString().toStdString();
+        int byear = query.value("byear").toInt();
+        string type = query.value("type").toString().toStdString();
+        string made = query.value("made").toString().toStdString();
+        int id = query.value("id").toInt();
+        Computer newComputer(name,byear,type,made,id);
+        computerList.push_back(newComputer);
+    }
+    db.close();
+    return computerList;
+}
 
 void DataLayer::deleteFromDbComputer(Computer delComputer)
 {

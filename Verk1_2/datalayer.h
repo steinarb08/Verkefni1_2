@@ -59,6 +59,9 @@ public:
     vector<Person> loadDbPersonSort(string column,bool ascending);
     // Sort list of Person by column
 
+    vector<Computer> loadDbComputerSort(string column,bool ascending);
+    // Sort list of Computer by column
+
 
 private:
     QSqlDatabase db;
