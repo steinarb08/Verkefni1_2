@@ -62,6 +62,9 @@ public:
     vector<Computer> loadDbComputerSort(string column,bool ascending);
     // Sort list of Computer by column
 
+    vector<Person> searchDbPerson(string column, string value);
+
+    vector<Computer> searchDbComputer(string column, string value);
 
 private:
     QSqlDatabase db;

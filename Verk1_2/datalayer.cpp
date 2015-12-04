@@ -115,6 +115,30 @@ vector<Person> DataLayer::loadDbPersonSort(string column,bool ascending)
     return personList;
 }
 
+vector<Person> DataLayer::searchDbPerson(string column, string value)
+{
+    string com;
+    com = "select * from Person where " + column + "=" + value;
+    QString command = QString::fromStdString(com);
+    vector<Person> personList;
+    db.open();
+    QSqlQuery query(db);
+    query.exec(command);
+
+    while(query.next())
+    {
+        string name = query.value("name").toString().toStdString();
+        string gender = query.value("gender").toString().toStdString();
+        int byear = query.value("birthyear").toInt();
+        int dyear = query.value("deathyear").toInt();
+        int id = query.value("id").toInt();
+        Person newPerson(name,gender,byear,dyear,id);
+        personList.push_back(newPerson);
+    }
+    db.close();
+    return personList;
+}
+
 
 
 void DataLayer::deleteFromDbPerson(Person delPerson)
@@ -211,6 +235,30 @@ vector<Computer> DataLayer::loadDbComputerSort(string column,bool ascending)
     {
         com = "select * from Computer order by " + column + " desc";
     }
+    QString command = QString::fromStdString(com);
+    vector<Computer> computerList;
+    db.open();
+    QSqlQuery query(db);
+    query.exec(command);
+
+    while(query.next())
+    {
+        string name = query.value("name").toString().toStdString();
+        int byear = query.value("byear").toInt();
+        string type = query.value("type").toString().toStdString();
+        string made = query.value("made").toString().toStdString();
+        int id = query.value("id").toInt();
+        Computer newComputer(name,byear,type,made,id);
+        computerList.push_back(newComputer);
+    }
+    db.close();
+    return computerList;
+}
+
+vector<Computer> DataLayer::searchDbComputer(string column, string value)
+{
+    string com;
+    com = "select * from Computer where " + column + "=" + value;
     QString command = QString::fromStdString(com);
     vector<Computer> computerList;
     db.open();
