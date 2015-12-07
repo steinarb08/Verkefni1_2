@@ -154,3 +154,18 @@ vector<Computer> DomainLayer::searchMade_C(string searchString)
 {
     return d1.searchDbComputer("made",searchString);
 }
+
+void DomainLayer::deleteFromPerson(Person delPerson)
+{
+    d1.deleteFromDbPerson(delPerson);
+}
+
+void DomainLayer::deleteFromComputer(Computer delComputer)
+{
+    d1.deleteFromDbComputer(delComputer);
+}
+
+void DomainLayer::deleteFromCPlink(CPlink delLink)
+{
+    d1.deleteFromDbLink(delLink);
+}
