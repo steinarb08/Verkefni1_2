@@ -47,6 +47,7 @@ public:
     // Sets the computers id to input value
 
 private:
+    // Name, year built, type, was it built and Id of a Computer instance. Accessed by get/set functions.
     string name;
     int builtYear;
     string type;

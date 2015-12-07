@@ -15,6 +15,8 @@ class DomainLayer
 {
 public:
     DomainLayer();
+    // Default constructor
+
     vector<Person> sortFromAtoZ();
     // Sorts the names in alphabetical order (A-Z).
 
@@ -103,7 +105,7 @@ public:
     // Searches for a substring (searchString) in the type of each Computer in a list, returns a sublist that has those substrings.
 
     vector<Computer> searchMade_C(string searchString);
-    // Searches for Computer which were made or not, returns a list of Computers which were made or not.
+    // Searches for a Computer which were made or not, returns a list of Computers which were made or not.
 
     void deleteFromPerson(Person delPerson);
     // Delete a Person from database.
