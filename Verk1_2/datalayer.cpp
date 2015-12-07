@@ -63,6 +63,23 @@ void DataLayer::insertToDbPerson(Person newPerson)
     db.close();
 }
 
+vector<Person> DataLayer::updateDbPerson(Person updPerson)
+{
+    QString _name = QString::fromStdString(updPerson.getName());
+    QString _gender = QString::fromStdString(updPerson.getGender());
+    db.open();
+    QSqlQuery query(db);
+    query.prepare("update Person set name=?,gender=?,birthyear=?,deathyear=? where id=?");
+    query.addBindValue(_name);
+    query.addBindValue(_gender);
+    query.addBindValue(updPerson.getBirthYear());
+    query.addBindValue(updPerson.getDeathYear());
+    query.addBindValue(updPerson.getId());
+    query.exec();
+    db.close();
+    return loadDbPerson();
+}
+
 vector<Person> DataLayer::loadDbPerson()
 {
     vector<Person> personList;
@@ -201,6 +218,24 @@ void DataLayer::insertToDbComputer(Computer newComputer)
     query.addBindValue(_made);
     query.exec();
     db.close();
+}
+
+vector<Computer> DataLayer::updateDbComputer(Computer updComputer)
+{
+    QString _name = QString::fromStdString(updComputer.getName());
+    QString _type = QString::fromStdString(updComputer.getType());
+    QString _made = QString::fromStdString(updComputer.getBuiltComputer());
+    db.open();
+    QSqlQuery query(db);
+    query.prepare("update Computer set name=?,byear=?,type=?,made=? where id=?");
+    query.addBindValue(_name);
+    query.addBindValue(updComputer.getBuiltYear());
+    query.addBindValue(_type);
+    query.addBindValue(_made);
+    query.addBindValue(updComputer.getId());
+    query.exec();
+    db.close();
+    return loadDbComputer();
 }
 
 vector<Computer> DataLayer::loadDbComputer()
@@ -366,4 +401,33 @@ void DataLayer::deleteFromDbLink(CPlink delLink)
     query.addBindValue(delLink.getLinkId());
     query.exec();
     db.close();
+}
+
+vector<CPlink> DataLayer::sortCPlink(string column,bool ascending)
+{
+    string com = "";
+    if(ascending)
+    {
+        com = "select * from CPlink order by " + column + " asc";
+    }
+    else
+    {
+        com = "select * from CPlink order by " + column + " desc";
+    }
+    vector<CPlink> newList;
+    db.open();
+    QSqlQuery query(db);
+    query.exec(QString::fromStdString(com));
+
+    while(query.next())
+    {
+        int computerId = query.value("computerId").toInt();
+        int personId = query.value("personId").toInt();
+        int id = query.value("id").toInt();
+
+        CPlink newLink(computerId,personId,id);
+        newList.push_back(newLink);
+    }
+    db.close();
+    return newList;
 }
