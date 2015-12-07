@@ -88,6 +88,12 @@ public:
 
     vector<Computer> searchMade_C(string searchString);
 
+    void deleteFromPerson(Person delPerson);
+
+    void deleteFromComputer(Computer delComputer);
+
+    void deleteFromCPlink(CPlink delLink);
+
     string intToString(int n);
     // Convert int to string
 private:

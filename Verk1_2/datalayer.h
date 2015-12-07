@@ -72,6 +72,8 @@ public:
 
     vector<Computer> updateDbComputer(Computer updComputer);
 
+    vector<string> printCPlink();
+
 private:
     QSqlDatabase db;
 };
