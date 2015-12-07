@@ -61,6 +61,15 @@ public:
     void addToListComp();
     // Add computers to list
 
+    void searchComp();
+     // Screen that gives the user several search options and then calls the appropriate DomainLayer search function and prints the results.
+
+    void sortListComp();
+    // Sorts and prints out list with computer
+
+    void printListComp(vector<Computer> computerList);
+    // Prints a list of every computer.
+
 private:
     // List of Persons to work with.
     vector<Person> mainList;

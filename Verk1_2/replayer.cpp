@@ -404,7 +404,7 @@ void RepLayer::firstStartScreen()
     cout << "1) Persons" << endl;
     cout << "2) Computer" << endl;
     cout << "3) Exit" << endl;
-    //TAKE OUT BEFORE HANDIN
+    //TAKE OUT BEFORE HANDIN!!!!
     cout << "0) Use test data" <<endl;
     //
 
@@ -452,6 +452,7 @@ void RepLayer::startScreenComputer()
     switch(choice)
     {
     case 1:
+        sortListComp();
             //Sort og svo Print list;
         break;
 
@@ -526,4 +527,85 @@ void RepLayer::addToListComp()
     mainCompList.push_back(newC);
 
 }
+
+void RepLayer::searchComp()
+{
+    cout << "Choose one option" << endl;
+    cout << "1) Search computer" << endl;
+    cout << "2) Search build year" << endl;
+    cout << "3) Search a type of computer" << endl;
+
+}
+
+void RepLayer::sortListComp()
+{
+    int sortChoice;
+    cout << "Select option: " << endl;
+    cout << "1) Sort by computer, ascending" << endl;
+    cout << "2) Sort by computer, decending" << endl;
+    cout << "3) Sort by build year, ascending" << endl;
+    cout << "4) Sort by build year, decending" << endl;
+    cout << "5) Sort by type, ascending" << endl;
+    cout << "6) Sort by type, decending" << endl;
+
+    string tmpChoice = "";
+    cin >> tmpChoice;
+    sortChoice = atoi(tmpChoice.c_str());
+
+    switch(sortChoice)
+    {
+    case 1:
+        mainCompList = d1.sortFromAtoZ_C();
+        printListComp(mainCompList);
+        break;
+
+    case 2:
+        mainCompList = d1.reverse_C();
+        printListComp(mainCompList);
+        break;
+
+    case 3:
+        mainCompList = d1.sortYearBuild_C();
+        printListComp(mainCompList);
+        break;
+
+    case 4:
+        mainCompList = d1.sortYearBuildReverse_C();
+        printListComp(mainCompList);
+        break;
+
+    case 5:
+        mainCompList = d1.sortType_C();
+        printListComp(mainCompList);
+        break;
+
+    case 6:
+        mainCompList = d1.sortTypeReverse_C();
+        printListComp(mainCompList);
+        break;
+
+    default:
+        sortListComp();
+        break;
+    }
+}
+
+void RepLayer::printListComp(vector<Computer> computerList)
+{
+    cout << "Name - Build Year - Type - Was it Built" << endl;
+    cout << "---------------------------------------------" << endl;
+    int size = computerList.size();
+    for(int i = 0; i < size; i++)
+    {
+        cout << computerList.at(i).getName() << " - ";
+        cout << computerList.at(i).getBuiltYear() << " - ";
+        cout << computerList.at(i).getType() << " - ";
+        cout << computerList.at(i).getBuiltComputer() << endl;
+
+    }
+    cout << "---------------------------------------------" << endl;
+
+}
+
+
 
