@@ -64,9 +64,21 @@ public:
 
     vector<Computer> loadComputer();
 
-    //vector<Computer> sortFromAtoZ();
+    vector<Computer> sortFromAtoZ_C();
 
-    //vector<Computer> reverse();
+    vector<Computer> reverse_C();
+
+    vector<Computer> sortYearBuild_C();
+
+    vector<Computer> sortYearBuildReverse_C();
+
+    vector<Computer> sortType_C();
+
+    vector<Computer> sortTypeReverse_C();
+
+    vector<Computer> sortMade_C();
+
+    vector<Computer> sortMadeReverse_C();
 
     string intToString(int n);
     // Convert int to string

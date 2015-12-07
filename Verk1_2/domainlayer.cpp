@@ -97,10 +97,40 @@ vector<Computer> DomainLayer::loadComputer(){
     return d1.loadDbComputer();
 }
 
-/*vector<Computer> DomainLayer::sortFromAtoZ(){
+vector<Computer> DomainLayer::sortFromAtoZ_C(){
     return d1.loadDbComputerSort("name", 1);
 }
 
-vector<Computer> DomainLayer::reverse(){
+vector<Computer> DomainLayer::reverse_C(){
     return d1.loadDbComputerSort("name", 0);
-}*/
+}
+
+vector<Computer> DomainLayer::sortYearBuild_C()
+{
+    return d1.loadDbComputerSort("byear",1);
+}
+
+vector<Computer> DomainLayer::sortYearBuildReverse_C()
+{
+    return d1.loadDbComputerSort("byear",0);
+}
+
+vector<Computer> DomainLayer::sortType_C()
+{
+    return d1.loadDbComputerSort("type",1);
+}
+
+vector<Computer> DomainLayer::sortTypeReverse_C()
+{
+    return d1.loadDbComputerSort("type",0);
+}
+
+vector<Computer> DomainLayer::sortMade_C()
+{
+    return d1.loadDbComputerSort("made",1);
+}
+
+vector<Computer> DomainLayer::sortMadeReverse_C()
+{
+    return d1.loadDbComputerSort("made",0);
+}
