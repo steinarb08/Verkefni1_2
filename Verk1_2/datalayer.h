@@ -66,6 +66,12 @@ public:
 
     vector<Computer> searchDbComputer(string column, string value);
 
+    vector<CPlink> sortCPlink(string column,bool ascending);
+
+    vector<Person> updateDbPerson(Person updPerson);
+
+    vector<Computer> updateDbComputer(Computer updComputer);
+
 private:
     QSqlDatabase db;
 };
