@@ -66,6 +66,8 @@ public:
 
     vector<Computer> loadComputer();
 
+    vector<CPlink> loadLink();
+
     vector<Computer> sortFromAtoZ_C();
 
     vector<Computer> reverse_C();

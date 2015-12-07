@@ -174,3 +174,8 @@ void DomainLayer::addCPlinkToDb(Person p1,Computer c1)
 {
     d1.insertToDbCPLink(c1,p1);
 }
+
+vector<CPlink> DomainLayer::loadLink()
+{
+    return d1.loadDbCPlink();
+}
