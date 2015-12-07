@@ -111,30 +111,30 @@ void RepLayer::startScreen()
 
     switch(choice)
     {
-    case 1:
-        sortList();
-        break;
+        case 1:
+            sortList();
+            break;
 
-    case 2:
-        addToList();
-        break;
+        case 2:
+            addToList();
+            break;
 
-    case 3:
-        searchList();
-        break;
+        case 3:
+            searchList();
+            break;
 
-    case 4:
-       removeFromList();
-        break;
+        case 4:
+            removeFromList();
+            break;
 
-    case 5:
-        exit(0);
-        break;
+        case 5:
+            exit(0);
+            break;
 
-    default:
-        cout << "Number not available" << endl;
-        startScreen();
-        break;
+        default:
+            cout << "Number not available" << endl;
+            startScreen();
+            break;
     }
 }
 
@@ -226,7 +226,8 @@ void RepLayer::saveToFile()
 {
 }
 
-// Screen that gives the user several search options and then calls the appropriate DomainLayer search function and prints the results.
+// Screen that gives the user several search options and then calls
+// the appropriate DomainLayer search function and prints the results.
 void RepLayer::searchList()
 {
     int searchChoice;
@@ -243,48 +244,45 @@ void RepLayer::searchList()
     searchChoice = atoi(tmpChoice.c_str());
     switch(searchChoice)
     {
-    case 1:
-        cout << "Type a name: ";
-        cin.ignore();
-        getline(cin,searchName);
-        printList(d1.searchNameFunc(searchName));
-        break;
-    case 2:
-        cout << "Type a gender: ";
-        cin.ignore();
-        getline(cin,searchGender);
-        printList(d1.searchGenderFunc(searchGender));
-        break;
+        case 1:
+            cout << "Type a name: ";
+            cin.ignore();
+            getline(cin,searchName);
+            printList(d1.searchNameFunc(searchName));
+            break;
+        case 2:
+            cout << "Type a gender: ";
+            cin.ignore();
+            getline(cin,searchGender);
+            printList(d1.searchGenderFunc(searchGender));
+            break;
 
-    case 3:
-        cout << "Type a year of birth: ";
-        cin.ignore();
-        getline(cin,tmpChoice);
-        searchBirthYear = atoi(tmpChoice.c_str());
-        printList(d1.searchBirthYearFunc(searchBirthYear));
-        break;
+        case 3:
+            cout << "Type a year of birth: ";
+            cin.ignore();
+            getline(cin,tmpChoice);
+            searchBirthYear = atoi(tmpChoice.c_str());
+            printList(d1.searchBirthYearFunc(searchBirthYear));
+            break;
 
-    case 4:
-        cout << "Type a year of death: ";
-        cin.ignore();
-        getline(cin,tmpChoice);
-        searchDeathYear = atoi(tmpChoice.c_str());
-        printList(d1.searchDeathYearFunc(searchDeathYear));
-        break;
+        case 4:
+            cout << "Type a year of death: ";
+            cin.ignore();
+            getline(cin,tmpChoice);
+            searchDeathYear = atoi(tmpChoice.c_str());
+            printList(d1.searchDeathYearFunc(searchDeathYear));
+            break;
 
-     default:
-        cout << "Number not available"<< endl;
-        searchList();
-
-
-
-
+        default:
+            cout << "Number not available"<< endl;
+            searchList();
     }
 
     // To Be Continued....
 }
 
-// Screen that gives the user several sorting options and then calls the appropriate DomainLayer sorting function and prints the results.
+// Screen that gives the user several sorting options and then calls
+// the appropriate DomainLayer sorting function and prints the results.
 void RepLayer::sortList()
 {
     int sortChoice;
@@ -303,53 +301,50 @@ void RepLayer::sortList()
 
     switch(sortChoice)
     {
-    case 1:
-        mainList = d1.sortFromAtoZ();
-        printList(mainList);
-        break;
+        case 1:
+            mainList = d1.sortFromAtoZ();
+            printList(mainList);
+            break;
 
-    case 2:
-        mainList = d1.reverse();
-        printList(mainList);
-        break;
+        case 2:
+            mainList = d1.reverse();
+            printList(mainList);
+            break;
 
-    case 3:
-        mainList = d1.sortGender();
-        printList(mainList);
-        break;
+        case 3:
+            mainList = d1.sortGender();
+            printList(mainList);
+            break;
 
-    case 4:
-        mainList = d1.reverseGender();
-        printList(mainList);
-        break;
+        case 4:
+            mainList = d1.reverseGender();
+            printList(mainList);
+            break;
 
-    case 5:
-        mainList = d1.sortBirthYear();
-        printList(mainList);
-        break;
+        case 5:
+            mainList = d1.sortBirthYear();
+            printList(mainList);
+            break;
 
-    case 6:
-        mainList = d1.sortBirthYearDescending();
-        printList(mainList);
-        break;
+        case 6:
+            mainList = d1.sortBirthYearDescending();
+            printList(mainList);
+            break;
 
-    case 7:
-        mainList = d1.sortDeathYear();
-        printList(mainList);
-        break;
+        case 7:
+            mainList = d1.sortDeathYear();
+            printList(mainList);
+            break;
 
-    case 8:
-        mainList = d1.sortDeathYearDescending();
-        printList(mainList);
-        break;
+        case 8:
+            mainList = d1.sortDeathYearDescending();
+            printList(mainList);
+            break;
 
-    default:
-        sortList();
-        break;
-
-
+        default:
+            sortList();
+            break;
     }
-
 }
 
 // Used to put names in standard format (capital letter at the begining and only at the begining of each name).
@@ -376,8 +371,8 @@ string RepLayer::fixName(string name)
 
         }
         lastChar = name[i];
-
     }
+
     return tmpName;
 }
 
@@ -392,6 +387,7 @@ void RepLayer::removeFromList()
     d1.deleteFromPerson(mainList.at(choice));
 }
 
+// Start screen of the program, gives the user options to choose from.
 void RepLayer::firstStartScreen()
 {
     cout << "Choose one option" << endl;
@@ -408,29 +404,28 @@ void RepLayer::firstStartScreen()
 
     switch(choice)
     {
-    case 1:
-        startScreen();
-        break;
+        case 1:
+            startScreen();
+            break;
 
-    case 2:
-        startScreenComputer();
-        break;
+        case 2:
+            startScreenComputer();
+            break;
 
-    case 3:
-        startScreenCpLink();
-        break;
-    case 4:
-        d1.createDb();
-        break;
-        //TAKE OUT BEFORE HANDIN
-    case 0:
-        exit(0);
-        break;
-        //
+        case 3:
+            startScreenCpLink();
+            break;
+        case 4:
+            d1.createDb();
+            break;
+            //TAKE OUT BEFORE HANDIN
+        case 0:
+            exit(0);
+            break;
     }
-
 }
 
+// Start screen of the program for computers, gives the user options to choose from.
 void RepLayer::startScreenComputer()
 {
     cout << "Choose one option" << endl;
@@ -446,32 +441,31 @@ void RepLayer::startScreenComputer()
 
     switch(choice)
     {
-    case 1:
-        sortListComp();
+        case 1:
+            sortListComp();
             //Sort og svo Print list;
-        break;
+            break;
 
-    case 2:
-        addToListComp();
-        break;
+        case 2:
+            addToListComp();
+            break;
 
-    case 3:
-        searchComp();
-        break;
+        case 3:
+            searchComp();
+            break;
 
-    case 4:
-        removeComp();
-        // Remove..
-        break;
+        case 4:
+            removeComp();
+            // Remove..
+            break;
 
-    case 5:
-        exit(0);
-        break;
-
+        case 5:
+            exit(0);
+            break;
     }
-
 }
 
+// Add computers to list
 void RepLayer::addToListComp()
 {
     string newComp, newType, newBuiltComp ;
@@ -524,6 +518,8 @@ void RepLayer::addToListComp()
 
 }
 
+// Screen that gives the user several search options and then calls
+// the appropriate DomainLayer search function and prints the results.
 void RepLayer::searchComp()
 {
     cout << "Choose one option" << endl;
@@ -538,23 +534,23 @@ void RepLayer::searchComp()
     switch(searchChoice)
     {
         case 1:
-        cout << "Type a computer: ";
-        cin.ignore();
-        getline(cin,tmpChoice);
-        printListComp(d1.searchName_C(tmpChoice));
+            cout << "Type a computer: ";
+            cin.ignore();
+            getline(cin,tmpChoice);
+            printListComp(d1.searchName_C(tmpChoice));
             break;
         case 2:
-        cout << "Type a build year: ";
-        cin.ignore();
-        getline(cin,tmpChoice);
-        searchInteger = atoi(tmpChoice.c_str());
-        printListComp(d1.searchYear_C(searchInteger));
+            cout << "Type a build year: ";
+            cin.ignore();
+            getline(cin,tmpChoice);
+            searchInteger = atoi(tmpChoice.c_str());
+            printListComp(d1.searchYear_C(searchInteger));
             break;
         case 3:
-        cout << "Type a build year: ";
-        cin.ignore();
-        getline(cin,tmpChoice);
-        printListComp(d1.searchType_C(tmpChoice));
+            cout << "Type a build year: ";
+            cin.ignore();
+            getline(cin,tmpChoice);
+            printListComp(d1.searchType_C(tmpChoice));
             break;
 
         case 4:
@@ -562,12 +558,12 @@ void RepLayer::searchComp()
             break;
 
         default:
-        searchComp();
-        break;
+            searchComp();
+            break;
     }
-
 }
 
+// Sorts and prints out list with computer
 void RepLayer::sortListComp()
 {
     int sortChoice;
@@ -585,42 +581,43 @@ void RepLayer::sortListComp()
 
     switch(sortChoice)
     {
-    case 1:
-        mainCompList = d1.sortFromAtoZ_C();
-        printListComp(mainCompList);
-        break;
+        case 1:
+            mainCompList = d1.sortFromAtoZ_C();
+            printListComp(mainCompList);
+            break;
 
-    case 2:
-        mainCompList = d1.reverse_C();
-        printListComp(mainCompList);
-        break;
+        case 2:
+            mainCompList = d1.reverse_C();
+            printListComp(mainCompList);
+            break;
 
-    case 3:
-        mainCompList = d1.sortYearBuild_C();
-        printListComp(mainCompList);
-        break;
+        case 3:
+            mainCompList = d1.sortYearBuild_C();
+            printListComp(mainCompList);
+            break;
 
-    case 4:
-        mainCompList = d1.sortYearBuildReverse_C();
-        printListComp(mainCompList);
-        break;
+        case 4:
+            mainCompList = d1.sortYearBuildReverse_C();
+            printListComp(mainCompList);
+            break;
 
-    case 5:
-        mainCompList = d1.sortType_C();
-        printListComp(mainCompList);
-        break;
+        case 5:
+            mainCompList = d1.sortType_C();
+            printListComp(mainCompList);
+            break;
 
-    case 6:
-        mainCompList = d1.sortTypeReverse_C();
-        printListComp(mainCompList);
-        break;
+        case 6:
+            mainCompList = d1.sortTypeReverse_C();
+            printListComp(mainCompList);
+            break;
 
-    default:
-        sortListComp();
-        break;
+        default:
+            sortListComp();
+            break;
     }
 }
 
+// Prints a list of every computer.
 void RepLayer::printListComp(vector<Computer> computerList)
 {
     cout << "Computer - Build Year - Type - Was it Built" << endl;
@@ -635,9 +632,9 @@ void RepLayer::printListComp(vector<Computer> computerList)
 
     }
     cout << "---------------------------------------------" << endl;
-
 }
 
+// Prints a list of every Computer in a list and numbers them.
 void RepLayer::printListNumComp(vector<Computer> computerList)
 {
     cout << "Nr - Computer - Build Year - Type - Was it Built" << endl;
@@ -654,6 +651,8 @@ void RepLayer::printListNumComp(vector<Computer> computerList)
     }
     cout << "--------------------------------------------------" << endl;
 }
+
+// Remove nr list of computer
 void RepLayer::removeComp()
 {
     printListNumComp(mainCompList);
@@ -664,9 +663,9 @@ void RepLayer::removeComp()
     d1.deleteFromComputer(mainCompList.at(choice));
 }
 
-void RepLayer::printListCPlink(){
-
-
+// Prints a list of every computer.
+void RepLayer::printListCPlink()
+{
     cout << "Links between Computers and Scientists" << endl;
     cout << "--------------------------------------------------" << endl;
 
@@ -678,6 +677,7 @@ void RepLayer::printListCPlink(){
     cout << "--------------------------------------------------" << endl;
 }
 
+// Adds CpLinks to list
 void RepLayer::addToListCpLink(){
     printListNum(mainList);
     int personChoice;
@@ -698,6 +698,7 @@ void RepLayer::addToListCpLink(){
     CPlinkList = d1.loadLink();
 }
 
+// Start screen of the program for CPlinks, gives the user options to choose from.
 void RepLayer::startScreenCpLink()
 {
     cout << "Choose one option" << endl;
@@ -712,22 +713,20 @@ void RepLayer::startScreenCpLink()
 
     switch(choice)
     {
-    case 1:
-        printListCPlink();
-        break;
+        case 1:
+            printListCPlink();
+            break;
 
-    case 2:
-        addToListCpLink();
-        break;
+        case 2:
+            addToListCpLink();
+            break;
 
-    case 3:
-        // Remove..
-        break;
+        case 3:
+            // Remove..
+            break;
 
-    case 4:
-        exit(0);
-        break;
-
+        case 4:
+            exit(0);
+            break;
     }
-
 }
