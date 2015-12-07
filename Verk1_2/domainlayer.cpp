@@ -134,3 +134,23 @@ vector<Computer> DomainLayer::sortMadeReverse_C()
 {
     return d1.loadDbComputerSort("made",0);
 }
+
+vector<Computer> DomainLayer::searchName_C(string searchString)
+{
+    return d1.searchDbComputer("name",searchString);
+}
+
+vector<Computer> DomainLayer::searchYear_C(int searchString)
+{
+    return d1.searchDbComputer("byear",intToString(searchString));
+}
+
+vector<Computer> DomainLayer::searchType_C(string searchString)
+{
+    return d1.searchDbComputer("type",searchString);
+}
+
+vector<Computer> DomainLayer::searchMade_C(string searchString)
+{
+    return d1.searchDbComputer("made",searchString);
+}

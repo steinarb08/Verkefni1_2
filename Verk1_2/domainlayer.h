@@ -80,6 +80,14 @@ public:
 
     vector<Computer> sortMadeReverse_C();
 
+    vector<Computer> searchName_C(string searchString);
+
+    vector<Computer> searchYear_C(int searchString);
+
+    vector<Computer> searchType_C(string searchString);
+
+    vector<Computer> searchMade_C(string searchString);
+
     string intToString(int n);
     // Convert int to string
 private:
