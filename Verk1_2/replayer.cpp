@@ -465,6 +465,7 @@ void RepLayer::startScreenComputer()
         break;
 
     case 4:
+        removeComp();
         // Remove..
         break;
 
@@ -607,5 +608,14 @@ void RepLayer::printListComp(vector<Computer> computerList)
 
 }
 
+void RepLayer::removeComp()
+{
+    printListNum(mainList);
+    cout<< "Choose a nr to remove: ";
+    string tmp = "";
+    cin>>tmp;
+    int choice = atoi(tmp.c_str());
+    mainList.erase(mainList.begin() + choice);
 
+}
 
