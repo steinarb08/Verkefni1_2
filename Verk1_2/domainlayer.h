@@ -60,9 +60,13 @@ public:
     void addComputerToDB(Computer newComputer);
     // Add a person to database
 
+    void addCPlinkToDb(Person p1,Computer c1);
+
     vector<Person> loadPerson();
 
     vector<Computer> loadComputer();
+
+    vector<CPlink> loadLink();
 
     vector<Computer> sortFromAtoZ_C();
 
