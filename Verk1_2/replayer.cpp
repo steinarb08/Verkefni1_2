@@ -253,13 +253,13 @@ void RepLayer::searchList()
         cout << "Type a name: ";
         cin.ignore();
         getline(cin,searchName);
-        printList(d1.searchNameFunc(searchName,mainList));
+        printList(d1.searchNameFunc(searchName));
         break;
     case 2:
         cout << "Type a gender: ";
         cin.ignore();
         getline(cin,searchGender);
-        printList(d1.searchGenderFunc(searchGender,mainList));
+        printList(d1.searchGenderFunc(searchGender));
         break;
 
     case 3:
@@ -267,7 +267,7 @@ void RepLayer::searchList()
         cin.ignore();
         getline(cin,tmpChoice);
         searchBirthYear = atoi(tmpChoice.c_str());
-        printList(d1.searchBirthYearFunc(searchBirthYear,mainList));
+        printList(d1.searchBirthYearFunc(searchBirthYear));
         break;
 
     case 4:
@@ -275,7 +275,7 @@ void RepLayer::searchList()
         cin.ignore();
         getline(cin,tmpChoice);
         searchDeathYear = atoi(tmpChoice.c_str());
-        printList(d1.searchDeathYearFunc(searchDeathYear,mainList));
+        printList(d1.searchDeathYearFunc(searchDeathYear));
         break;
 
      default:
@@ -310,42 +310,42 @@ void RepLayer::sortList()
     switch(sortChoice)
     {
     case 1:
-        mainList = d1.sortFromAtoZ(mainList);
+        mainList = d1.sortFromAtoZ();
         printList(mainList);
         break;
 
     case 2:
-        mainList = d1.reverse(mainList);
+        mainList = d1.reverse();
         printList(mainList);
         break;
 
     case 3:
-        mainList = d1.sortGender(mainList);
+        mainList = d1.sortGender();
         printList(mainList);
         break;
 
     case 4:
-        mainList = d1.reverseGender(mainList);
+        mainList = d1.reverseGender();
         printList(mainList);
         break;
 
     case 5:
-        mainList = d1.sortBirthYear(mainList);
+        mainList = d1.sortBirthYear();
         printList(mainList);
         break;
 
     case 6:
-        mainList = d1.sortBirthYearDescending(mainList);
+        mainList = d1.sortBirthYearDescending();
         printList(mainList);
         break;
 
     case 7:
-        mainList = d1.sortDeathYear(mainList);
+        mainList = d1.sortDeathYear();
         printList(mainList);
         break;
 
     case 8:
-        mainList = d1.sortDeathYearDescending(mainList);
+        mainList = d1.sortDeathYearDescending();
         printList(mainList);
         break;
 
