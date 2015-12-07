@@ -397,10 +397,9 @@ void RepLayer::firstStartScreen()
     cout << "Choose one option" << endl;
     cout << "1) Persons" << endl;
     cout << "2) Computer" << endl;
-    cout << "3) Exit" << endl;
-    //TAKE OUT BEFORE HANDIN!!!!
-    cout << "0) Use test data" <<endl;
-    //
+    cout << "3) Links" << endl;
+    cout << "4) Reset Database" <<endl;
+    cout << "0) Exit" << endl;
 
     int choice;
     string tmpChoice = "";
@@ -418,12 +417,14 @@ void RepLayer::firstStartScreen()
         break;
 
     case 3:
-        exit(0);
+        startScreenCpLink();
         break;
-
+    case 4:
+        d1.createDb();
+        break;
         //TAKE OUT BEFORE HANDIN
     case 0:
-        test();
+        exit(0);
         break;
         //
     }
@@ -494,7 +495,7 @@ void RepLayer::addToListComp()
     cin.ignore();
     getline(cin,newType);
 
-    cout << "Was the computer built(0 for YES and 1 for NO): ";
+    cout << "Was the computer built(0 for No and 1 for Yes): ";
     string tmpBuiltComp = "";
     cin >> tmpBuiltComp;
     int coicheBuiltComp = atoi(tmpBuiltComp.c_str());
@@ -504,10 +505,10 @@ void RepLayer::addToListComp()
         cout << "-------------------" << endl;
         addToList();
     }
-    if(coicheBuiltComp == 0){
+    if(coicheBuiltComp == 1){
         newBuiltComp = "Yes";
     }
-    if(coicheBuiltComp == 1){
+    if(coicheBuiltComp == 0){
         newBuiltComp = "No";
     }
 
@@ -663,3 +664,70 @@ void RepLayer::removeComp()
     d1.deleteFromComputer(mainCompList.at(choice));
 }
 
+void RepLayer::printListCPlink(){
+
+
+    cout << "Links between Computers and Scientists" << endl;
+    cout << "--------------------------------------------------" << endl;
+
+    vector<string> CPlist = d1.printCPList();
+
+    for (unsigned int i = 0; i < CPlist.size(); i++) {
+        cout << CPlist.at(i) << endl;
+    }
+    cout << "--------------------------------------------------" << endl;
+}
+
+void RepLayer::addToListCpLink(){
+    printListNum(mainList);
+    int personChoice;
+
+    cout << "Choose a person to link with: ";
+    cin >> personChoice;
+    Person p1 = mainList.at(personChoice);
+
+    printListNumComp(mainCompList);
+    int computerChoice;
+
+    cout << "Choose a computer to link with: ";
+    cin >> computerChoice;
+
+    Computer c1 = mainCompList.at(computerChoice);
+
+    d1.addCPlinkToDb(p1,c1);
+    CPlinkList = d1.loadLink();
+}
+
+void RepLayer::startScreenCpLink()
+{
+    cout << "Choose one option" << endl;
+    cout << "1) Print list" << endl;
+    cout << "2) Add to list" << endl;
+    cout << "3) Remove from list" << endl;
+    cout << "4) Exit" << endl;
+    int choice;
+    string tmpChoice = "";
+    cin >> tmpChoice;
+    choice = atoi(tmpChoice.c_str());
+
+    switch(choice)
+    {
+    case 1:
+        printListCPlink();
+        break;
+
+    case 2:
+        addToListCpLink();
+        break;
+
+    case 3:
+        // Remove..
+        break;
+
+    case 4:
+        exit(0);
+        break;
+
+    }
+
+}

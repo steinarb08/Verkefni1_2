@@ -98,6 +98,10 @@ public:
 
     void deleteFromCPlink(CPlink delLink);
 
+    vector<string> printCPList();
+
+    void createDb();
+
     string intToString(int n);
     // Convert int to string
 private:

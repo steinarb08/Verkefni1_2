@@ -5,7 +5,7 @@ DomainLayer::DomainLayer()
 }
 
 vector<Person> DomainLayer::sortFromAtoZ(){            //Sorts the names in alphabetical order (A-Z) using bubble sort.
-    return d1.loadDbPersonSort("name",1);
+    return d1.loadDbPersonSort("pname",1);
 }
 
 void DomainLayer::swap(Person& per1, Person& per2){
@@ -22,7 +22,7 @@ string DomainLayer::intToString(int n)
 }
 
 vector<Person> DomainLayer::reverse(){             //Sorts the names in reverse alphabetical order (Z-A) using bubble sort.
-    return d1.loadDbPersonSort("name",0);
+    return d1.loadDbPersonSort("pname",0);
 }
 
 vector<Person> DomainLayer::sortGender(){          //Sorts the list by gender in alphabetical order using bubble sort.
@@ -55,7 +55,7 @@ vector<Person> DomainLayer::sortDeathYearDescending(){     //Sorts the list by y
 // Searches for a substring (searchString) in the name of each Person in a list, returns a sublist that has those substrings
 vector<Person> DomainLayer::searchNameFunc(string searchString)
 {
-    return d1.searchDbPerson("name", searchString);
+    return d1.searchDbPerson("pname", searchString);
 
 }
 
@@ -98,11 +98,11 @@ vector<Computer> DomainLayer::loadComputer(){
 }
 
 vector<Computer> DomainLayer::sortFromAtoZ_C(){
-    return d1.loadDbComputerSort("name", 1);
+    return d1.loadDbComputerSort("cname", 1);
 }
 
 vector<Computer> DomainLayer::reverse_C(){
-    return d1.loadDbComputerSort("name", 0);
+    return d1.loadDbComputerSort("cname", 0);
 }
 
 vector<Computer> DomainLayer::sortYearBuild_C()
@@ -137,7 +137,7 @@ vector<Computer> DomainLayer::sortMadeReverse_C()
 
 vector<Computer> DomainLayer::searchName_C(string searchString)
 {
-    return d1.searchDbComputer("name",searchString);
+    return d1.searchDbComputer("cname",searchString);
 }
 
 vector<Computer> DomainLayer::searchYear_C(int searchString)
@@ -178,4 +178,15 @@ void DomainLayer::addCPlinkToDb(Person p1,Computer c1)
 vector<CPlink> DomainLayer::loadLink()
 {
     return d1.loadDbCPlink();
+}
+
+vector<string> DomainLayer::printCPList()
+{
+    return d1.printCPlink();
+}
+
+void DomainLayer::createDb()
+{
+    d1.dropTables();
+    d1.createTables();
 }

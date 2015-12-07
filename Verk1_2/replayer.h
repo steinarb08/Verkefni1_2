@@ -58,6 +58,12 @@ public:
     void startScreenComputer();
     // Start screen of the program for computers, gives the user options to chose from.
 
+    void startScreenCpLink();
+    // Start screen of the program for CPlinks, gives the user options to choose from.
+
+    void addToListCpLink();
+    // Adds CpLinks to list
+
     void addToListComp();
     // Add computers to list
 
@@ -68,6 +74,9 @@ public:
     // Sorts and prints out list with computer
 
     void printListComp(vector<Computer> computerList);
+    // Prints a list of every computer.
+
+    void printListCPlink();
     // Prints a list of every computer.
 
     void printListNumComp(vector<Computer> computerList);
@@ -81,6 +90,8 @@ private:
     vector<Person> mainList;
     //List of Computer to work with.
     vector<Computer> mainCompList;
+    //List of CPlinks to work with.
+    vector<CPlink> CPlinkList;
 };
 
 #endif // REPLAYER_H

@@ -20,8 +20,8 @@ void DataLayer::createTables()
     QSqlQuery query(db);
 
 
-    query.exec("create table Person(id INTEGER PRIMARY KEY AUTOINCREMENT,name varchar(100),gender varchar(6),birthyear int,deathyear int)");
-    query.exec("create table Computer(id INTEGER PRIMARY KEY AUTOINCREMENT,name varchar(100),byear int,type varchar(100),made varchar(10))");
+    query.exec("create table Person(id INTEGER PRIMARY KEY AUTOINCREMENT,pname varchar(100),gender varchar(6),birthyear int,deathyear int)");
+    query.exec("create table Computer(id INTEGER PRIMARY KEY AUTOINCREMENT,cname varchar(100),byear int,type varchar(100),made varchar(10))");
     query.exec("create table CPlink(id INTEGER PRIMARY KEY AUTOINCREMENT,personId int, computerId int, FOREIGN KEY(personId) REFERENCES Person(id),FOREIGN KEY(computerId) REFERENCES Computer(id))");
     db.close();
 }
@@ -54,7 +54,7 @@ void DataLayer::insertToDbPerson(Person newPerson)
     QString _gender = QString::fromStdString(newPerson.getGender());
     db.open();
     QSqlQuery query(db);
-    query.prepare("insert into Person(name,gender,birthyear,deathyear) values(?,?,?,?)");
+    query.prepare("insert into Person(pname,gender,birthyear,deathyear) values(?,?,?,?)");
     query.addBindValue(_name);
     query.addBindValue(_gender);
     query.addBindValue(newPerson.getBirthYear());
@@ -69,7 +69,7 @@ vector<Person> DataLayer::updateDbPerson(Person updPerson)
     QString _gender = QString::fromStdString(updPerson.getGender());
     db.open();
     QSqlQuery query(db);
-    query.prepare("update Person set name=?,gender=?,birthyear=?,deathyear=? where id=?");
+    query.prepare("update Person set pname=?,gender=?,birthyear=?,deathyear=? where id=?");
     query.addBindValue(_name);
     query.addBindValue(_gender);
     query.addBindValue(updPerson.getBirthYear());
@@ -89,7 +89,7 @@ vector<Person> DataLayer::loadDbPerson()
 
     while(query.next())
     {
-        string name = query.value("name").toString().toStdString();
+        string name = query.value("pname").toString().toStdString();
         string gender = query.value("gender").toString().toStdString();
         int byear = query.value("birthyear").toInt();
         int dyear = query.value("deathyear").toInt();
@@ -120,7 +120,7 @@ vector<Person> DataLayer::loadDbPersonSort(string column,bool ascending)
 
     while(query.next())
     {
-        string name = query.value("name").toString().toStdString();
+        string name = query.value("pname").toString().toStdString();
         string gender = query.value("gender").toString().toStdString();
         int byear = query.value("birthyear").toInt();
         int dyear = query.value("deathyear").toInt();
@@ -144,7 +144,7 @@ vector<Person> DataLayer::searchDbPerson(string column, string value)
 
     while(query.next())
     {
-        string name = query.value("name").toString().toStdString();
+        string name = query.value("pname").toString().toStdString();
         string gender = query.value("gender").toString().toStdString();
         int byear = query.value("birthyear").toInt();
         int dyear = query.value("deathyear").toInt();
@@ -179,7 +179,7 @@ Person DataLayer::getPersonFromId(int id)
     Person newPerson;
     while(query.next())
     {
-        string name = query.value("name").toString().toStdString();
+        string name = query.value("pname").toString().toStdString();
         string gender = query.value("gender").toString().toStdString();
         int byear = query.value("birthyear").toInt();
         int dyear = query.value("deathyear").toInt();
@@ -211,7 +211,7 @@ void DataLayer::insertToDbComputer(Computer newComputer)
     QString _made = QString::fromStdString(newComputer.getBuiltComputer());
     db.open();
     QSqlQuery query(db);
-    query.prepare("insert into Computer(name,byear,type,made) values(?,?,?,?)");
+    query.prepare("insert into Computer(cname,byear,type,made) values(?,?,?,?)");
     query.addBindValue(_name);
     query.addBindValue(newComputer.getBuiltYear());
     query.addBindValue(_type);
@@ -227,7 +227,7 @@ vector<Computer> DataLayer::updateDbComputer(Computer updComputer)
     QString _made = QString::fromStdString(updComputer.getBuiltComputer());
     db.open();
     QSqlQuery query(db);
-    query.prepare("update Computer set name=?,byear=?,type=?,made=? where id=?");
+    query.prepare("update Computer set cname=?,byear=?,type=?,made=? where id=?");
     query.addBindValue(_name);
     query.addBindValue(updComputer.getBuiltYear());
     query.addBindValue(_type);
@@ -247,7 +247,7 @@ vector<Computer> DataLayer::loadDbComputer()
 
     while(query.next())
     {
-        string name = query.value("name").toString().toStdString();
+        string name = query.value("cname").toString().toStdString();
         int byear = query.value("byear").toInt();
         string type = query.value("type").toString().toStdString();
         string made = query.value("made").toString().toStdString();
@@ -278,7 +278,7 @@ vector<Computer> DataLayer::loadDbComputerSort(string column,bool ascending)
 
     while(query.next())
     {
-        string name = query.value("name").toString().toStdString();
+        string name = query.value("cname").toString().toStdString();
         int byear = query.value("byear").toInt();
         string type = query.value("type").toString().toStdString();
         string made = query.value("made").toString().toStdString();
@@ -302,7 +302,7 @@ vector<Computer> DataLayer::searchDbComputer(string column, string value)
 
     while(query.next())
     {
-        string name = query.value("name").toString().toStdString();
+        string name = query.value("cname").toString().toStdString();
         int byear = query.value("byear").toInt();
         string type = query.value("type").toString().toStdString();
         string made = query.value("made").toString().toStdString();
@@ -335,7 +335,7 @@ Computer DataLayer::getComputerFromId(int id)
     Computer newComputer;
     while(query.next())
     {
-        string name = query.value("name").toString().toStdString();
+        string name = query.value("cname").toString().toStdString();
         string type = query.value("type").toString().toStdString();
         int byear = query.value("byear").toInt();
         string made = query.value("made").toString().toStdString();
@@ -427,6 +427,24 @@ vector<CPlink> DataLayer::sortCPlink(string column,bool ascending)
 
         CPlink newLink(computerId,personId,id);
         newList.push_back(newLink);
+    }
+    db.close();
+    return newList;
+}
+
+vector<string> DataLayer::printCPlink()
+{
+    vector<string> newList;
+    db.open();
+    QSqlQuery query(db);
+    query.exec("Select p.pname, c.cname from person as p,computer as c, CPlink as cp where cp.personid = p.id and cp.computerid=c.id");
+
+    while(query.next())
+    {
+        string pName = query.value("pname").toString().toStdString();
+        string cName = query.value("cname").toString().toStdString();
+        string listString = pName + " is connected to " + cName;
+        newList.push_back(listString);
     }
     db.close();
     return newList;
