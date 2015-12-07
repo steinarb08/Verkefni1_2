@@ -2,7 +2,7 @@
 
 Computer::Computer()
 {
-
+    //intentionally blank
 }
 
 // Constructor that sets name, builtYear, type and builtComputer to input value.
@@ -78,6 +78,7 @@ void Computer::setBuiltComputer(string _builtComputer)
     builtComputer = _builtComputer;
 }
 
+// Sets computer Id to input value.
 void Computer::setId(int _id)
 {
     id = _id;

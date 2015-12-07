@@ -8,7 +8,7 @@ class Computer
 {
 public:
     Computer();
-    // Default constructor
+    // Default constructor(not used).
 
     Computer(string _name, int _builtYear, string _type, string _builtComputer);
     // Constructor that sets name, builtYear, type and builtComputer to input value.
@@ -44,7 +44,7 @@ public:
     // Sets whether a Computer was built or not
 
     void setId(int _id);
-    // Sets the computers id
+    // Sets the computers id to input value
 
 private:
     string name;

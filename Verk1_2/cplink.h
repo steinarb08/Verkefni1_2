@@ -9,8 +9,11 @@ public:
     // Default constructor (not used)
 
     CPlink(int _computerId,int _personId);
+    // Constructor that sets computer Id and person Id to input value.
 
     CPlink(int _computerId, int _personId,int _linkId);
+    // Constructor that sets computer Id, person Id and link Id.
+    // Link person to a computer.
 
     int getComputerId();
     // Get the id of the computer associated with the link
