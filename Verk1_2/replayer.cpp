@@ -628,7 +628,7 @@ void RepLayer::sortListComp()
 
 void RepLayer::printListComp(vector<Computer> computerList)
 {
-    cout << "Name - Build Year - Type - Was it Built" << endl;
+    cout << "Computer - Build Year - Type - Was it Built" << endl;
     cout << "---------------------------------------------" << endl;
     int size = computerList.size();
     for(int i = 0; i < size; i++)
@@ -643,14 +643,30 @@ void RepLayer::printListComp(vector<Computer> computerList)
 
 }
 
+void RepLayer::printListNumComp(vector<Computer> computerList)
+{
+    cout << "Nr - Computer - Build Year - Type - Was it Built" << endl;
+    cout << "--------------------------------------------------" << endl;
+    int size = computerList.size();
+    for(int i = 0; i < size; i++)
+    {
+        cout << i;
+        cout << ") ";
+        cout << computerList.at(i).getName() << " - ";
+        cout << computerList.at(i).getBuiltYear() << " - ";
+        cout << computerList.at(i).getType() << " - ";
+        cout << computerList.at(i).getBuiltComputer() << endl;
+    }
+    cout << "--------------------------------------------------" << endl;
+}
 void RepLayer::removeComp()
 {
-    printListNum(mainList);
+    printListNumComp(mainCompList);
     cout<< "Choose a nr to remove: ";
     string tmp = "";
-    cin>>tmp;
+    cin >> tmp;
     int choice = atoi(tmp.c_str());
-    mainList.erase(mainList.begin() + choice);
-
+    d1.deleteFromComputer(mainCompList.at(choice));
+    //mainCompList.erase(mainCompList.begin() + choice);
 }
 

@@ -22,7 +22,7 @@ public:
     void printList(vector <Person> _personList);
     // Prints a list of every Person in a list.
 
-    void printListNum(vector <Person> _personList);
+    void printListNum(vector<Person> _personList);
     // Prints a list of every Person in a list and numbers them.
 
     void test();
@@ -69,6 +69,9 @@ public:
 
     void printListComp(vector<Computer> computerList);
     // Prints a list of every computer.
+
+    void printListNumComp(vector<Computer> computerList);
+    // Prints a list of every Computer in a list and numbers them.
 
     void removeComp();
     // Remove nr list of computer
