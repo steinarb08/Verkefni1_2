@@ -461,7 +461,7 @@ void RepLayer::startScreenComputer()
         break;
 
     case 3:
-        // Search choice
+        searchComp();
         break;
 
     case 4:
@@ -534,6 +534,41 @@ void RepLayer::searchComp()
     cout << "1) Search computer" << endl;
     cout << "2) Search build year" << endl;
     cout << "3) Search a type of computer" << endl;
+    cout << "4) Exit" << endl;
+    string tmpChoice = "";
+    cin >> tmpChoice;
+    int searchChoice = atoi(tmpChoice.c_str());
+    int searchInteger;
+    switch(searchChoice)
+    {
+        case 1:
+        cout << "Type a computer: ";
+        cin.ignore();
+        getline(cin,tmpChoice);
+        printListComp(d1.searchName_C(tmpChoice));
+            break;
+        case 2:
+        cout << "Type a build year: ";
+        cin.ignore();
+        getline(cin,tmpChoice);
+        searchInteger = atoi(tmpChoice.c_str());
+        printListComp(d1.searchYear_C(searchInteger));
+            break;
+        case 3:
+        cout << "Type a build year: ";
+        cin.ignore();
+        getline(cin,tmpChoice);
+        printListComp(d1.searchType_C(tmpChoice));
+            break;
+
+        case 4:
+            exit(0);
+            break;
+
+        default:
+        searchComp();
+        break;
+    }
 
 }
 
