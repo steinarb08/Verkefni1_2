@@ -169,3 +169,8 @@ void DomainLayer::deleteFromCPlink(CPlink delLink)
 {
     d1.deleteFromDbLink(delLink);
 }
+
+void DomainLayer::addCPlinkToDb(Person p1,Computer c1)
+{
+    d1.insertToDbCPLink(c1,p1);
+}
