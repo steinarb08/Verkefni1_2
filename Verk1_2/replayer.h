@@ -70,6 +70,9 @@ public:
     void printListComp(vector<Computer> computerList);
     // Prints a list of every computer.
 
+    void removeComp();
+    // Remove nr list of computer
+
 private:
     // List of Persons to work with.
     vector<Person> mainList;
