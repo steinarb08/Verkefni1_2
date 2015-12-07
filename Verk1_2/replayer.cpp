@@ -102,9 +102,8 @@ void RepLayer::startScreen()
     cout << "1) Print list" << endl;
     cout << "2) Add to list" << endl;
     cout << "3) Search " << endl;
-    cout << "4) Sort " << endl;
-    cout << "5) Remove from list " << endl;
-    cout << "6) Quit " << endl;
+    cout << "4) Remove from list " << endl;
+    cout << "5) Quit " << endl;
     int choice;
     string tmpChoice = "";
     cin >> tmpChoice;
@@ -113,7 +112,7 @@ void RepLayer::startScreen()
     switch(choice)
     {
     case 1:
-        printList(mainList);
+        sortList();
         break;
 
     case 2:
@@ -125,17 +124,12 @@ void RepLayer::startScreen()
         break;
 
     case 4:
-        sortList();
+       removeFromList();
         break;
 
     case 5:
-        removeFromList();
-        break;
-
-    case 6:
         exit(0);
         break;
-
 
     default:
         cout << "Number not available" << endl;
@@ -395,7 +389,7 @@ void RepLayer::removeFromList()
     string tmp = "";
     cin>>tmp;
     int choice = atoi(tmp.c_str());
-    mainList.erase(mainList.begin() + choice);
+    d1.deleteFromPerson(mainList.at(choice));
 }
 
 void RepLayer::firstStartScreen()
@@ -667,6 +661,5 @@ void RepLayer::removeComp()
     cin >> tmp;
     int choice = atoi(tmp.c_str());
     d1.deleteFromComputer(mainCompList.at(choice));
-    //mainCompList.erase(mainCompList.begin() + choice);
 }
 
