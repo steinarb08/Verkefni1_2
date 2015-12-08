@@ -74,6 +74,11 @@ public:
 
     vector<string> printCPlink();
 
+    vector<CPlink> searchLinkByPerson(string column,string value);
+
+    vector<CPlink> searchLinkByComputer(string column,string value);
+
+
 private:
     QSqlDatabase db;
 };

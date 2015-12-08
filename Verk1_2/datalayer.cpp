@@ -449,3 +449,45 @@ vector<string> DataLayer::printCPlink()
     db.close();
     return newList;
 }
+
+vector<CPlink> DataLayer::searchLinkByPerson(string column,string value)
+{
+    string com = "select cp.id,cp.personid,cp.computerid from CPlink as cp, person as p where cp.personid = p.id and p."+ column+ " like '%"+value+"%'";
+    vector<CPlink> newList;
+    db.open();
+    QSqlQuery query(db);
+    query.exec(QString::fromStdString(com));
+
+    while(query.next())
+    {
+        int computerId = query.value("computerId").toInt();
+        int personId = query.value("personId").toInt();
+        int id = query.value("id").toInt();
+
+        CPlink newLink(computerId,personId,id);
+        newList.push_back(newLink);
+    }
+    db.close();
+    return newList;
+}
+
+vector<CPlink> DataLayer::searchLinkByComputer(string column,string value)
+{
+    string com = "select cp.id,cp.personid,cp.computerid from CPlink as cp, computer as c where cp.computerid = c.id and c."+column+" like '%"+value+"%'";
+    vector<CPlink> newList;
+    db.open();
+    QSqlQuery query(db);
+    query.exec(QString::fromStdString(com));
+
+    while(query.next())
+    {
+        int computerId = query.value("computerId").toInt();
+        int personId = query.value("personId").toInt();
+        int id = query.value("id").toInt();
+
+        CPlink newLink(computerId,personId,id);
+        newList.push_back(newLink);
+    }
+    db.close();
+    return newList;
+}
