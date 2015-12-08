@@ -22,9 +22,6 @@ public:
     void printListNum(vector<Person> _personList);
     // Prints a list of every Person in a list and numbers them.
 
-    void test();
-    // Used while making the program for testing.
-
     void startScreen();
     // Start screen of the program for persons, gives the user options to chose from.
 
@@ -33,9 +30,6 @@ public:
 
     void loadFromFile();
     // Loads a list from file by calling to the data layer.
-
-    void saveToFile();
-    // Save the current list to file by calling the data layer
 
     void searchList();
     // Screen that gives the user several search options and then calls
