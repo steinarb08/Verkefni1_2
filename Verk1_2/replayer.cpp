@@ -143,7 +143,7 @@ void RepLayer::addToList()
         cin >> tmpYear;
         newDeathYear = atoi(tmpYear.c_str());
 
-        if(newDeathYear == -1)
+        if(newDeathYear == -1 && newName != "")
         {
             newName = fixName(newName);
             Person newP(newName, newGender, newBirthYear, newDeathYear);
@@ -151,22 +151,27 @@ void RepLayer::addToList()
             d1.addPersonToDB(newP);
             loadFromFile();
         }
-        else if(newBirthYear > newDeathYear)
+        else if(newBirthYear > newDeathYear && newName != "")
         {
            cout << "Invalid year of death" << endl;
            cout << "-------------------" << endl;
            addToList();
         }
-        else
+        else if(newName != "")
         {
             newName = fixName(newName);
             Person newP(newName, newGender, newBirthYear, newDeathYear);
             mainList.push_back(newP);
             d1.addPersonToDB(newP);
+            cout << newName << " has been added!" << endl;
+            cout << endl;
         }
-
-        cout << newName << " has been added!" << endl;
-        cout << endl;
+        else
+        {
+            cout << "Invalid name" << endl;
+            cout << "------------" << endl;
+            addToList();
+        }
     }
 }
 
