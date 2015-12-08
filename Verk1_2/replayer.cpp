@@ -533,7 +533,7 @@ void RepLayer::addToListComp()
 void RepLayer::searchComp()
 {
     cout << "Choose one option" << endl;
-    cout << "1) Search computer" << endl;
+    cout << "1) Search name" << endl;
     cout << "2) Search build year" << endl;
     cout << "3) Search a type of computer" << endl;
     cout << "4) Search for was it made" << endl;
@@ -545,7 +545,7 @@ void RepLayer::searchComp()
     switch(searchChoice)
     {
     case 1:
-        cout << "Type a computer: ";
+        cout << "Type a name: ";
         cin.ignore();
         getline(cin,tmpChoice);
         printListComp(d1.searchName_C(tmpChoice));
