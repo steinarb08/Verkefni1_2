@@ -1,5 +1,6 @@
 #include "datalayer.h"
 
+// Default constructor
 DataLayer::DataLayer()
 {
     db = QSqlDatabase::addDatabase("QSQLITE");
@@ -7,6 +8,7 @@ DataLayer::DataLayer()
     db.setDatabaseName(name);
 }
 
+// Constructor with custom database name
 DataLayer::DataLayer(string dbName)
 {
     db = QSqlDatabase::addDatabase("QSQLITE");
@@ -14,6 +16,7 @@ DataLayer::DataLayer(string dbName)
     db.setDatabaseName(name);
 }
 
+// Creates the tables needed for our database
 void DataLayer::createTables()
 {
     db.open();
@@ -26,6 +29,7 @@ void DataLayer::createTables()
     db.close();
 }
 
+// Drops all our tables from our database
 void DataLayer::dropTables()
 {
     db.open();
@@ -48,6 +52,7 @@ void DataLayer::dropTables()
  *
  * */
 
+// Inserts a Person to database
 void DataLayer::insertToDbPerson(Person newPerson)
 {
     QString _name = QString::fromStdString(newPerson.getName());
@@ -63,6 +68,7 @@ void DataLayer::insertToDbPerson(Person newPerson)
     db.close();
 }
 
+// Update a person in the database to new values specified in updPerson
 vector<Person> DataLayer::updateDbPerson(Person updPerson)
 {
     QString _name = QString::fromStdString(updPerson.getName());
@@ -80,6 +86,7 @@ vector<Person> DataLayer::updateDbPerson(Person updPerson)
     return loadDbPerson();
 }
 
+// Loads all Person from database on puts them into vector.
 vector<Person> DataLayer::loadDbPerson()
 {
     vector<Person> personList;
@@ -101,6 +108,7 @@ vector<Person> DataLayer::loadDbPerson()
     return personList;
 }
 
+// Sort list of Person by column
 vector<Person> DataLayer::loadDbPersonSort(string column,bool ascending)
 {
     string com;
@@ -132,6 +140,7 @@ vector<Person> DataLayer::loadDbPersonSort(string column,bool ascending)
     return personList;
 }
 
+// Search for a Person by a value of a specific column and returns a list of persons that meet the search criteria
 vector<Person> DataLayer::searchDbPerson(string column, string value)
 {
     string com;
@@ -156,8 +165,7 @@ vector<Person> DataLayer::searchDbPerson(string column, string value)
     return personList;
 }
 
-
-
+// Deletes selected person from database
 void DataLayer::deleteFromDbPerson(Person delPerson)
 {
     deleteFromLinkPersonId(delPerson.getId());
@@ -169,6 +177,7 @@ void DataLayer::deleteFromDbPerson(Person delPerson)
     db.close();
 }
 
+// Return a Person from a specific id
 Person DataLayer::getPersonFromId(int id)
 {
     db.open();
@@ -204,7 +213,7 @@ Person DataLayer::getPersonFromId(int id)
  *
  * */
 
-
+// Inserts a computer to database
 void DataLayer::insertToDbComputer(Computer newComputer)
 {
     QString _name = QString::fromStdString(newComputer.getName());
@@ -221,6 +230,7 @@ void DataLayer::insertToDbComputer(Computer newComputer)
     db.close();
 }
 
+// Update a computer in the database to new values specified in updComputer
 vector<Computer> DataLayer::updateDbComputer(Computer updComputer)
 {
     QString _name = QString::fromStdString(updComputer.getName());
@@ -239,6 +249,7 @@ vector<Computer> DataLayer::updateDbComputer(Computer updComputer)
     return loadDbComputer();
 }
 
+// Loads all computers from database and puts them into vector
 vector<Computer> DataLayer::loadDbComputer()
 {
     vector<Computer> computerList;
@@ -260,6 +271,7 @@ vector<Computer> DataLayer::loadDbComputer()
     return computerList;
 }
 
+// Sort list of Person by column
 vector<Computer> DataLayer::loadDbComputerSort(string column,bool ascending)
 {
     string com;
@@ -291,6 +303,7 @@ vector<Computer> DataLayer::loadDbComputerSort(string column,bool ascending)
     return computerList;
 }
 
+// Search for a Computer by a value of a specific column and returns a list of computers that meet the search criteria
 vector<Computer> DataLayer::searchDbComputer(string column, string value)
 {
     string com;
@@ -315,6 +328,7 @@ vector<Computer> DataLayer::searchDbComputer(string column, string value)
     return computerList;
 }
 
+// Deletes a computer from database
 void DataLayer::deleteFromDbComputer(Computer delComputer)
 {
     deleteFromLinkComputerId(delComputer.getId());
@@ -326,6 +340,7 @@ void DataLayer::deleteFromDbComputer(Computer delComputer)
     db.close();
 }
 
+// Return a Computer from a specific id
 Computer DataLayer::getComputerFromId(int id)
 {
     db.open();
@@ -363,6 +378,7 @@ Computer DataLayer::getComputerFromId(int id)
  *
  * */
 
+// Insert a new connection between scientist and computer to database
 void DataLayer::insertToDbCPLink(Computer newComputer, Person newPerson)
 {
     db.open();
@@ -374,6 +390,7 @@ void DataLayer::insertToDbCPLink(Computer newComputer, Person newPerson)
     db.close();
 }
 
+// Loads all links from database and returns a vector
 vector<CPlink> DataLayer::loadDbCPlink()
 {
     vector<CPlink> newList;
@@ -394,7 +411,7 @@ vector<CPlink> DataLayer::loadDbCPlink()
     return newList;
 }
 
-
+// Deletes a link from database
 void DataLayer::deleteFromDbLink(CPlink delLink)
 {
     db.open();
@@ -405,6 +422,7 @@ void DataLayer::deleteFromDbLink(CPlink delLink)
     db.close();
 }
 
+// Sort a list of links by a specified column. (1 for ascending,0 for descending)
 vector<CPlink> DataLayer::sortCPlink(string column,bool ascending)
 {
     string com = "";
@@ -434,6 +452,7 @@ vector<CPlink> DataLayer::sortCPlink(string column,bool ascending)
     return newList;
 }
 
+// Returns a list of strings that specifies which computers are connected to which persons
 vector<string> DataLayer::printCPlink()
 {
     vector<string> newList;
@@ -452,6 +471,7 @@ vector<string> DataLayer::printCPlink()
     return newList;
 }
 
+// Searches for a link that contains a person that fulfills the specified search criteria. Returns a list of links.
 vector<CPlink> DataLayer::searchLinkByPerson(string column,string value)
 {
     string com = "select cp.id,cp.personid,cp.computerid from CPlink as cp, person as p where cp.personid = p.id and p."+ column+ " like '%"+value+"%'";
@@ -473,6 +493,7 @@ vector<CPlink> DataLayer::searchLinkByPerson(string column,string value)
     return newList;
 }
 
+// Searches for a link that contains a computer that fulfills the specified search criteria. Returns a list of links.
 vector<CPlink> DataLayer::searchLinkByComputer(string column,string value)
 {
     string com = "select cp.id,cp.personid,cp.computerid from CPlink as cp, computer as c where cp.computerid = c.id and c."+column+" like '%"+value+"%'";
@@ -494,6 +515,7 @@ vector<CPlink> DataLayer::searchLinkByComputer(string column,string value)
     return newList;
 }
 
+// Deletes all links that have the specified person id. (used whenever a person is removed so that links dont contain person that does not exist)
 void DataLayer::deleteFromLinkPersonId(int id)
 {
     db.open();
@@ -504,6 +526,7 @@ void DataLayer::deleteFromLinkPersonId(int id)
     db.close();
 }
 
+// Deletes all links that have the specified computer id. (used whenever a computer is removed so that links dont contain a computer that does not exist)
 void DataLayer::deleteFromLinkComputerId(int id)
 {
     db.open();
