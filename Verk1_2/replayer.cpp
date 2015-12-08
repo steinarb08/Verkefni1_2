@@ -393,6 +393,7 @@ void RepLayer::removeFromList()
 // Start screen of the program, gives the user options to choose from.
 void RepLayer::firstStartScreen()
 {
+    loadFromFile();
     cout << "Choose one option" << endl;
     cout << "1) Persons" << endl;
     cout << "2) Computer" << endl;
@@ -752,10 +753,11 @@ void RepLayer::printListCPlinkNum()
 {
     cout << "Choose one number to remove" << endl;
     cout << "---------------------------" << endl;
+    vector<string> CPlist = d1.printCPList();
 
-    for (unsigned int i = 0; i < CPlinkList.size(); i++) {
+    for (unsigned int i = 0; i < CPlist.size(); i++) {
         cout << i;
         cout << ") ";
-        //cout << CPlinkList.at(i). << endl;
+        cout << CPlist.at(i) << endl;
     }
 }

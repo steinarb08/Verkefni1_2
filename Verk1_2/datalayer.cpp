@@ -377,7 +377,7 @@ vector<CPlink> DataLayer::loadDbCPlink()
     vector<CPlink> newList;
     db.open();
     QSqlQuery query(db);
-    query.exec("Select * from CPlink");
+    query.exec("Select * from CPlink order by id");
 
     while(query.next())
     {
@@ -437,7 +437,7 @@ vector<string> DataLayer::printCPlink()
     vector<string> newList;
     db.open();
     QSqlQuery query(db);
-    query.exec("Select p.pname, c.cname from person as p,computer as c, CPlink as cp where cp.personid = p.id and cp.computerid=c.id");
+    query.exec("Select p.pname, c.cname from person as p,computer as c, CPlink as cp where cp.personid = p.id and cp.computerid=c.id order by cp.id");
 
     while(query.next())
     {
