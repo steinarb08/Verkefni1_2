@@ -954,11 +954,11 @@ void RepLayer::updatePersonScreen()
 
     printSinglePerson(mainList, choice);
 
-    cout << "Press 0 to update name" << endl;
-    cout << "Press 1 to update gender" << endl;
-    cout << "Press 2 to update birth year" << endl;
-    cout << "Press 3 to update death year" << endl;
-    cout << "Press 4 to EXIT" << endl;
+    cout << "1) Update name" << endl;
+    cout << "2) Update gender" << endl;
+    cout << "3) Update birth year" << endl;
+    cout << "4) Update death year" << endl;
+    cout << "0) Exit" << endl;
 
     string tmp2 = "";
     cin >> tmp2;
@@ -971,7 +971,7 @@ void RepLayer::updatePersonScreen()
 
     switch(choiceUpdate)
     {
-        case 0:
+        case 1:
             cout << "Enter a name: ";
             cin.ignore();
             getline(cin,tmp2);
@@ -979,7 +979,7 @@ void RepLayer::updatePersonScreen()
             mainList.at(choice).setName(tmp2);
             break;
 
-        case 1:
+        case 2:
             cout << "Enter a gender (0 for Female and 1 for Male): ";
             cin >> tmp3;
             gender = atoi(tmp3.c_str());
@@ -1002,21 +1002,21 @@ void RepLayer::updatePersonScreen()
             }
             break;
 
-        case 2:
+        case 3:
             cout << "Enter a birth year: ";
             cin >> tmp3;
             birthYear = atoi(tmp3.c_str());
             mainList.at(choice).setBirthYear(birthYear);
             break;
 
-        case 3:
+        case 4:
             cout << "Enter a death year: ";
             cin >> tmp3;
             deathYear = atoi(tmp3.c_str());
             mainList.at(choice).setDeathYear(deathYear);
             break;
 
-        case 4:
+        case 0:
             exit(0);
             break;
 
@@ -1056,11 +1056,11 @@ void RepLayer::updateComputerScreen()
 
     printSingleComp(mainCompList, choice);
 
-    cout << "Press 0 to update name" << endl;
-    cout << "Press 1 to update built year" << endl;
-    cout << "Press 2 to update type" << endl;
-    cout << "Press 3 to update whether it was built or not" << endl;
-    cout << "Press 4 to EXIT" << endl;
+    cout << "1) Update name" << endl;
+    cout << "2) Update built year" << endl;
+    cout << "3) Update type" << endl;
+    cout << "4) Update whether it was built or not" << endl;
+    cout << "0) Exit" << endl;
 
     string tmp2 = "";
     cin >> tmp2;
@@ -1072,7 +1072,7 @@ void RepLayer::updateComputerScreen()
 
     switch(choiceUpdate)
     {
-        case 0:
+        case 1:
             cout << "Enter a name: ";
             cin.ignore();
             getline(cin,tmp2);
@@ -1080,14 +1080,14 @@ void RepLayer::updateComputerScreen()
             mainCompList.at(choice).setName(tmp2);
             break;
 
-        case 1:
+        case 2:
             cout << "Enter a built year: ";
             cin >> tmp3;
             builtYear = atoi(tmp3.c_str());
             mainCompList.at(choice).setBuiltYear(builtYear);
             break;
 
-        case 2:
+        case 3:
             cout << "Enter a type: ";
             cin.ignore();
             getline(cin,tmp2);
@@ -1095,7 +1095,7 @@ void RepLayer::updateComputerScreen()
             mainCompList.at(choice).setType(tmp2);
             break;
 
-        case 3:
+        case 4:
             cout << "Was the computer built? (0 for Yes and 1 for No): ";
             cin >> tmp3;
             made = atoi(tmp3.c_str());
@@ -1118,11 +1118,12 @@ void RepLayer::updateComputerScreen()
             }
             break;
 
-        case 4:
+        case 0:
             exit(0);
             break;
 
         default:
+        cout << "Invalid input" <<endl;
             updateComputerScreen();
             break;
     }
