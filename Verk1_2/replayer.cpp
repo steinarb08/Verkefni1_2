@@ -971,58 +971,58 @@ void RepLayer::updatePersonScreen()
 
     switch(choiceUpdate)
     {
-        case 1:
-            cout << "Enter a name: ";
-            cin.ignore();
-            getline(cin,tmp2);
-            tmp2 = fixName(tmp2);
-            mainList.at(choice).setName(tmp2);
-            break;
+    case 1:
+        cout << "Enter a name: ";
+        cin.ignore();
+        getline(cin,tmp2);
+        tmp2 = fixName(tmp2);
+        mainList.at(choice).setName(tmp2);
+        break;
 
-        case 2:
-            cout << "Enter a gender (0 for Female and 1 for Male): ";
-            cin >> tmp3;
-            gender = atoi(tmp3.c_str());
+    case 2:
+        cout << "Enter a gender (0 for Female and 1 for Male): ";
+        cin >> tmp3;
+        gender = atoi(tmp3.c_str());
 
-            if(gender != 1 && gender != 0)
-            {
-                cout << "Invalid Input!" << endl;
-                cout << "--------------" << endl;
-                updatePersonScreen();
-            }
-            if(gender == 0)
-            {
-                tmpGender = "Female";
-                mainList.at(choice).setGender(tmpGender);
-            }
-            if(gender == 1)
-            {
-                tmpGender = "Male";
-                mainList.at(choice).setGender(tmpGender);
-            }
-            break;
-
-        case 3:
-            cout << "Enter a birth year: ";
-            cin >> tmp3;
-            birthYear = atoi(tmp3.c_str());
-            mainList.at(choice).setBirthYear(birthYear);
-            break;
-
-        case 4:
-            cout << "Enter a death year: ";
-            cin >> tmp3;
-            deathYear = atoi(tmp3.c_str());
-            mainList.at(choice).setDeathYear(deathYear);
-            break;
-
-        case 0:
-            exit(0);
-            break;
-
-        default:
+        if(gender != 1 && gender != 0)
+        {
+            cout << "Invalid Input!" << endl;
+            cout << "--------------" << endl;
             updatePersonScreen();
-            break;
+        }
+        if(gender == 0)
+        {
+            tmpGender = "Female";
+            mainList.at(choice).setGender(tmpGender);
+        }
+        if(gender == 1)
+        {
+            tmpGender = "Male";
+            mainList.at(choice).setGender(tmpGender);
+        }
+        break;
+
+    case 3:
+        cout << "Enter a birth year: ";
+        cin >> tmp3;
+        birthYear = atoi(tmp3.c_str());
+        mainList.at(choice).setBirthYear(birthYear);
+        break;
+
+    case 4:
+        cout << "Enter a death year: ";
+        cin >> tmp3;
+        deathYear = atoi(tmp3.c_str());
+        mainList.at(choice).setDeathYear(deathYear);
+        break;
+
+    case 0:
+        exit(0);
+        break;
+
+    default:
+        updatePersonScreen();
+        break;
     }
     d1.updatePerson(mainList.at(choice));
 }
@@ -1072,60 +1072,60 @@ void RepLayer::updateComputerScreen()
 
     switch(choiceUpdate)
     {
-        case 1:
-            cout << "Enter a name: ";
-            cin.ignore();
-            getline(cin,tmp2);
-            tmp2 = fixName(tmp2);
-            mainCompList.at(choice).setName(tmp2);
-            break;
+    case 1:
+        cout << "Enter a name: ";
+        cin.ignore();
+        getline(cin,tmp2);
+        tmp2 = fixName(tmp2);
+        mainCompList.at(choice).setName(tmp2);
+        break;
 
-        case 2:
-            cout << "Enter a built year: ";
-            cin >> tmp3;
-            builtYear = atoi(tmp3.c_str());
-            mainCompList.at(choice).setBuiltYear(builtYear);
-            break;
+    case 2:
+        cout << "Enter a built year: ";
+        cin >> tmp3;
+        builtYear = atoi(tmp3.c_str());
+        mainCompList.at(choice).setBuiltYear(builtYear);
+        break;
 
-        case 3:
-            cout << "Enter a type: ";
-            cin.ignore();
-            getline(cin,tmp2);
-            tmp2 = fixName(tmp2);
-            mainCompList.at(choice).setType(tmp2);
-            break;
+    case 3:
+        cout << "Enter a type: ";
+        cin.ignore();
+        getline(cin,tmp2);
+        tmp2 = fixName(tmp2);
+        mainCompList.at(choice).setType(tmp2);
+        break;
 
-        case 4:
-            cout << "Was the computer built? (0 for Yes and 1 for No): ";
-            cin >> tmp3;
-            made = atoi(tmp3.c_str());
+    case 4:
+        cout << "Was the computer built? (0 for Yes and 1 for No): ";
+        cin >> tmp3;
+        made = atoi(tmp3.c_str());
 
-            if(made != 1 && made != 0)
-            {
-                cout << "Invalid Input!" << endl;
-                cout << "--------------" << endl;
-                updatePersonScreen();
-            }
-            if(made == 0)
-            {
-                tmpMade = "Yes";
-                mainCompList.at(choice).setBuiltComputer(tmpMade);
-            }
-            if(made == 1)
-            {
-                tmpMade = "No";
-                mainCompList.at(choice).setBuiltComputer(tmpMade);
-            }
-            break;
+        if(made != 1 && made != 0)
+        {
+            cout << "Invalid Input!" << endl;
+            cout << "--------------" << endl;
+            updatePersonScreen();
+        }
+        if(made == 0)
+        {
+            tmpMade = "Yes";
+            mainCompList.at(choice).setBuiltComputer(tmpMade);
+        }
+        if(made == 1)
+        {
+            tmpMade = "No";
+            mainCompList.at(choice).setBuiltComputer(tmpMade);
+        }
+        break;
 
-        case 0:
-            exit(0);
-            break;
+    case 0:
+        exit(0);
+        break;
 
-        default:
+    default:
         cout << "Invalid input" <<endl;
-            updateComputerScreen();
-            break;
+        updateComputerScreen();
+        break;
     }
     d1.updateComputer(mainCompList.at(choice));
 }
