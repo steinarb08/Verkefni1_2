@@ -484,14 +484,20 @@ void RepLayer::addToListComp()
     newComp = fixName(newComp);
     newType = fixName(newType);
 
-    cout << newComp << " has been added!" << endl;
-    cout << endl;
 
-    Computer newC(newComp, newBuiltYear, newType, newBuiltComp);
-    d1.addComputerToDB(newC);
-    loadFromFile();
-    //mainCompList.push_back(newC);
 
+    if(newComp != "")
+    {
+        Computer newC(newComp, newBuiltYear, newType, newBuiltComp);
+        d1.addComputerToDB(newC);
+        loadFromFile();
+        cout << newComp << " has been added!" << endl;
+        cout << endl;
+    }
+    else
+    {
+        cout << "Input error, computer not added."<<endl;
+    }
 }
 
 // Screen that gives the user several search options and then calls
