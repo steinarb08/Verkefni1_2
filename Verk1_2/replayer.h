@@ -91,6 +91,15 @@ public:
     void printListCPlinkNum();
     // Prints nr in front of every name. User choose what he wants to remove.
 
+    void searchCPLink();
+    // Search for link between persons and computer
+
+    void  searchCompLink();
+    // Search for computers in link
+
+    void searchListLink();
+    //Search for persons in link
+
 private:
     // List of Persons to work with.
     vector<Person> mainList;

@@ -711,7 +711,8 @@ void RepLayer::startScreenCpLink()
     cout << "1) Print list" << endl;
     cout << "2) Add to list" << endl;
     cout << "3) Remove from list" << endl;
-    cout << "4) Exit" << endl;
+    cout << "4) Search link" << endl;
+    cout << "5) Exit" << endl;
     int choice;
     string tmpChoice = "";
     cin >> tmpChoice;
@@ -732,6 +733,10 @@ void RepLayer::startScreenCpLink()
             break;
 
         case 4:
+            searchCPLink();
+            break;
+
+        case 5:
             exit(0);
             break;
     }
@@ -761,3 +766,170 @@ void RepLayer::printListCPlinkNum()
         cout << CPlist.at(i) << endl;
     }
 }
+
+void RepLayer::searchCPLink()
+{
+    cout << "Choose one search option" << endl;
+    cout << "------------------------" << endl;
+    cout << "1) Search by computers" << endl;
+    cout << "2) Search by persons" << endl;
+    cout << "3) Exit " << endl;
+
+    int choice;
+    string tmpChoice = "";
+    cin >> tmpChoice;
+    choice = atoi(tmpChoice.c_str());
+
+    switch(choice)
+    {
+    case 1:
+        searchCompLink();
+        break;
+
+    case 2:
+        searchListLink();
+        break;
+
+    case 3:
+        exit(0);
+        break;
+
+    default:
+        cout << "Invalid input! " << endl;
+        searchCPLink();
+        break;
+    }
+}
+
+void RepLayer::searchCompLink()
+{
+    cout << "Choose one option" << endl;
+    cout << "1) Search computer" << endl;
+    cout << "2) Search build year" << endl;
+    cout << "3) Search a type of computer" << endl;
+    cout << "4) Search for if it was made" << endl;
+    cout << "5) Exit" << endl;
+    string tmpChoice = "";
+    cin >> tmpChoice;
+    int searchChoice = atoi(tmpChoice.c_str());
+    int searchInteger;
+    bool yesno =false;
+    vector<string> CPlist;
+    switch(searchChoice)
+    {
+        case 1:
+            cout << "Type a computer: ";
+            cin.ignore();
+            getline(cin,tmpChoice);
+            CPlist = d1.searchLinkByComputerName(tmpChoice);
+            break;
+        case 2:
+            cout << "Type a build year: ";
+            cin.ignore();
+            getline(cin,tmpChoice);
+            searchInteger = atoi(tmpChoice.c_str());
+            CPlist = d1.searchLinkByComputerYear(searchInteger);
+            break;
+        case 3:
+            cout << "Type a computer type: ";
+            cin.ignore();
+            getline(cin,tmpChoice);
+            CPlist = d1.searchLinkByComputerType(tmpChoice);
+            break;
+
+        case 4:
+            cout << "Was it made(Yes or No): ";
+            cin.ignore();
+            getline(cin,tmpChoice);
+            tmpChoice = fixName(tmpChoice);
+            cout << tmpChoice<<endl;
+            CPlist = d1.searchLinkByComputerMade(tmpChoice);
+
+            break;
+
+        case 5:
+            exit(0);
+            break;
+
+        default:
+            searchComp();
+            break;
+
+    }
+
+    if(searchChoice==4 && (tmpChoice!="Yes"&&tmpChoice !="No"))
+    {
+    }
+    else
+    {
+        cout << "Links between Computers and Scientists" << endl;
+        cout << "--------------------------------------------------" << endl;
+        for (unsigned int i = 0; i < CPlist.size(); i++) {
+            cout << CPlist.at(i) << endl;
+        }
+        cout << "--------------------------------------------------" << endl;
+    }
+}
+
+void RepLayer::searchListLink()
+{
+    int searchChoice;
+    cout << "Choose one option: " << endl;
+    cout << "1) Search by name" << endl;
+    cout << "2) Search by gender" << endl;
+    cout << "3) Search by year of birth" << endl;
+    cout << "4) Search by year of death" << endl;
+
+    int searchBirthYear, searchDeathYear;
+    string searchName, searchGender;
+    string tmpChoice = "";
+    cin >> tmpChoice;
+    searchChoice = atoi(tmpChoice.c_str());
+    vector<string> CPlist;
+    switch(searchChoice)
+    {
+        case 1:
+            cout << "Type a name: ";
+            cin.ignore();
+            getline(cin,searchName);
+            CPlist = d1.searchLinkByPersonName(searchName);
+            break;
+        case 2:
+            cout << "Type a gender: ";
+            cin.ignore();
+            getline(cin,searchGender);
+            CPlist = d1.searchLinkByPersonGender(searchGender);
+            break;
+
+        case 3:
+            cout << "Type a year of birth: ";
+            cin.ignore();
+            getline(cin,tmpChoice);
+            searchBirthYear = atoi(tmpChoice.c_str());
+            CPlist = d1.searchLinkByPersonBirthyear(searchBirthYear);
+            break;
+
+        case 4:
+            cout << "Type a year of death: ";
+            cin.ignore();
+            getline(cin,tmpChoice);
+            searchDeathYear = atoi(tmpChoice.c_str());
+            CPlist = d1.searchLinkByPersonDeathYear(searchDeathYear);
+            break;
+
+        default:
+            cout << "Number not available"<< endl;
+            searchList();
+    }
+
+    cout << "Links between Computers and Scientists" << endl;
+    cout << "--------------------------------------------------" << endl;
+
+
+
+    for (unsigned int i = 0; i < CPlist.size(); i++) {
+        cout << CPlist.at(i) << endl;
+    }
+    cout << "--------------------------------------------------" << endl;
+}
+
