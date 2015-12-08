@@ -95,7 +95,7 @@ void RepLayer::test()
 
 }
 
-// Start screen of the program, gives the user options to chose from.
+// Start screen of the program, gives the user options to choorse from.
 void RepLayer::startScreen()
 {
     cout << "Choose one option: " << endl;
@@ -193,6 +193,7 @@ void RepLayer::addToList()
             mainList.push_back(newP);
             d1.addPersonToDB(newP);
             saveToFile();
+            loadFromFile();
         }
         else if(newBirthYear > newDeathYear)
         {
@@ -219,6 +220,7 @@ void RepLayer::loadFromFile()
 {
     mainList = d1.loadPerson();
     mainCompList = d1.loadComputer();
+    CPlinkList = d1.loadLink();
 }
 
 // Save the current list to file by calling the data layer
@@ -385,6 +387,7 @@ void RepLayer::removeFromList()
     cin>>tmp;
     int choice = atoi(tmp.c_str());
     d1.deleteFromPerson(mainList.at(choice));
+    loadFromFile();
 }
 
 // Start screen of the program, gives the user options to choose from.
@@ -514,7 +517,8 @@ void RepLayer::addToListComp()
 
     Computer newC(newComp, newBuiltYear, newType, newBuiltComp);
     d1.addComputerToDB(newC);
-    mainCompList.push_back(newC);
+    loadFromFile();
+    //mainCompList.push_back(newC);
 
 }
 
@@ -661,6 +665,7 @@ void RepLayer::removeComp()
     cin >> tmp;
     int choice = atoi(tmp.c_str());
     d1.deleteFromComputer(mainCompList.at(choice));
+    loadFromFile();
 }
 
 // Prints a list of every computer.
@@ -722,11 +727,35 @@ void RepLayer::startScreenCpLink()
             break;
 
         case 3:
-            // Remove..
+            removeLinks();
             break;
 
         case 4:
             exit(0);
             break;
+    }
+}
+
+void RepLayer::removeLinks()
+{
+    printListCPlinkNum();
+    cout<< "Choose a nr to remove: ";
+    string tmp = "";
+    cin >> tmp;
+    int choice = atoi(tmp.c_str());
+    d1.deleteFromCPlink(CPlinkList.at(choice));
+    loadFromFile();
+
+}
+
+void RepLayer::printListCPlinkNum()
+{
+    cout << "Choose one number to remove" << endl;
+    cout << "---------------------------" << endl;
+
+    for (unsigned int i = 0; i < CPlinkList.size(); i++) {
+        cout << i;
+        cout << ") ";
+        //cout << CPlinkList.at(i). << endl;
     }
 }

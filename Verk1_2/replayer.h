@@ -85,6 +85,12 @@ public:
     void removeComp();
     // Remove nr list of computer
 
+    void removeLinks();
+    // Removes connections between computer and persons
+
+    void printListCPlinkNum();
+    // Prints nr in front of every name. User choose what he wants to remove.
+
 private:
     // List of Persons to work with.
     vector<Person> mainList;
