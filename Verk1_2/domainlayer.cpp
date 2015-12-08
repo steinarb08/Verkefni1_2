@@ -140,13 +140,13 @@ vector<Computer> DomainLayer::sortTypeReverse_C()
     return d1.loadDbComputerSort("type",0);
 }
 
-//Sorts the computer list by whether it was made or not in alphabetical order.
+// Sorts the computer list by whether it was made or not in alphabetical order.
 vector<Computer> DomainLayer::sortMade_C()
 {
     return d1.loadDbComputerSort("made",1);
 }
 
-//Sorts the comptuer list by whether it was made or not in reverse alphabetical order.
+// Sorts the comptuer list by whether it was made or not in reverse alphabetical order.
 vector<Computer> DomainLayer::sortMadeReverse_C()
 {
     return d1.loadDbComputerSort("made",0);
@@ -218,7 +218,7 @@ void DomainLayer::createDb()
     d1.dropTables();
     d1.createTables();
 }
-
+// Searches for a substring (searchString) in the type of each link by person name in a list, returns a sublist that has those substrings.
 vector<string> DomainLayer::searchLinkByPersonName(string name)
 {
     vector<CPlink> links = d1.searchLinkByPerson("pname",name);
@@ -230,7 +230,7 @@ vector<string> DomainLayer::searchLinkByPersonName(string name)
     }
     return returnVector;
 }
-
+// Searches for a substring (searchString) in the type of each link by person gender in a list, returns a sublist that has those substrings.
 vector<string> DomainLayer::searchLinkByPersonGender(string gender)
 {
     vector<CPlink> links = d1.searchLinkByPerson("gender",gender);
@@ -242,7 +242,7 @@ vector<string> DomainLayer::searchLinkByPersonGender(string gender)
     }
     return returnVector;
 }
-
+// Searches for a substring (searchString) in the type of each link by person birth year in a list, returns a sublist that has those substrings.
 vector<string> DomainLayer::searchLinkByPersonBirthyear(int year)
 {
     vector<CPlink> links = d1.searchLinkByPerson("birthyear",intToString(year));
@@ -254,7 +254,7 @@ vector<string> DomainLayer::searchLinkByPersonBirthyear(int year)
     }
     return returnVector;
 }
-
+// Searches for a substring (searchString) in the type of each link by person death year in a list, returns a sublist that has those substrings.
 vector<string> DomainLayer::searchLinkByPersonDeathYear(int year)
 {
     vector<CPlink> links = d1.searchLinkByPerson("deathyear",intToString(year));
@@ -267,7 +267,7 @@ vector<string> DomainLayer::searchLinkByPersonDeathYear(int year)
     return returnVector;
 }
 
-
+// Searches for a substring (searchString) in the type of each link Computer name, returns a sublist that has those substrings.
 vector<string> DomainLayer::searchLinkByComputerName(string name)
 {
     vector<CPlink> links = d1.searchLinkByComputer("cname",name);
@@ -279,7 +279,7 @@ vector<string> DomainLayer::searchLinkByComputerName(string name)
     }
     return returnVector;
 }
-
+// Searches for a substring (searchString) in the type of each link Computer built year, returns a sublist that has those substrings.
 vector<string> DomainLayer::searchLinkByComputerMade(string made)
 {
     vector<CPlink> links = d1.searchLinkByComputer("made",made);
@@ -291,7 +291,7 @@ vector<string> DomainLayer::searchLinkByComputerMade(string made)
     }
     return returnVector;
 }
-
+// Searches for a substring (searchString) in the type of each link Computer type, returns a sublist that has those substrings.
 vector<string> DomainLayer::searchLinkByComputerType(string type)
 {
     vector<CPlink> links = d1.searchLinkByComputer("type",type);
@@ -303,7 +303,7 @@ vector<string> DomainLayer::searchLinkByComputerType(string type)
     }
     return returnVector;
 }
-
+// Searches for a substring (searchString) in the type of each link Computer year, returns a sublist that has those substrings.
 vector<string> DomainLayer::searchLinkByComputerYear(int year)
 {
     vector<CPlink> links = d1.searchLinkByComputer("byear",intToString(year));
@@ -315,12 +315,12 @@ vector<string> DomainLayer::searchLinkByComputerYear(int year)
     }
     return returnVector;
 }
-
+// Return a update person.
 vector<Person> DomainLayer::updatePerson(Person p1)
 {
     return d1.updateDbPerson(p1);
 }
-
+// Return a update computer.
 vector<Computer> DomainLayer::updateComputer(Computer c1)
 {
     return d1.updateDbComputer(c1);

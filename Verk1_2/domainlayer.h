@@ -126,17 +126,35 @@ public:
     // Convert int to string
 
     vector<string> searchLinkByPersonName(string name);
+    // Searches for a substring (searchString) in the type of each link by person name in a list, returns a sublist that has those substrings.
+
     vector<string> searchLinkByPersonGender(string gender);
+    // Searches for a substring (searchString) in the type of each link by person gender in a list, returns a sublist that has those substrings.
+
     vector<string> searchLinkByPersonBirthyear(int year);
+    // Searches for a substring (searchString) in the type of each link by person birth year in a list, returns a sublist that has those substrings.
+
     vector<string> searchLinkByPersonDeathYear(int year);
+    // Searches for a substring (searchString) in the type of each link by person death year in a list, returns a sublist that has those substrings.
 
     vector<string> searchLinkByComputerName(string name);
+    // Searches for a substring (searchString) in the type of each link Computer name, returns a sublist that has those substrings.
+
     vector<string> searchLinkByComputerMade(string made);
+    // Searches for a substring (searchString) in the type of each link Computer built year, returns a sublist that has those substrings.
+
     vector<string> searchLinkByComputerType(string type);
+    // Searches for a substring (searchString) in the type of each link Computer type, returns a sublist that has those substrings.
+
     vector<string> searchLinkByComputerYear(int year);
+    // Searches for a substring (searchString) in the type of each link Computer year, returns a sublist that has those substrings.
 
     vector<Person> updatePerson(Person p1);
+    // Return a update person.
+
     vector<Computer> updateComputer(Computer c1);
+    // Return a update computer.
+
 private:
     DataLayer d1;
 };
