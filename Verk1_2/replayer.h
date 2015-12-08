@@ -23,10 +23,10 @@ public:
     // Prints a list of every Person in a list and numbers them.
 
     void startScreen();
-    // Start screen of the program for persons, gives the user options to chose from.
+    // Start screen of the program for persons, gives the user options to choose from.
 
     void addToList();
-    // Add a person to the list
+    // Adds a person to the list.
 
     void loadFromFile();
     // Loads a list from file by calling to the data layer.
@@ -77,13 +77,13 @@ public:
     // Prints a list of every Computer in a list and numbers them.
 
     void removeComp();
-    // Remove nr list of computer
+    // Remove from computer list
 
     void removeLinks();
     // Removes connections between computer and persons
 
     void printListCPlinkNum();
-    // Prints nr in front of every name. User choose what he wants to remove.
+    // Prints nr in front of every name for user to choose from.
 
     void searchCPLink();
     // Search for link between persons and computer
@@ -92,16 +92,19 @@ public:
     // Search for computers in link
 
     void searchListLink();
-    //Search for persons in link
+    // Search for persons in link
 
     void updatePersonScreen();
+    // Screen for updating person.
 
     void printSinglePerson(vector<Person> personList, int choice);
-
+    //
 
     void updateComputerScreen();
+    //Screen for updating computer.
 
     void printSingleComp(vector<Computer> compList, int choice);
+    //
 
 private:
     // List of Persons to work with.

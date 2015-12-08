@@ -366,6 +366,7 @@ void RepLayer::firstStartScreen()
     cout << "0) Exit" << endl;
 
     int choice;
+    int tmpChoice1;
     string tmpChoice = "";
     cin >> tmpChoice;
     choice = atoi(tmpChoice.c_str());
@@ -385,8 +386,26 @@ void RepLayer::firstStartScreen()
         break;
 
     case 4:
-        d1.createDb();
-        break;
+        cout << "Are you Sure (Deletes database) ?" << endl;
+        cout << "1) Yes" << endl;
+        cout << "0) No" << endl;
+
+        cin >> tmpChoice1;
+        switch (tmpChoice1)
+        {
+        case 1:
+            d1.createDb();
+            firstStartScreen();
+            break;
+
+        case 0:
+            firstStartScreen();
+            break;
+
+        default:
+            firstStartScreen();
+            break;
+        }
 
     case 0:
         exit(0);
