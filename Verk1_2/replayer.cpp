@@ -60,6 +60,7 @@ void RepLayer::startScreen()
     cout << "2) Add to list" << endl;
     cout << "3) Search " << endl;
     cout << "4) Remove from list " << endl;
+    cout << "5) Update person from list" << endl;
     cout << "0) Exit " << endl;
     int choice;
     string tmpChoice = "";
@@ -82,6 +83,10 @@ void RepLayer::startScreen()
 
     case 4:
         removeFromList();
+        break;
+
+    case 5:
+        updatePersonScreen();
         break;
 
     case 0:
@@ -402,6 +407,7 @@ void RepLayer::startScreenComputer()
     cout << "2) Add to list" << endl;
     cout << "3) Search" << endl;
     cout << "4) Remove from list" << endl;
+    cout << "5) Update computer from list"<<endl;
     cout << "0) Exit" << endl;
     int choice;
     string tmpChoice = "";
@@ -426,6 +432,9 @@ void RepLayer::startScreenComputer()
         removeComp();
         break;
 
+    case 5:
+        updateComputerScreen();
+        break;
     case 0:
         exit(0);
         break;
@@ -935,3 +944,198 @@ void RepLayer::searchListLink()
     cout << "--------------------------------------------------" << endl;
 }
 
+void RepLayer::updatePersonScreen()
+{
+    printListNum(mainList);
+    cout << "Choose nr to update: ";
+    string tmp = "";
+    cin >> tmp;
+    int choice = atoi(tmp.c_str());
+
+    printSinglePerson(mainList, choice);
+
+    cout << "Press 0 to update name" << endl;
+    cout << "Press 1 to update gender" << endl;
+    cout << "Press 2 to update birth year" << endl;
+    cout << "Press 3 to update death year" << endl;
+    cout << "Press 4 to EXIT" << endl;
+
+    string tmp2 = "";
+    cin >> tmp2;
+    int choiceUpdate = atoi(tmp2.c_str());
+
+    string tmp3 = "";
+    string tmpGender;
+    int birthYear, deathYear, gender;
+
+
+    switch(choiceUpdate)
+    {
+        case 0:
+            cout << "Enter a name: ";
+            cin.ignore();
+            getline(cin,tmp2);
+            tmp2 = fixName(tmp2);
+            mainList.at(choice).setName(tmp2);
+            break;
+
+        case 1:
+            cout << "Enter a gender (0 for Female and 1 for Male): ";
+            cin >> tmp3;
+            gender = atoi(tmp3.c_str());
+
+            if(gender != 1 && gender != 0)
+            {
+                cout << "Invalid Input!" << endl;
+                cout << "--------------" << endl;
+                updatePersonScreen();
+            }
+            if(gender == 0)
+            {
+                tmpGender = "Female";
+                mainList.at(choice).setGender(tmpGender);
+            }
+            if(gender == 1)
+            {
+                tmpGender = "Male";
+                mainList.at(choice).setGender(tmpGender);
+            }
+            break;
+
+        case 2:
+            cout << "Enter a birth year: ";
+            cin >> tmp3;
+            birthYear = atoi(tmp3.c_str());
+            mainList.at(choice).setBirthYear(birthYear);
+            break;
+
+        case 3:
+            cout << "Enter a death year: ";
+            cin >> tmp3;
+            deathYear = atoi(tmp3.c_str());
+            mainList.at(choice).setDeathYear(deathYear);
+            break;
+
+        case 4:
+            exit(0);
+            break;
+
+        default:
+            updatePersonScreen();
+            break;
+    }
+    d1.updatePerson(mainList.at(choice));
+}
+
+void RepLayer::printSinglePerson(vector<Person> personList, int choice){
+    cout << "Name - Gender - Year of birth - Year of death" << endl;
+    cout << "---------------------------------------------" << endl;
+    cout << personList.at(choice).getName() << " - ";
+    cout << personList.at(choice).getGender() << " - ";
+    cout << personList.at(choice).getBirthYear() << " - ";
+    // If not still alive
+    if(personList.at(choice).getDeathYear() != -1)
+    {
+        cout << personList.at(choice).getDeathYear() << endl;
+    }
+    else
+    {
+        cout << "alive"<<endl;
+    }
+    cout << "---------------------------------------------" << endl;
+
+}
+
+void RepLayer::updateComputerScreen()
+{
+    printListNumComp(mainCompList);
+    cout << "Choose nr to update: ";
+    string tmp = "";
+    cin >> tmp;
+    int choice = atoi(tmp.c_str());
+
+    printSingleComp(mainCompList, choice);
+
+    cout << "Press 0 to update name" << endl;
+    cout << "Press 1 to update built year" << endl;
+    cout << "Press 2 to update type" << endl;
+    cout << "Press 3 to update whether it was built or not" << endl;
+    cout << "Press 4 to EXIT" << endl;
+
+    string tmp2 = "";
+    cin >> tmp2;
+    int choiceUpdate = atoi(tmp2.c_str());
+
+    string tmp3 = "";
+    string tmpMade;
+    int builtYear, made;
+
+    switch(choiceUpdate)
+    {
+        case 0:
+            cout << "Enter a name: ";
+            cin.ignore();
+            getline(cin,tmp2);
+            tmp2 = fixName(tmp2);
+            mainCompList.at(choice).setName(tmp2);
+            break;
+
+        case 1:
+            cout << "Enter a built year: ";
+            cin >> tmp3;
+            builtYear = atoi(tmp3.c_str());
+            mainCompList.at(choice).setBuiltYear(builtYear);
+            break;
+
+        case 2:
+            cout << "Enter a type: ";
+            cin.ignore();
+            getline(cin,tmp2);
+            tmp2 = fixName(tmp2);
+            mainCompList.at(choice).setType(tmp2);
+            break;
+
+        case 3:
+            cout << "Was the computer built? (0 for Yes and 1 for No): ";
+            cin >> tmp3;
+            made = atoi(tmp3.c_str());
+
+            if(made != 1 && made != 0)
+            {
+                cout << "Invalid Input!" << endl;
+                cout << "--------------" << endl;
+                updatePersonScreen();
+            }
+            if(made == 0)
+            {
+                tmpMade = "Yes";
+                mainCompList.at(choice).setBuiltComputer(tmpMade);
+            }
+            if(made == 1)
+            {
+                tmpMade = "No";
+                mainCompList.at(choice).setBuiltComputer(tmpMade);
+            }
+            break;
+
+        case 4:
+            exit(0);
+            break;
+
+        default:
+            updateComputerScreen();
+            break;
+    }
+    d1.updateComputer(mainCompList.at(choice));
+}
+
+void RepLayer::printSingleComp(vector<Computer> compList, int choice)
+{
+    cout << "Computer - Build Year - Type - Was it Built" << endl;
+    cout << "--------------------------------------------------" << endl;
+    cout << compList.at(choice).getName() << " - ";
+    cout << compList.at(choice).getBuiltYear() << " - ";
+    cout << compList.at(choice).getType() << " - ";
+    cout << compList.at(choice).getBuiltComputer() << endl;
+    cout << "--------------------------------------------------" << endl;
+}

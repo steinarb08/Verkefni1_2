@@ -136,7 +136,7 @@ public:
     vector<string> searchLinkByComputerYear(int year);
 
     vector<Person> updatePerson(Person p1);
-    vector<Computer> updatePerson(Computer c1);
+    vector<Computer> updateComputer(Computer c1);
 private:
     DataLayer d1;
 };

@@ -321,7 +321,7 @@ vector<Person> DomainLayer::updatePerson(Person p1)
     return d1.updateDbPerson(p1);
 }
 
-vector<Computer> DomainLayer::updatePerson(Computer c1)
+vector<Computer> DomainLayer::updateComputer(Computer c1)
 {
     return d1.updateDbComputer(c1);
 }

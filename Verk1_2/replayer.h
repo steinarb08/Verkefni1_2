@@ -94,6 +94,15 @@ public:
     void searchListLink();
     //Search for persons in link
 
+    void updatePersonScreen();
+
+    void printSinglePerson(vector<Person> personList, int choice);
+
+
+    void updateComputerScreen();
+
+    void printSingleComp(vector<Computer> compList, int choice);
+
 private:
     // List of Persons to work with.
     vector<Person> mainList;
