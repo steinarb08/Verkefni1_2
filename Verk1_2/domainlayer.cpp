@@ -218,3 +218,100 @@ void DomainLayer::createDb()
     d1.dropTables();
     d1.createTables();
 }
+
+vector<string> DomainLayer::searchLinkByPersonName(string name)
+{
+    vector<CPlink> links = d1.searchLinkByPerson("pname",name);
+    vector<string> returnVector;
+    for(unsigned int i=0;i<links.size();i++)
+    {
+        string line = d1.getPersonFromId(links.at(i).getPersonId()).getName() + " is connected to " + d1.getComputerFromId(links.at(i).getComputerId()).getName();
+        returnVector.push_back(line);
+    }
+    return returnVector;
+}
+
+vector<string> DomainLayer::searchLinkByPersonGender(string gender)
+{
+    vector<CPlink> links = d1.searchLinkByPerson("gender",gender);
+    vector<string> returnVector;
+    for(unsigned int i=0;i<links.size();i++)
+    {
+        string line = d1.getPersonFromId(links.at(i).getPersonId()).getName() + " is connected to " + d1.getComputerFromId(links.at(i).getComputerId()).getName();
+        returnVector.push_back(line);
+    }
+    return returnVector;
+}
+
+vector<string> DomainLayer::searchLinkByPersonBirthyear(int year)
+{
+    vector<CPlink> links = d1.searchLinkByPerson("birthyear",intToString(year));
+    vector<string> returnVector;
+    for(unsigned int i=0;i<links.size();i++)
+    {
+        string line = d1.getPersonFromId(links.at(i).getPersonId()).getName() + " is connected to " + d1.getComputerFromId(links.at(i).getComputerId()).getName();
+        returnVector.push_back(line);
+    }
+    return returnVector;
+}
+
+vector<string> DomainLayer::searchLinkByPersonDeathYear(int year)
+{
+    vector<CPlink> links = d1.searchLinkByPerson("deathyear",intToString(year));
+    vector<string> returnVector;
+    for(unsigned int i=0;i<links.size();i++)
+    {
+        string line = d1.getPersonFromId(links.at(i).getPersonId()).getName() + " is connected to " + d1.getComputerFromId(links.at(i).getComputerId()).getName();
+        returnVector.push_back(line);
+    }
+    return returnVector;
+}
+
+
+vector<string> DomainLayer::searchLinkByComputerName(string name)
+{
+    vector<CPlink> links = d1.searchLinkByComputer("cname",name);
+    vector<string> returnVector;
+    for(unsigned int i=0;i<links.size();i++)
+    {
+        string line = d1.getPersonFromId(links.at(i).getPersonId()).getName() + " is connected to " + d1.getComputerFromId(links.at(i).getComputerId()).getName();
+        returnVector.push_back(line);
+    }
+    return returnVector;
+}
+
+vector<string> DomainLayer::searchLinkByComputerMade(string made)
+{
+    vector<CPlink> links = d1.searchLinkByComputer("made",made);
+    vector<string> returnVector;
+    for(unsigned int i=0;i<links.size();i++)
+    {
+        string line = d1.getPersonFromId(links.at(i).getPersonId()).getName() + " is connected to " + d1.getComputerFromId(links.at(i).getComputerId()).getName();
+        returnVector.push_back(line);
+    }
+    return returnVector;
+}
+
+vector<string> DomainLayer::searchLinkByComputerType(string type)
+{
+    vector<CPlink> links = d1.searchLinkByComputer("type",type);
+    vector<string> returnVector;
+    for(unsigned int i=0;i<links.size();i++)
+    {
+        string line = d1.getPersonFromId(links.at(i).getPersonId()).getName() + " is connected to " + d1.getComputerFromId(links.at(i).getComputerId()).getName();
+        returnVector.push_back(line);
+    }
+    return returnVector;
+}
+
+vector<string> DomainLayer::searchLinkByComputerYear(int year)
+{
+    vector<CPlink> links = d1.searchLinkByComputer("byear",intToString(year));
+    vector<string> returnVector;
+    for(unsigned int i=0;i<links.size();i++)
+    {
+        string line = d1.getPersonFromId(links.at(i).getPersonId()).getName() + " is connected to " + d1.getComputerFromId(links.at(i).getComputerId()).getName();
+        returnVector.push_back(line);
+    }
+    return returnVector;
+}

@@ -124,6 +124,16 @@ public:
 
     string intToString(int n);
     // Convert int to string
+
+    vector<string> searchLinkByPersonName(string name);
+    vector<string> searchLinkByPersonGender(string gender);
+    vector<string> searchLinkByPersonBirthyear(int year);
+    vector<string> searchLinkByPersonDeathYear(int year);
+
+    vector<string> searchLinkByComputerName(string name);
+    vector<string> searchLinkByComputerMade(string made);
+    vector<string> searchLinkByComputerType(string type);
+    vector<string> searchLinkByComputerYear(int year);
 private:
     DataLayer d1;
 };

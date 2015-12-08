@@ -491,3 +491,5 @@ vector<CPlink> DataLayer::searchLinkByComputer(string column,string value)
     db.close();
     return newList;
 }
+
+
