@@ -531,7 +531,8 @@ void RepLayer::searchComp()
     cout << "1) Search computer" << endl;
     cout << "2) Search build year" << endl;
     cout << "3) Search a type of computer" << endl;
-    cout << "4) Exit" << endl;
+    cout << "4) Search for was it made" << endl;
+    cout << "5) Exit" << endl;
     string tmpChoice = "";
     cin >> tmpChoice;
     int searchChoice = atoi(tmpChoice.c_str());
@@ -552,13 +553,20 @@ void RepLayer::searchComp()
             printListComp(d1.searchYear_C(searchInteger));
             break;
         case 3:
-            cout << "Type a build year: ";
+            cout << "Type a computer type ";
             cin.ignore();
             getline(cin,tmpChoice);
             printListComp(d1.searchType_C(tmpChoice));
             break;
 
         case 4:
+            cout << "Was it made(Yes or No): ";
+            cin.ignore();
+            getline(cin,tmpChoice);
+            tmpChoice = fixName(tmpChoice);
+            printListComp(d1.searchMade_C(tmpChoice));
+            break;
+        case 5:
             exit(0);
             break;
 
@@ -841,9 +849,7 @@ void RepLayer::searchCompLink()
             cin.ignore();
             getline(cin,tmpChoice);
             tmpChoice = fixName(tmpChoice);
-            cout << tmpChoice<<endl;
             CPlist = d1.searchLinkByComputerMade(tmpChoice);
-
             break;
 
         case 5:
