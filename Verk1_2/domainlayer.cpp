@@ -315,3 +315,13 @@ vector<string> DomainLayer::searchLinkByComputerYear(int year)
     }
     return returnVector;
 }
+
+vector<Person> DomainLayer::updatePerson(Person p1)
+{
+    return d1.updateDbPerson(p1);
+}
+
+vector<Computer> DomainLayer::updatePerson(Computer c1)
+{
+    return d1.updateDbComputer(c1);
+}
