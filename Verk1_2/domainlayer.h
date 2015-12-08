@@ -30,7 +30,7 @@ public:
     //Sorts the list by gender in reverse alphabetical order.
 
     vector<Person> sortBirthYear();
-     //Sorts the list by year of birth in ascending order.
+    //Sorts the list by year of birth in ascending order.
 
     vector<Person> sortBirthYearDescending();
     //Sorts the list by year of birth in descending order.

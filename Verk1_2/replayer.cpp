@@ -68,30 +68,30 @@ void RepLayer::startScreen()
 
     switch(choice)
     {
-        case 1:
-            sortList();
-            break;
+    case 1:
+        sortList();
+        break;
 
-        case 2:
-            addToList();
-            break;
+    case 2:
+        addToList();
+        break;
 
-        case 3:
-            searchList();
-            break;
+    case 3:
+        searchList();
+        break;
 
-        case 4:
-            removeFromList();
-            break;
+    case 4:
+        removeFromList();
+        break;
 
-        case 0:
-            exit(0);
-            break;
+    case 0:
+        exit(0);
+        break;
 
-        default:
-            cout << "Invalid input! " << endl;
-            startScreen();
-            break;
+    default:
+        cout << "Invalid input! " << endl;
+        startScreen();
+        break;
     }
 }
 
@@ -153,9 +153,9 @@ void RepLayer::addToList()
         }
         else if(newBirthYear > newDeathYear && newName != "")
         {
-           cout << "Invalid year of death" << endl;
-           cout << "-------------------" << endl;
-           addToList();
+            cout << "Invalid year of death" << endl;
+            cout << "-------------------" << endl;
+            addToList();
         }
         else if(newName != "")
         {
@@ -202,43 +202,43 @@ void RepLayer::searchList()
     searchChoice = atoi(tmpChoice.c_str());
     switch(searchChoice)
     {
-        case 1:
-            cout << "Type a name: ";
-            cin.ignore();
-            getline(cin,searchName);
-            printList(d1.searchNameFunc(searchName));
-            break;
-        case 2:
-            cout << "Type a gender: ";
-            cin.ignore();
-            getline(cin,searchGender);
-            printList(d1.searchGenderFunc(searchGender));
-            break;
+    case 1:
+        cout << "Type a name: ";
+        cin.ignore();
+        getline(cin,searchName);
+        printList(d1.searchNameFunc(searchName));
+        break;
+    case 2:
+        cout << "Type a gender: ";
+        cin.ignore();
+        getline(cin,searchGender);
+        printList(d1.searchGenderFunc(searchGender));
+        break;
 
-        case 3:
-            cout << "Type a year of birth: ";
-            cin.ignore();
-            getline(cin,tmpChoice);
-            searchBirthYear = atoi(tmpChoice.c_str());
-            printList(d1.searchBirthYearFunc(searchBirthYear));
-            break;
+    case 3:
+        cout << "Type a year of birth: ";
+        cin.ignore();
+        getline(cin,tmpChoice);
+        searchBirthYear = atoi(tmpChoice.c_str());
+        printList(d1.searchBirthYearFunc(searchBirthYear));
+        break;
 
-        case 4:
-            cout << "Type a year of death: ";
-            cin.ignore();
-            getline(cin,tmpChoice);
-            searchDeathYear = atoi(tmpChoice.c_str());
-            printList(d1.searchDeathYearFunc(searchDeathYear));
-            break;
+    case 4:
+        cout << "Type a year of death: ";
+        cin.ignore();
+        getline(cin,tmpChoice);
+        searchDeathYear = atoi(tmpChoice.c_str());
+        printList(d1.searchDeathYearFunc(searchDeathYear));
+        break;
 
-        case 0:
-            exit(0);
-            break;
+    case 0:
+        exit(0);
+        break;
 
-        default:
-            cout << "Invalid input! " << endl;
-            searchList();
-    }    
+    default:
+        cout << "Invalid input! " << endl;
+        searchList();
+    }
 }
 
 // Screen that gives the user several sorting options and then calls
@@ -261,50 +261,50 @@ void RepLayer::sortList()
 
     switch(sortChoice)
     {
-        case 1:
-            mainList = d1.sortFromAtoZ();
-            printList(mainList);
-            break;
+    case 1:
+        mainList = d1.sortFromAtoZ();
+        printList(mainList);
+        break;
 
-        case 2:
-            mainList = d1.reverse();
-            printList(mainList);
-            break;
+    case 2:
+        mainList = d1.reverse();
+        printList(mainList);
+        break;
 
-        case 3:
-            mainList = d1.sortGender();
-            printList(mainList);
-            break;
+    case 3:
+        mainList = d1.sortGender();
+        printList(mainList);
+        break;
 
-        case 4:
-            mainList = d1.reverseGender();
-            printList(mainList);
-            break;
+    case 4:
+        mainList = d1.reverseGender();
+        printList(mainList);
+        break;
 
-        case 5:
-            mainList = d1.sortBirthYear();
-            printList(mainList);
-            break;
+    case 5:
+        mainList = d1.sortBirthYear();
+        printList(mainList);
+        break;
 
-        case 6:
-            mainList = d1.sortBirthYearDescending();
-            printList(mainList);
-            break;
+    case 6:
+        mainList = d1.sortBirthYearDescending();
+        printList(mainList);
+        break;
 
-        case 7:
-            mainList = d1.sortDeathYear();
-            printList(mainList);
-            break;
+    case 7:
+        mainList = d1.sortDeathYear();
+        printList(mainList);
+        break;
 
-        case 8:
-            mainList = d1.sortDeathYearDescending();
-            printList(mainList);
-            break;
+    case 8:
+        mainList = d1.sortDeathYearDescending();
+        printList(mainList);
+        break;
 
-        default:
-            cout << "Invalid input! " << endl;
-            sortList();
-            break;
+    default:
+        cout << "Invalid input! " << endl;
+        sortList();
+        break;
     }
 }
 
@@ -367,30 +367,30 @@ void RepLayer::firstStartScreen()
 
     switch(choice)
     {
-        case 1:
-            startScreen();
-            break;
+    case 1:
+        startScreen();
+        break;
 
-        case 2:
-            startScreenComputer();
-            break;
+    case 2:
+        startScreenComputer();
+        break;
 
-        case 3:
-            startScreenCpLink();
-            break;
+    case 3:
+        startScreenCpLink();
+        break;
 
-        case 4:
-            d1.createDb();
-            break;
+    case 4:
+        d1.createDb();
+        break;
 
-        case 0:
-            exit(0);
-            break;
+    case 0:
+        exit(0);
+        break;
 
-        default:
-            cout << "Invalid input! " << endl;
-            firstStartScreen();
-            break;
+    default:
+        cout << "Invalid input! " << endl;
+        firstStartScreen();
+        break;
     }
 }
 
@@ -410,30 +410,30 @@ void RepLayer::startScreenComputer()
 
     switch(choice)
     {
-        case 1:
-            sortListComp();
-            break;
+    case 1:
+        sortListComp();
+        break;
 
-        case 2:
-            addToListComp();
-            break;
+    case 2:
+        addToListComp();
+        break;
 
-        case 3:
-            searchComp();
-            break;
+    case 3:
+        searchComp();
+        break;
 
-        case 4:
-            removeComp();
-            break;
+    case 4:
+        removeComp();
+        break;
 
-        case 0:
-            exit(0);
-            break;
+    case 0:
+        exit(0);
+        break;
 
-        default:
-            cout << "Invalid input! " << endl;
-            startScreenComputer();
-            break;
+    default:
+        cout << "Invalid input! " << endl;
+        startScreenComputer();
+        break;
     }
 }
 
@@ -516,44 +516,44 @@ void RepLayer::searchComp()
     int searchInteger;
     switch(searchChoice)
     {
-        case 1:
-            cout << "Type a computer: ";
-            cin.ignore();
-            getline(cin,tmpChoice);
-            printListComp(d1.searchName_C(tmpChoice));
-            break;
+    case 1:
+        cout << "Type a computer: ";
+        cin.ignore();
+        getline(cin,tmpChoice);
+        printListComp(d1.searchName_C(tmpChoice));
+        break;
 
-        case 2:
-            cout << "Type a build year: ";
-            cin.ignore();
-            getline(cin,tmpChoice);
-            searchInteger = atoi(tmpChoice.c_str());
-            printListComp(d1.searchYear_C(searchInteger));
-            break;
+    case 2:
+        cout << "Type a build year: ";
+        cin.ignore();
+        getline(cin,tmpChoice);
+        searchInteger = atoi(tmpChoice.c_str());
+        printListComp(d1.searchYear_C(searchInteger));
+        break;
 
-        case 3:
-            cout << "Type a computer type ";
-            cin.ignore();
-            getline(cin,tmpChoice);
-            printListComp(d1.searchType_C(tmpChoice));
-            break;
+    case 3:
+        cout << "Type a computer type ";
+        cin.ignore();
+        getline(cin,tmpChoice);
+        printListComp(d1.searchType_C(tmpChoice));
+        break;
 
-        case 4:
-            cout << "Was it made(Yes or No): ";
-            cin.ignore();
-            getline(cin,tmpChoice);
-            tmpChoice = fixName(tmpChoice);
-            printListComp(d1.searchMade_C(tmpChoice));
-            break;
+    case 4:
+        cout << "Was it made(Yes or No): ";
+        cin.ignore();
+        getline(cin,tmpChoice);
+        tmpChoice = fixName(tmpChoice);
+        printListComp(d1.searchMade_C(tmpChoice));
+        break;
 
-        case 0:
-            exit(0);
-            break;
+    case 0:
+        exit(0);
+        break;
 
-        default:
-            cout << "Invalid input! " << endl;
-            searchComp();
-            break;
+    default:
+        cout << "Invalid input! " << endl;
+        searchComp();
+        break;
     }
 }
 
@@ -575,40 +575,40 @@ void RepLayer::sortListComp()
 
     switch(sortChoice)
     {
-        case 1:
-            mainCompList = d1.sortFromAtoZ_C();
-            printListComp(mainCompList);
-            break;
+    case 1:
+        mainCompList = d1.sortFromAtoZ_C();
+        printListComp(mainCompList);
+        break;
 
-        case 2:
-            mainCompList = d1.reverse_C();
-            printListComp(mainCompList);
-            break;
+    case 2:
+        mainCompList = d1.reverse_C();
+        printListComp(mainCompList);
+        break;
 
-        case 3:
-            mainCompList = d1.sortYearBuild_C();
-            printListComp(mainCompList);
-            break;
+    case 3:
+        mainCompList = d1.sortYearBuild_C();
+        printListComp(mainCompList);
+        break;
 
-        case 4:
-            mainCompList = d1.sortYearBuildReverse_C();
-            printListComp(mainCompList);
-            break;
+    case 4:
+        mainCompList = d1.sortYearBuildReverse_C();
+        printListComp(mainCompList);
+        break;
 
-        case 5:
-            mainCompList = d1.sortType_C();
-            printListComp(mainCompList);
-            break;
+    case 5:
+        mainCompList = d1.sortType_C();
+        printListComp(mainCompList);
+        break;
 
-        case 6:
-            mainCompList = d1.sortTypeReverse_C();
-            printListComp(mainCompList);
-            break;
+    case 6:
+        mainCompList = d1.sortTypeReverse_C();
+        printListComp(mainCompList);
+        break;
 
-        default:
-            cout << "Invalid input! " << endl;
-            sortListComp();
-            break;
+    default:
+        cout << "Invalid input! " << endl;
+        sortListComp();
+        break;
     }
 }
 
@@ -712,29 +712,29 @@ void RepLayer::startScreenCpLink()
 
     switch(choice)
     {
-        case 1:
-            printListCPlink();
-            break;
+    case 1:
+        printListCPlink();
+        break;
 
-        case 2:
-            addToListCpLink();
-            break;
+    case 2:
+        addToListCpLink();
+        break;
 
-        case 3:
-            removeLinks();
-            break;
+    case 3:
+        removeLinks();
+        break;
 
-        case 4:
-            searchCPLink();
-            break;
+    case 4:
+        searchCPLink();
+        break;
 
-        case 0:
-            exit(0);
-            break;
+    case 0:
+        exit(0);
+        break;
 
-        default:
-            cout << "Invalid input! " << endl;
-            startScreenCpLink();
+    default:
+        cout << "Invalid input! " << endl;
+        startScreenCpLink();
     }
 }
 
@@ -813,44 +813,44 @@ void RepLayer::searchCompLink()
     vector<string> CPlist;
     switch(searchChoice)
     {
-        case 1:
-            cout << "Type a computer: ";
-            cin.ignore();
-            getline(cin,tmpChoice);
-            CPlist = d1.searchLinkByComputerName(tmpChoice);
-            break;
+    case 1:
+        cout << "Type a computer: ";
+        cin.ignore();
+        getline(cin,tmpChoice);
+        CPlist = d1.searchLinkByComputerName(tmpChoice);
+        break;
 
-        case 2:
-            cout << "Type a build year: ";
-            cin.ignore();
-            getline(cin,tmpChoice);
-            searchInteger = atoi(tmpChoice.c_str());
-            CPlist = d1.searchLinkByComputerYear(searchInteger);
-            break;
+    case 2:
+        cout << "Type a build year: ";
+        cin.ignore();
+        getline(cin,tmpChoice);
+        searchInteger = atoi(tmpChoice.c_str());
+        CPlist = d1.searchLinkByComputerYear(searchInteger);
+        break;
 
-        case 3:
-            cout << "Type a computer type: ";
-            cin.ignore();
-            getline(cin,tmpChoice);
-            CPlist = d1.searchLinkByComputerType(tmpChoice);
-            break;
+    case 3:
+        cout << "Type a computer type: ";
+        cin.ignore();
+        getline(cin,tmpChoice);
+        CPlist = d1.searchLinkByComputerType(tmpChoice);
+        break;
 
-        case 4:
-            cout << "Was it made(Yes or No): ";
-            cin.ignore();
-            getline(cin,tmpChoice);
-            tmpChoice = fixName(tmpChoice);
-            CPlist = d1.searchLinkByComputerMade(tmpChoice);
-            break;
+    case 4:
+        cout << "Was it made(Yes or No): ";
+        cin.ignore();
+        getline(cin,tmpChoice);
+        tmpChoice = fixName(tmpChoice);
+        CPlist = d1.searchLinkByComputerMade(tmpChoice);
+        break;
 
-        case 0:
-            exit(0);
-            break;
+    case 0:
+        exit(0);
+        break;
 
-        default:
-            cout << "Invalid input! " << endl;
-            searchComp();
-            break;
+    default:
+        cout << "Invalid input! " << endl;
+        searchComp();
+        break;
     }
 
     if(searchChoice==4 && (tmpChoice!="Yes"&&tmpChoice !="No"))
@@ -886,42 +886,42 @@ void RepLayer::searchListLink()
     vector<string> CPlist;
     switch(searchChoice)
     {
-        case 1:
-            cout << "Type a name: ";
-            cin.ignore();
-            getline(cin,searchName);
-            CPlist = d1.searchLinkByPersonName(searchName);
-            break;
-        case 2:
-            cout << "Type a gender: ";
-            cin.ignore();
-            getline(cin,searchGender);
-            CPlist = d1.searchLinkByPersonGender(searchGender);
-            break;
+    case 1:
+        cout << "Type a name: ";
+        cin.ignore();
+        getline(cin,searchName);
+        CPlist = d1.searchLinkByPersonName(searchName);
+        break;
+    case 2:
+        cout << "Type a gender: ";
+        cin.ignore();
+        getline(cin,searchGender);
+        CPlist = d1.searchLinkByPersonGender(searchGender);
+        break;
 
-        case 3:
-            cout << "Type a year of birth: ";
-            cin.ignore();
-            getline(cin,tmpChoice);
-            searchBirthYear = atoi(tmpChoice.c_str());
-            CPlist = d1.searchLinkByPersonBirthyear(searchBirthYear);
-            break;
+    case 3:
+        cout << "Type a year of birth: ";
+        cin.ignore();
+        getline(cin,tmpChoice);
+        searchBirthYear = atoi(tmpChoice.c_str());
+        CPlist = d1.searchLinkByPersonBirthyear(searchBirthYear);
+        break;
 
-        case 4:
-            cout << "Type a year of death: ";
-            cin.ignore();
-            getline(cin,tmpChoice);
-            searchDeathYear = atoi(tmpChoice.c_str());
-            CPlist = d1.searchLinkByPersonDeathYear(searchDeathYear);
-            break;
+    case 4:
+        cout << "Type a year of death: ";
+        cin.ignore();
+        getline(cin,tmpChoice);
+        searchDeathYear = atoi(tmpChoice.c_str());
+        CPlist = d1.searchLinkByPersonDeathYear(searchDeathYear);
+        break;
 
-        case 0:
-            exit(0);
-            break;
+    case 0:
+        exit(0);
+        break;
 
-        default:
-            cout << "Invalid input! " << endl;
-            searchList();
+    default:
+        cout << "Invalid input! " << endl;
+        searchList();
     }
 
     cout << "Links between Computers and Scientists" << endl;
