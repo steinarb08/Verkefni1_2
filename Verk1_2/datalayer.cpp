@@ -160,6 +160,7 @@ vector<Person> DataLayer::searchDbPerson(string column, string value)
 
 void DataLayer::deleteFromDbPerson(Person delPerson)
 {
+    deleteFromLinkPersonId(delPerson.getId());
     db.open();
     QSqlQuery query(db);
     query.prepare("Delete from Person where id=?");
@@ -316,6 +317,7 @@ vector<Computer> DataLayer::searchDbComputer(string column, string value)
 
 void DataLayer::deleteFromDbComputer(Computer delComputer)
 {
+    deleteFromLinkComputerId(delComputer.getId());
     db.open();
     QSqlQuery query(db);
     query.prepare("Delete from Computer where id=?");
@@ -492,4 +494,22 @@ vector<CPlink> DataLayer::searchLinkByComputer(string column,string value)
     return newList;
 }
 
+void DataLayer::deleteFromLinkPersonId(int id)
+{
+    db.open();
+    QSqlQuery query(db);
+    query.prepare("Delete from CPlink where personid=?");
+    query.addBindValue(id);
+    query.exec();
+    db.close();
+}
 
+void DataLayer::deleteFromLinkComputerId(int id)
+{
+    db.open();
+    QSqlQuery query(db);
+    query.prepare("Delete from CPlink where computerid=?");
+    query.addBindValue(id);
+    query.exec();
+    db.close();
+}

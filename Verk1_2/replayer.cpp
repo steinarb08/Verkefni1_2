@@ -813,7 +813,6 @@ void RepLayer::searchCompLink()
     cin >> tmpChoice;
     int searchChoice = atoi(tmpChoice.c_str());
     int searchInteger;
-    bool yesno =false;
     vector<string> CPlist;
     switch(searchChoice)
     {

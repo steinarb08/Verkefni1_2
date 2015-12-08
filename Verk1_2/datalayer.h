@@ -78,7 +78,8 @@ public:
 
     vector<CPlink> searchLinkByComputer(string column,string value);
 
-
+    void deleteFromLinkPersonId(int id);
+    void deleteFromLinkComputerId(int id);
 private:
     QSqlDatabase db;
 };
