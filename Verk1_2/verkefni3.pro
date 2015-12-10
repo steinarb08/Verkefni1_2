@@ -19,7 +19,9 @@ SOURCES += main.cpp\
     datalayer.cpp \
     domainlayer.cpp \
     person.cpp \
-    personscreen.cpp
+    personscreen.cpp \
+    computerscreen.cpp \
+    connectionscreen.cpp
 
 HEADERS  += mainscreen.h \
     computer.h \
@@ -27,7 +29,11 @@ HEADERS  += mainscreen.h \
     datalayer.h \
     domainlayer.h \
     person.h \
-    personscreen.h
+    personscreen.h \
+    computerscreen.h \
+    connectionscreen.h
 
 FORMS    += mainscreen.ui \
-    personscreen.ui
+    personscreen.ui \
+    computerscreen.ui \
+    connectionscreen.ui

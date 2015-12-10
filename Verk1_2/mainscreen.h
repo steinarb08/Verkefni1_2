@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <personscreen.h>
+#include <computerscreen.h>
+#include <connectionscreen.h>
 
 namespace Ui {
 class MainScreen;
@@ -20,6 +22,10 @@ private slots:
     void on_btnQuit_clicked();
 
     void on_btnPerson_clicked();
+
+    void on_btnComputer_clicked();
+
+    void on_btnConnection_clicked();
 
 private:
     Ui::MainScreen *ui;
