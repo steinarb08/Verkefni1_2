@@ -328,7 +328,7 @@ vector<Computer> DomainLayer::updateComputer(Computer c1)
 
 vector<Person> DomainLayer::loadPersonLinkedWith(Computer c1)
 {
-    vector<CPlink> allLinks = d1.loadLinkByComputer(c1);
+    vector<CPlink> allLinks = d1.loadLinkByComputer(intToString(c1.getId()));
     vector<Person> linkedPerson;
     for(unsigned int i=0;i<allLinks.size();i++)
     {
@@ -339,7 +339,7 @@ vector<Person> DomainLayer::loadPersonLinkedWith(Computer c1)
 
 vector<Computer> DomainLayer::loadComputerLinkedWith(Person p1)
 {
-    vector<CPlink> allLinks = d1.loadLinkByPerson(p1);
+    vector<CPlink> allLinks = d1.loadLinkByPerson(intToString(p1.getId()));
     vector<Computer> linkedComputer;
     for(unsigned int i=0;i<allLinks.size();i++)
     {

@@ -538,9 +538,9 @@ void DataLayer::deleteFromLinkComputerId(int id)
 }
 
 
-vector<CPlink> DataLayer::loadLinkByComputer(Computer c1)
+vector<CPlink> DataLayer::loadLinkByComputer(string id)
 {
-    string com = "select cp.id,cp.personid,cp.computerid from CPlink as cp, computer as c where cp.computerid = c.id and c.id ="+c1.getId();
+    string com = "select cp.id,cp.personid,cp.computerid from CPlink as cp, computer as c where cp.computerid = c.id and c.id ="+id;
     vector<CPlink> newList;
     db.open();
     QSqlQuery query(db);
@@ -559,9 +559,9 @@ vector<CPlink> DataLayer::loadLinkByComputer(Computer c1)
     return newList;
 }
 
-vector<CPlink> DataLayer::loadLinkByPerson(Person p1)
+vector<CPlink> DataLayer::loadLinkByPerson(string id)
 {
-    string com = "select cp.id,cp.personid,cp.computerid from CPlink as cp, person as p where cp.personid = p.id and p.id = "+ p1.getId();
+    string com = "select cp.id,cp.personid,cp.computerid from CPlink as cp, person as p where cp.personid = p.id and p.id = "+ id;
     vector<CPlink> newList;
     db.open();
     QSqlQuery query(db);

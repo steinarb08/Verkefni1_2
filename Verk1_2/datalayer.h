@@ -86,9 +86,9 @@ public:
     vector<CPlink> searchLinkByComputer(string column,string value);
     // Searches for a link that contains a computer that fulfills the specified search criteria. Returns a list of links.
 
-    vector<CPlink> loadLinkByComputer(Computer c1);
+    vector<CPlink> loadLinkByComputer(string id);
 
-    vector<CPlink> loadLinkByPerson(Person p1);
+    vector<CPlink> loadLinkByPerson(string id);
 
     void deleteFromLinkPersonId(int id);
     // Deletes all links that have the specified person id. (used whenever a person is removed so that links dont contain person that does not exist)
