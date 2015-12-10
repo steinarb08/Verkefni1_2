@@ -2,7 +2,11 @@
 #define CONNECTIONSCREEN_H
 
 #include <QMainWindow>
-
+#include <domainlayer.h>
+#include <person.h>
+#include <computer.h>
+#include <cplink.h>
+#include <vector>
 namespace Ui {
 class ConnectionScreen;
 }
@@ -15,7 +19,13 @@ public:
     explicit ConnectionScreen(QWidget *parent = 0);
     ~ConnectionScreen();
 
+private slots:
+    void on_btnLoadSelectionList_clicked();
+
 private:
+    DomainLayer d1;
+    vector<Person> personList;
+    vector<Computer> computerList;
     Ui::ConnectionScreen *ui;
 };
 
