@@ -1,6 +1,5 @@
 #ifndef DOMAINLAYER_H
 #define DOMAINLAYER_H
-#include "replayer.h"
 #include "person.h"
 #include "computer.h"
 #include "datalayer.h"
