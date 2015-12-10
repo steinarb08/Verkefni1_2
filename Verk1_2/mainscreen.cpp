@@ -12,3 +12,8 @@ MainScreen::~MainScreen()
 {
     delete ui;
 }
+
+void MainScreen::on_btnQuit_clicked()
+{
+    qApp->quit();
+}

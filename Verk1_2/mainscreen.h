@@ -15,6 +15,9 @@ public:
     explicit MainScreen(QWidget *parent = 0);
     ~MainScreen();
 
+private slots:
+    void on_btnQuit_clicked();
+
 private:
     Ui::MainScreen *ui;
 };
