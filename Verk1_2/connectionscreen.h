@@ -22,6 +22,8 @@ public:
 private slots:
     void on_btnLoadSelectionList_clicked();
 
+    void on_selectionList_itemSelectionChanged();
+
 private:
     DomainLayer d1;
     vector<Person> personList;

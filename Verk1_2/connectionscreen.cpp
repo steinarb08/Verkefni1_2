@@ -33,3 +33,27 @@ void ConnectionScreen::on_btnLoadSelectionList_clicked()
         }
     }
 }
+
+void ConnectionScreen::on_selectionList_itemSelectionChanged()
+{
+    int i = ui->selectionList->currentRow();
+    if(ui->cmbList->currentText() == "Scientist")
+    {
+        ui->lblGenderlbl->setText("Gender:");
+        ui->lblDyearlbl->setText("Died:");
+        ui->lblName->setText(QString::fromStdString(personList.at(i).getName()));
+        ui->lblGender->setText(QString::fromStdString(personList.at(i).getGender()));
+        ui->lblByear->setText(QString::number(personList.at(i).getBirthYear()));
+        ui->lblDyear->setText(QString::number(personList.at(i).getDeathYear()));
+    }
+    else
+    {
+        ui->lblGenderlbl->setText("Type:");
+        ui->lblDyearlbl->setText("Made:");
+
+        ui->lblName->setText(QString::fromStdString(computerList.at(i).getName()));
+        ui->lblGender->setText(QString::fromStdString(computerList.at(i).getType()));
+        ui->lblByear->setText(QString::number(computerList.at(i).getBuiltYear()));
+        ui->lblDyear->setText(QString::fromStdString(computerList.at(i).getBuiltComputer()));
+    }
+}
