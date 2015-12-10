@@ -325,3 +325,25 @@ vector<Computer> DomainLayer::updateComputer(Computer c1)
 {
     return d1.updateDbComputer(c1);
 }
+
+vector<Person> DomainLayer::loadPersonLinkedWith(Computer c1)
+{
+    vector<CPlink> allLinks = d1.loadLinkByComputer(c1);
+    vector<Person> linkedPerson;
+    for(unsigned int i=0;i<allLinks.size();i++)
+    {
+        linkedPerson.push_back(d1.getPersonFromId(allLinks.at(i).getPersonId()));
+    }
+    return linkedPerson;
+}
+
+vector<Computer> DomainLayer::loadComputerLinkedWith(Person p1)
+{
+    vector<CPlink> allLinks = d1.loadLinkByPerson(p1);
+    vector<Computer> linkedComputer;
+    for(unsigned int i=0;i<allLinks.size();i++)
+    {
+        linkedComputer.push_back(d1.getComputerFromId(allLinks.at(i).getComputerId()));
+    }
+    return linkedComputer;
+}

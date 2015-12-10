@@ -154,6 +154,10 @@ public:
     vector<Computer> updateComputer(Computer c1);
     // Return a update computer.
 
+    vector<Person> loadPersonLinkedWith(Computer c1);
+
+    vector<Computer> loadComputerLinkedWith(Person p1);
+
 private:
     DataLayer d1;
 };

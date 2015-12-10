@@ -39,6 +39,12 @@ void ConnectionScreen::on_selectionList_itemSelectionChanged()
     int i = ui->selectionList->currentRow();
     if(ui->cmbList->currentText() == "Scientist")
     {
+        ui->lstFoundValues->clear();
+        linkedComputerList = d1.loadComputerLinkedWith(personList.at(i));
+        for(unsigned int k=0;k<linkedComputerList.size();k++)
+        {
+            ui->lstFoundValues->addItem(QString::fromStdString(linkedComputerList.at(k).getName()));
+        }
         ui->lblGenderlbl->setText("Gender:");
         ui->lblDyearlbl->setText("Died:");
         ui->lblName->setText(QString::fromStdString(personList.at(i).getName()));

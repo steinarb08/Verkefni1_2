@@ -28,6 +28,8 @@ private:
     DomainLayer d1;
     vector<Person> personList;
     vector<Computer> computerList;
+    vector<Computer> linkedComputerList;
+    vector<Person> linkedPersonList;
     Ui::ConnectionScreen *ui;
 };
 
