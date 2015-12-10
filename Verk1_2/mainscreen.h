@@ -2,6 +2,7 @@
 #define MAINSCREEN_H
 
 #include <QMainWindow>
+#include <personscreen.h>
 
 namespace Ui {
 class MainScreen;
@@ -17,6 +18,8 @@ public:
 
 private slots:
     void on_btnQuit_clicked();
+
+    void on_btnPerson_clicked();
 
 private:
     Ui::MainScreen *ui;

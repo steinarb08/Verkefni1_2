@@ -18,13 +18,16 @@ SOURCES += main.cpp\
     cplink.cpp \
     datalayer.cpp \
     domainlayer.cpp \
-    person.cpp
+    person.cpp \
+    personscreen.cpp
 
 HEADERS  += mainscreen.h \
     computer.h \
     cplink.h \
     datalayer.h \
     domainlayer.h \
-    person.h
+    person.h \
+    personscreen.h
 
-FORMS    += mainscreen.ui
+FORMS    += mainscreen.ui \
+    personscreen.ui

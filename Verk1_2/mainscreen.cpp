@@ -17,3 +17,9 @@ void MainScreen::on_btnQuit_clicked()
 {
     qApp->quit();
 }
+
+void MainScreen::on_btnPerson_clicked()
+{
+    PersonScreen *personScreen = new PersonScreen(this);
+    personScreen->show();
+}
