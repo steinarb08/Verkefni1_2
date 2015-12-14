@@ -18,7 +18,7 @@ class ComputerScreen : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit ComputerScreen(QWidget *parent = 0);
+    ComputerScreen(QWidget *parent,DomainLayer &dom);
     ~ComputerScreen();
 
 private slots:

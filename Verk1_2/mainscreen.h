@@ -5,6 +5,7 @@
 #include <personscreen.h>
 #include <computerscreen.h>
 #include <connectionscreen.h>
+#include <domainlayer.h>
 
 namespace Ui {
 class MainScreen;
@@ -28,6 +29,7 @@ private slots:
     void on_btnConnection_clicked();
 
 private:
+    DomainLayer d1;
     Ui::MainScreen *ui;
 };
 

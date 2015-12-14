@@ -14,8 +14,7 @@ public:
     DataLayer();
     // Default constructor
 
-    DataLayer(string dbName);
-    // Constructor with custom database name
+    void connect();
 
     void createTables();
     // Creates the tables needed for our database

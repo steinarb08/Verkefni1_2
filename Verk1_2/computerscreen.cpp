@@ -1,11 +1,12 @@
 #include "computerscreen.h"
 #include "ui_computerscreen.h"
 
-ComputerScreen::ComputerScreen(QWidget *parent) :
+ComputerScreen::ComputerScreen(QWidget *parent,DomainLayer &dom) :
     QMainWindow(parent),
     ui(new Ui::ComputerScreen)
 {
     ui->setupUi(this);
+    d1 = dom;
     computerList = d1.loadComputer();
 }
 

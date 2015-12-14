@@ -16,7 +16,7 @@ class ConnectionScreen : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit ConnectionScreen(QWidget *parent = 0);
+    ConnectionScreen(QWidget *parent,DomainLayer &dom);
     ~ConnectionScreen();
 
 private slots:

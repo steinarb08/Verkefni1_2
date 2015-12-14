@@ -19,7 +19,7 @@ class PersonScreen : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit PersonScreen(QWidget *parent = 0);
+    PersonScreen(QWidget *parent,DomainLayer &dom);
     ~PersonScreen();
 
 private slots:

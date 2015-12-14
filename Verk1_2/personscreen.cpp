@@ -1,10 +1,11 @@
 #include "personscreen.h"
 #include "ui_personscreen.h"
 
-PersonScreen::PersonScreen(QWidget *parent) :
+PersonScreen::PersonScreen(QWidget *parent,DomainLayer &dom) :
     QMainWindow(parent),
     ui(new Ui::PersonScreen)
 {
+    d1 = dom;
     ui->setupUi(this);
     personList = d1.loadPerson();
 }

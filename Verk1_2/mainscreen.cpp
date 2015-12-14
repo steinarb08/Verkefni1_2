@@ -6,6 +6,7 @@ MainScreen::MainScreen(QWidget *parent) :
     ui(new Ui::MainScreen)
 {
     ui->setupUi(this);
+    d1.connectToDatabase();
 }
 
 MainScreen::~MainScreen()
@@ -20,18 +21,18 @@ void MainScreen::on_btnQuit_clicked()
 
 void MainScreen::on_btnPerson_clicked()
 {
-    PersonScreen *personScreen = new PersonScreen(this);
+    PersonScreen *personScreen = new PersonScreen(this,d1);
     personScreen->show();
 }
 
 void MainScreen::on_btnComputer_clicked()
 {
-    ComputerScreen *computerScreen = new ComputerScreen(this);
+    ComputerScreen *computerScreen = new ComputerScreen(this,d1);
     computerScreen->show();
 }
 
 void MainScreen::on_btnConnection_clicked()
 {
-    ConnectionScreen *connectionScreen = new ConnectionScreen(this);
+    ConnectionScreen *connectionScreen = new ConnectionScreen(this,d1);
     connectionScreen->show();
 }

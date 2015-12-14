@@ -1,10 +1,11 @@
 #include "connectionscreen.h"
 #include "ui_connectionscreen.h"
 
-ConnectionScreen::ConnectionScreen(QWidget *parent) :
+ConnectionScreen::ConnectionScreen(QWidget *parent,DomainLayer &dom) :
     QMainWindow(parent),
     ui(new Ui::ConnectionScreen)
 {
+    d1 = dom;
     ui->setupUi(this);
     personList = d1.loadPerson();
     computerList = d1.loadComputer();

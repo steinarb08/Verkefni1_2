@@ -3,16 +3,12 @@
 // Default constructor
 DataLayer::DataLayer()
 {
-    db = QSqlDatabase::addDatabase("QSQLITE");
-    QString name = "data.db";
-    db.setDatabaseName(name);
 }
 
-// Constructor with custom database name
-DataLayer::DataLayer(string dbName)
+void DataLayer::connect()
 {
     db = QSqlDatabase::addDatabase("QSQLITE");
-    QString name = QString::fromStdString(dbName);
+    QString name = "data.db";
     db.setDatabaseName(name);
 }
 
