@@ -30,6 +30,8 @@ private slots:
 
     void on_chkAscending_clicked();
 
+    void on_btnRemoveConnection_clicked();
+
 private:
     DomainLayer d1;
     vector<Person> personList;

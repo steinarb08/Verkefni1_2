@@ -1,5 +1,6 @@
 #include "connectionscreen.h"
 #include "ui_connectionscreen.h"
+#include <qmessagebox.h>
 
 ConnectionScreen::ConnectionScreen(QWidget *parent,DomainLayer &dom) :
     QMainWindow(parent),
@@ -207,4 +208,28 @@ void ConnectionScreen::on_cmbSort_currentTextChanged()
 void ConnectionScreen::on_chkAscending_clicked()
 {
     on_cmbSort_currentTextChanged();
+}
+
+void ConnectionScreen::on_btnRemoveConnection_clicked()
+{
+    if(ui->lstFoundValues->selectedItems().empty())
+    {
+        QMessageBox::information(NULL,"Remove error","No item selected!");
+    }
+    else
+    {
+        if(ui->cmbList->currentText() == "Scientist")
+        {
+            Computer c1 = linkedComputerList.at(ui->lstFoundValues->currentRow());
+            Person p1 = personList.at(ui->selectionList->currentRow());
+            d1.deleteFromCPlink(p1,c1);
+        }
+        else
+        {
+            Computer c1 = computerList.at(ui->selectionList->currentRow());
+            Person p1 = linkedPersonList.at(ui->lstFoundValues->currentRow());
+            d1.deleteFromCPlink(p1,c1);
+        }
+        on_cmbSort_currentTextChanged();
+    }
 }

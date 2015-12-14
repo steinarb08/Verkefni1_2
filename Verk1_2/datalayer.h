@@ -49,6 +49,8 @@ public:
     void deleteFromDbLink(CPlink delLink);
     // Deletes a link from database
 
+    void deleteFromDbLink(Person p1, Computer c1);
+
     Person getPersonFromId(int id);
     // Return a Person from a specific id
 
