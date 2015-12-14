@@ -7,6 +7,7 @@
 #include <computer.h>
 #include <cplink.h>
 #include <vector>
+#include <addconnection.h>
 namespace Ui {
 class ConnectionScreen;
 }
@@ -31,6 +32,8 @@ private slots:
     void on_chkAscending_clicked();
 
     void on_btnRemoveConnection_clicked();
+
+    void on_btnAddConnection_clicked();
 
 private:
     DomainLayer d1;
