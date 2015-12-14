@@ -17,3 +17,8 @@ void editPerson::on_lineEditNewName_textChanged(const QString &arg1)
 {
     ui->lineEditNewName->setText("etsdf");
 }
+
+void editPerson::on_btnCancelEdit_clicked()
+{
+    this->close();
+}

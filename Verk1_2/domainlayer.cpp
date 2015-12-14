@@ -352,3 +352,32 @@ void DomainLayer::connectToDatabase()
 {
     d1.connect();
 }
+
+// Used to put names in standard format (capital letter at the begining and only at the begining of each name).
+string DomainLayer::fixName(string name)
+{
+    string tmpName = name;
+    char lastChar = 'A';
+    for(unsigned int i =0;i<name.size();i++)
+    {
+        if(i==0)
+        {
+            tmpName[0] = toupper(name[0]);
+        }
+        else
+        {
+            if(lastChar == ' ')
+            {
+                tmpName[i] = toupper(name[i]);
+            }
+            else
+            {
+                tmpName[i] = tolower(name[i]);
+            }
+
+        }
+        lastChar = name[i];
+    }
+
+    return tmpName;
+}

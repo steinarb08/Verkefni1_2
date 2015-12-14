@@ -124,42 +124,46 @@
     <string>Cancel</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox_NewGender">
+  <widget class="QCheckBox" name="checkBox_male">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>120</x>
      <y>140</y>
-     <width>92</width>
-     <height>25</height>
+     <width>101</width>
+     <height>23</height>
     </rect>
    </property>
-   <item>
-    <property name="text">
-     <string/>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Female</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Male</string>
-    </property>
-   </item>
+   <property name="text">
+    <string>Male</string>
+   </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QCheckBox" name="checkBox_female">
    <property name="geometry">
     <rect>
-     <x>250</x>
+     <x>200</x>
+     <y>140</y>
+     <width>101</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Female</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelErrorGender">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>330</x>
      <y>140</y>
      <width>181</width>
      <height>19</height>
     </rect>
    </property>
    <property name="text">
-    <string>Some Error Message</string>
+    <string>Some Error message!</string>
    </property>
   </widget>
  </widget>

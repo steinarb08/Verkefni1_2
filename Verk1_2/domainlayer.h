@@ -160,6 +160,9 @@ public:
 
     vector<Computer> loadComputerLinkedWith(Person p1);
 
+    string fixName(string name);
+    // Used to put names in standard format (capital letter at the begining and only at the begining of each name).
+
 private:
     DataLayer d1;
 };
