@@ -20,9 +20,11 @@ public:
     ~ConnectionScreen();
 
 private slots:
-    void on_btnLoadSelectionList_clicked();
-
     void on_selectionList_itemSelectionChanged();
+
+    void on_lstFoundValues_itemSelectionChanged();
+
+    void on_cmbList_currentTextChanged();
 
 private:
     DomainLayer d1;
