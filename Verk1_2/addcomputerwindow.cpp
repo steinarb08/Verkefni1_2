@@ -2,11 +2,12 @@
 #include "ui_addcomputerwindow.h"
 #include <computer.h>
 
-AddComputerWindow::AddComputerWindow(QWidget *parent,DomainLayer d1) :
+AddComputerWindow::AddComputerWindow(QWidget *parent,DomainLayer dom) :
     QMainWindow(parent),
     ui(new Ui::AddComputerWindow)
 {
     ui->setupUi(this);
+    d1 = dom;
 }
 
 AddComputerWindow::~AddComputerWindow()

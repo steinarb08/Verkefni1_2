@@ -25,7 +25,8 @@ SOURCES += main.cpp\
     addnewperson.cpp \
     editperson.cpp \
     addcomputerwindow.cpp \
-    addconnection.cpp
+    addconnection.cpp \
+    editcomputer.cpp
 
 HEADERS  += mainscreen.h \
     computer.h \
@@ -39,7 +40,8 @@ HEADERS  += mainscreen.h \
     addnewperson.h \
     editperson.h \
     addcomputerwindow.h \
-    addconnection.h
+    addconnection.h \
+    editcomputer.h
 
 FORMS    += mainscreen.ui \
     personscreen.ui \
@@ -48,4 +50,5 @@ FORMS    += mainscreen.ui \
     addnewperson.ui \
     editperson.ui \
     addcomputerwindow.ui \
-    addconnection.ui
+    addconnection.ui \
+    editcomputer.ui

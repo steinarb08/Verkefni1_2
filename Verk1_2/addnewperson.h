@@ -6,6 +6,8 @@
 #include <person.h>
 #include <vector>
 #include <personscreen.h>
+#include <string>
+#include <QMessageBox>
 
 namespace Ui {
 class addNewPerson;
@@ -16,7 +18,7 @@ class addNewPerson : public QDialog
     Q_OBJECT
 
 public:
-    explicit addNewPerson(QWidget *parent = 0);
+     addNewPerson(QWidget *parent,DomainLayer &dom);
     ~addNewPerson();
 
 private slots:

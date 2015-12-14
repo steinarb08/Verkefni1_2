@@ -59,7 +59,7 @@ void PersonScreen::on_textBoxSearchList_textChanged(const QString &arg1)
 
 void PersonScreen::on_btnAddPersonToList_clicked()
 {
-    addNewPerson *addnewperson = new addNewPerson(this);
+    addNewPerson *addnewperson = new addNewPerson(this, d1);
     addnewperson->show();
 }
 
@@ -69,8 +69,6 @@ void PersonScreen::on_listWidgetP_clicked(const QModelIndex &index)
     ui->btnEdit->setEnabled(true);
 }
 
-
-//Virkar ekki, þarf að laga!!
 void PersonScreen::on_btnRemove_clicked()
 {
     int selectedOnList = ui->listWidgetP->currentIndex().row();
@@ -79,10 +77,12 @@ void PersonScreen::on_btnRemove_clicked()
     ui->listWidgetP->clear();
     personList = d1.loadPerson();
     on_btnLoad_clicked();
+    ui->labelSetName->clear();
+    ui->labelSetGender->clear();
+    ui->labelSetBirthYear->clear();
+    ui->labelSetDeathYear->clear();
+
 }
-
-
-
 
 void PersonScreen::on_btnEdit_clicked()
 {

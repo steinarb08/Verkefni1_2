@@ -15,8 +15,6 @@ ComputerScreen::~ComputerScreen()
     delete ui;
 }
 
-
-
 void ComputerScreen::on_pushButton_clicked()
 {
     AddComputerWindow *addcomputerwindow = new AddComputerWindow(this,d1);
@@ -57,10 +55,10 @@ void ComputerScreen::on_btnRemoveC_clicked()
 
 }
 
-
 void ComputerScreen::on_btnEditC_clicked()
 {
-
+    //editComputer *editcomputer = new editComputer(this);
+    //editcomputer->show();
 }
 
 void ComputerScreen::on_textBoxSearchComp_textChanged()
@@ -74,6 +72,4 @@ void ComputerScreen::on_textBoxSearchComp_textChanged()
     {
         ui->listComputer->addItem(QString::fromStdString(computerList.at(i).getName()));
     }
-
-
 }
