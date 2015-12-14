@@ -25,8 +25,6 @@ public:
 private slots:
     void on_btnLoad_clicked();
 
-    void on_listWidgetP_activated(const QModelIndex &index);
-
     void on_listWidgetP_itemSelectionChanged();
 
     void on_textBoxSearchList_textChanged(const QString &arg1);
