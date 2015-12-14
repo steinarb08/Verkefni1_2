@@ -30,10 +30,7 @@ private slots:
 
     void on_btnRemoveC_clicked();
 
-
-
     void on_btnEditC_clicked();
-
 
     void on_textBoxSearchComp_textChanged();
 
