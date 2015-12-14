@@ -14,7 +14,7 @@ class EditComputer : public QMainWindow
     Q_OBJECT
 
 public:
-     EditComputer(QWidget *parent, DomainLayer &dom, Computer com);
+     EditComputer(QWidget *parent, DomainLayer &dom, Computer &com);
     ~EditComputer();
 
 private slots:

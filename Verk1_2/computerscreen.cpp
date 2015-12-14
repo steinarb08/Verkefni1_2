@@ -57,8 +57,8 @@ void ComputerScreen::on_btnRemoveC_clicked()
 
 void ComputerScreen::on_btnEditC_clicked()
 {
-    //editComputer *editcomputer = new editComputer(this);
-    //editcomputer->show();
+    EditComputer *editcomputer = new EditComputer(this,d1,computerList.at(ui->listComputer->currentRow()));
+    editcomputer->show();
 }
 
 void ComputerScreen::on_textBoxSearchComp_textChanged()
