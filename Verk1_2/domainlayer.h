@@ -16,6 +16,8 @@ public:
     DomainLayer();
     // Default constructor
 
+    void connectToDatabase();
+
     vector<Person> sortFromAtoZ();
     // Sorts the names in alphabetical order (A-Z).
 

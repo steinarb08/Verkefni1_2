@@ -347,3 +347,8 @@ vector<Computer> DomainLayer::loadComputerLinkedWith(Person p1)
     }
     return linkedComputer;
 }
+
+void DomainLayer::connectToDatabase()
+{
+    d1.connect();
+}
