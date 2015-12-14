@@ -18,6 +18,8 @@ public:
 private slots:
     void on_lineEditNewName_textChanged(const QString &arg1);
 
+    void on_btnCancelEdit_clicked();
+
 private:
     Ui::editPerson *ui;
 };
