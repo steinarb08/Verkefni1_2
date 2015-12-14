@@ -418,6 +418,17 @@ void DataLayer::deleteFromDbLink(CPlink delLink)
     db.close();
 }
 
+void DataLayer::deleteFromDbLink(Person p1, Computer c1)
+{
+    db.open();
+    QSqlQuery query(db);
+    query.prepare("Delete from CPlink where computerid=? and personid=?");
+    query.addBindValue(c1.getId());
+    query.addBindValue(p1.getId());
+    query.exec();
+    db.close();
+}
+
 // Sort a list of links by a specified column. (1 for ascending,0 for descending)
 vector<CPlink> DataLayer::sortCPlink(string column,bool ascending)
 {

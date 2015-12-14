@@ -117,6 +117,8 @@ public:
     void deleteFromCPlink(CPlink delLink);
     // Delete a Link from database(Computer links to Person).
 
+    void deleteFromCPlink(Person p1, Computer c1);
+
     vector<string> printCPList();
     // Print list of Links
 

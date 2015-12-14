@@ -381,3 +381,8 @@ string DomainLayer::fixName(string name)
 
     return tmpName;
 }
+
+void DomainLayer::deleteFromCPlink(Person p1, Computer c1)
+{
+    d1.deleteFromDbLink(p1,c1);
+}
