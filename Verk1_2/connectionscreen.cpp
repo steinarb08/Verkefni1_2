@@ -92,7 +92,102 @@ void ConnectionScreen::on_lstFoundValues_itemSelectionChanged()
 
 void ConnectionScreen::on_cmbList_currentTextChanged()
 {
+    if(ui->cmbList->currentText() == "Scientist")
+    {
+        // Change sort values
+        ui->cmbSort->clear();
+        ui->cmbSort->addItem("Name");
+        ui->cmbSort->addItem("Gender");
+        ui->cmbSort->addItem("Born");
+        ui->cmbSort->addItem("Died");
+    }
+    else
+    {
+        // Change sort values
+        ui->cmbSort->clear();
+        ui->cmbSort->addItem("Name");
+        ui->cmbSort->addItem("Type");
+        ui->cmbSort->addItem("Born");
+        ui->cmbSort->addItem("Made");
+    }
+}
+
+void ConnectionScreen::on_cmbSort_currentTextChanged()
+{
+    string sort = ui->cmbSort->currentText().toStdString();
+    if(sort == "Name")
+    {
+        if(ui->chkAscending->isChecked())
+        {
+            personList = d1.sortFromAtoZ();
+            computerList = d1.sortFromAtoZ_C();
+        }
+        else
+        {
+            computerList = d1.reverse_C();
+            personList = d1.reverse();
+        }
+    }
+    else if(sort == "Gender")
+    {
+        if(ui->chkAscending->isChecked())
+        {
+            personList = d1.sortGender();
+        }
+        else
+        {
+            personList = d1.reverseGender();
+        }
+    }
+    else if(sort == "Born")
+    {
+        if(ui->chkAscending->isChecked())
+        {
+            personList = d1.sortBirthYear();
+            computerList = d1.sortYearBuild_C();
+        }
+        else
+        {
+            personList = d1.sortBirthYearDescending();
+            computerList = d1.sortYearBuildReverse_C();
+        }
+    }
+    else if(sort == "Died")
+    {
+        if(ui->chkAscending->isChecked())
+        {
+            personList = d1.sortDeathYear();
+        }
+        else
+        {
+            personList = d1.sortDeathYearDescending();
+        }
+    }
+    else if(sort == "Type")
+    {
+        if(ui->chkAscending->isChecked())
+        {
+            computerList = d1.sortType_C();
+        }
+        else
+        {
+            computerList = d1.sortTypeReverse_C();
+        }
+    }
+    else if(sort == "Made")
+    {
+        if(ui->chkAscending->isChecked())
+        {
+            computerList = d1.sortMade_C();
+        }
+        else
+        {
+            computerList = d1.sortMadeReverse_C();
+        }
+    }
+
     ui->selectionList->clear();
+
     if(ui->cmbList->currentText() == "Scientist")
     {
         for(unsigned int i=0;i<personList.size();i++)
@@ -107,4 +202,9 @@ void ConnectionScreen::on_cmbList_currentTextChanged()
             ui->selectionList->addItem(QString::fromStdString(computerList.at(i).getName()));
         }
     }
+}
+
+void ConnectionScreen::on_chkAscending_clicked()
+{
+    on_cmbSort_currentTextChanged();
 }
