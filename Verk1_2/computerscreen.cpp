@@ -62,3 +62,18 @@ void ComputerScreen::on_btnEditC_clicked()
 {
 
 }
+
+void ComputerScreen::on_textBoxSearchComp_textChanged()
+{
+    ui-> listComputer-> clear();
+    string userInputSearch = ui->textBoxSearchComp->toPlainText().toStdString();
+
+    computerList = d1.searchName_C(userInputSearch);
+
+    for(unsigned int i = 0;i < computerList.size(); i++)
+    {
+        ui->listComputer->addItem(QString::fromStdString(computerList.at(i).getName()));
+    }
+
+
+}

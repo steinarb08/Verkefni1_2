@@ -34,6 +34,9 @@ private slots:
 
     void on_btnEditC_clicked();
 
+
+    void on_textBoxSearchComp_textChanged();
+
 private:
     DomainLayer d1;
     vector<Person> personList;
