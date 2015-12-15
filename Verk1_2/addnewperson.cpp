@@ -95,8 +95,7 @@ void addNewPerson::on_Button_ADD_NewScientist_clicked()
 
             Person p1(name, gender, birthYear, deathYear);
             d1.addPersonToDB(p1);
-
-
+            ps1->updateValues();
             this->close();
        }
     }
