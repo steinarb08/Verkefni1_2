@@ -7,7 +7,6 @@
 #include <computer.h>
 #include <cplink.h>
 #include <vector>
-#include <addconnection.h>
 namespace Ui {
 class ConnectionScreen;
 }
@@ -18,6 +17,7 @@ class ConnectionScreen : public QMainWindow
 
 public:
     ConnectionScreen(QWidget *parent,DomainLayer &dom);
+    void updateFoundValues();
     ~ConnectionScreen();
 
 private slots:
@@ -35,13 +35,14 @@ private slots:
 
     void on_btnAddConnection_clicked();
 
+
 private:
+    Ui::ConnectionScreen *ui;
     DomainLayer d1;
     vector<Person> personList;
     vector<Computer> computerList;
     vector<Computer> linkedComputerList;
     vector<Person> linkedPersonList;
-    Ui::ConnectionScreen *ui;
 };
 
 #endif // CONNECTIONSCREEN_H

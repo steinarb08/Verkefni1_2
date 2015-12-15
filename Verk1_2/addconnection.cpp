@@ -1,7 +1,7 @@
 #include "addconnection.h"
 #include "ui_addconnection.h"
 
-AddConnection::AddConnection(QWidget *parent,DomainLayer &dom,Person per) :
+AddConnection::AddConnection(QWidget *parent,DomainLayer &dom,Person per,ConnectionScreen *parentScreen) :
     QMainWindow(parent),
     ui(new Ui::AddConnection)
 {
@@ -11,16 +11,18 @@ AddConnection::AddConnection(QWidget *parent,DomainLayer &dom,Person per) :
     p1 = per;
     scientist = true;
     computerList = d1.loadComputer();
+    pScreen = parentScreen;
     for(int i=0;i<computerList.size();i++)
     {
         ui->lstConnectItem->addItem(QString::fromStdString(computerList.at(i).getName()));
     }
 }
 
-AddConnection::AddConnection(QWidget *parent,DomainLayer &dom,Computer com) :
+AddConnection::AddConnection(QWidget *parent,DomainLayer &dom,Computer com,ConnectionScreen *parentScreen) :
     QMainWindow(parent),
     ui(new Ui::AddConnection)
 {
+    pScreen = parentScreen;
     c1 = com;
     ui->setupUi(this);
     d1 = dom;
@@ -43,11 +45,13 @@ void AddConnection::on_btnAdd_clicked()
         if(!scientist)
         {
             d1.addCPlinkToDb(personList.at(ui->lstConnectItem->currentRow()),c1);
+            pScreen->updateFoundValues();
             this->close();
         }
         else
         {
             d1.addCPlinkToDb(p1,computerList.at(ui->lstConnectItem->currentRow()));
+            pScreen->updateFoundValues();
             this->close();
         }
 }

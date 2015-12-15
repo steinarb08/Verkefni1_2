@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Connections</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QComboBox" name="cmbList">
@@ -38,7 +38,7 @@
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>140</y>
+      <y>100</y>
       <width>251</width>
       <height>271</height>
      </rect>
@@ -48,7 +48,7 @@
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>430</y>
+      <y>390</y>
       <width>55</width>
       <height>16</height>
      </rect>
@@ -66,7 +66,7 @@
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>460</y>
+      <y>420</y>
       <width>55</width>
       <height>16</height>
      </rect>
@@ -84,7 +84,7 @@
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>490</y>
+      <y>450</y>
       <width>111</width>
       <height>16</height>
      </rect>
@@ -102,7 +102,7 @@
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>520</y>
+      <y>480</y>
       <width>55</width>
       <height>16</height>
      </rect>
@@ -120,7 +120,7 @@
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>430</y>
+      <y>390</y>
       <width>171</width>
       <height>16</height>
      </rect>
@@ -138,7 +138,7 @@
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>490</y>
+      <y>450</y>
       <width>171</width>
       <height>16</height>
      </rect>
@@ -156,7 +156,7 @@
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>520</y>
+      <y>480</y>
       <width>171</width>
       <height>16</height>
      </rect>
@@ -174,7 +174,7 @@
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>460</y>
+      <y>420</y>
       <width>171</width>
       <height>16</height>
      </rect>
@@ -192,7 +192,7 @@
     <property name="geometry">
      <rect>
       <x>400</x>
-      <y>140</y>
+      <y>100</y>
       <width>251</width>
       <height>271</height>
      </rect>
@@ -202,7 +202,7 @@
     <property name="geometry">
      <rect>
       <x>470</x>
-      <y>520</y>
+      <y>480</y>
       <width>171</width>
       <height>16</height>
      </rect>
@@ -220,7 +220,7 @@
     <property name="geometry">
      <rect>
       <x>470</x>
-      <y>430</y>
+      <y>390</y>
       <width>171</width>
       <height>16</height>
      </rect>
@@ -238,7 +238,7 @@
     <property name="geometry">
      <rect>
       <x>470</x>
-      <y>490</y>
+      <y>450</y>
       <width>171</width>
       <height>16</height>
      </rect>
@@ -256,7 +256,7 @@
     <property name="geometry">
      <rect>
       <x>400</x>
-      <y>430</y>
+      <y>390</y>
       <width>55</width>
       <height>16</height>
      </rect>
@@ -274,7 +274,7 @@
     <property name="geometry">
      <rect>
       <x>400</x>
-      <y>490</y>
+      <y>450</y>
       <width>111</width>
       <height>16</height>
      </rect>
@@ -292,7 +292,7 @@
     <property name="geometry">
      <rect>
       <x>400</x>
-      <y>520</y>
+      <y>480</y>
       <width>55</width>
       <height>16</height>
      </rect>
@@ -310,7 +310,7 @@
     <property name="geometry">
      <rect>
       <x>470</x>
-      <y>460</y>
+      <y>420</y>
       <width>171</width>
       <height>16</height>
      </rect>
@@ -328,7 +328,7 @@
     <property name="geometry">
      <rect>
       <x>400</x>
-      <y>460</y>
+      <y>420</y>
       <width>55</width>
       <height>16</height>
      </rect>
@@ -408,9 +408,9 @@
     <property name="geometry">
      <rect>
       <x>400</x>
-      <y>80</y>
+      <y>20</y>
       <width>251</width>
-      <height>28</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -421,9 +421,9 @@
     <property name="geometry">
      <rect>
       <x>400</x>
-      <y>110</y>
+      <y>60</y>
       <width>251</width>
-      <height>28</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
