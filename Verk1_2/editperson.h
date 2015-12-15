@@ -19,7 +19,7 @@ public:
     ~editPerson();
 
 private slots:
-    void on_lineEditNewName_textChanged(const QString &arg1);
+    //void on_lineEditNewName_textChanged(const QString &arg1);
 
     void on_btnCancelEdit_clicked();
 
