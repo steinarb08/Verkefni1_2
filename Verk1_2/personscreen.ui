@@ -237,6 +237,67 @@
      <string/>
     </property>
    </widget>
+   <widget class="QComboBox" name="comboBoxSort">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>30</y>
+      <width>191</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Name</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Gender</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Year of Birth</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Year of Death</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QCheckBox" name="checkBoxDescending">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>30</y>
+      <width>151</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Descending</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>30</y>
+      <width>68</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Sort by:</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

@@ -36,6 +36,10 @@ private slots:
 
     void on_btnEdit_clicked();
 
+    void on_comboBoxSort_currentTextChanged();
+
+    void on_checkBoxDescending_clicked();
+
 private:
     Ui::PersonScreen *ui;
     DomainLayer d1;
