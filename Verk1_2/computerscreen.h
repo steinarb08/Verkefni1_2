@@ -26,7 +26,7 @@ public:
 private slots:
     void on_pushButton_clicked();
 
-    void on_listComputer_clicked(const QModelIndex &index);
+    void on_listComputer_clicked();
 
     void on_btnRemoveC_clicked();
 

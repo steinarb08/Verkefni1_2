@@ -39,7 +39,7 @@ void ComputerScreen::updateComputers()
 
 }
 
-void ComputerScreen::on_listComputer_clicked(const QModelIndex &index)
+void ComputerScreen::on_listComputer_clicked()
 {
     int i = ui->listComputer->currentRow();
     ui-> btnRemoveC-> setEnabled(true);
