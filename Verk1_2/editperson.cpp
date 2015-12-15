@@ -101,6 +101,7 @@ void editPerson::on_btnSaveEdit_clicked()
          p1.setBirthYear(birthYear);
          p1.setDeathYear(deathYear);
          d1.updatePerson(p1);
+         ps1->updateValues();
          this->close();
     }
 }

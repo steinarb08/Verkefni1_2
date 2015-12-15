@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Edit Scientist</string>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
@@ -100,7 +100,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Edit Person</string>
+    <string>Edit Scientist</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btnSaveEdit">

@@ -10,22 +10,12 @@ PersonScreen::PersonScreen(QWidget *parent,DomainLayer &dom) :
     d1 = dom;
     ui->setupUi(this);
     personList = d1.loadPerson();
-    on_btnLoad_clicked();
+    updateValues();
 }
 
 PersonScreen::~PersonScreen()
 {
     delete ui;
-}
-
-void PersonScreen::on_btnLoad_clicked()
-{
-    ui-> listWidgetP-> clear();
-    personList = d1.loadPerson();
-    for(unsigned int i = 0;i < personList.size(); i++)
-    {
-        ui->listWidgetP->addItem(QString::fromStdString(personList.at(i).getName()));
-    }
 }
 
 void PersonScreen::on_listWidgetP_itemSelectionChanged()
@@ -79,7 +69,7 @@ void PersonScreen::on_btnRemove_clicked()
     d1.deleteFromPerson(personList.at(selectedOnList));
     ui->listWidgetP->clear();
     personList = d1.loadPerson();
-    on_btnLoad_clicked();
+    updateValues();
     ui->labelSetName->clear();
     ui->labelSetGender->clear();
     ui->labelSetBirthYear->clear();
@@ -91,4 +81,14 @@ void PersonScreen::on_btnEdit_clicked()
 {
     editPerson *editperson = new editPerson(this, d1, personList.at(ui->listWidgetP->currentRow()),this);
     editperson->show();
+}
+
+void PersonScreen::updateValues()
+{
+    ui-> listWidgetP-> clear();
+    personList = d1.loadPerson();
+    for(unsigned int i = 0;i < personList.size(); i++)
+    {
+        ui->listWidgetP->addItem(QString::fromStdString(personList.at(i).getName()));
+    }
 }

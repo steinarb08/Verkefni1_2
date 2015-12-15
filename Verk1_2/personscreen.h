@@ -19,10 +19,10 @@ class PersonScreen : public QMainWindow
 
 public:
     PersonScreen(QWidget *parent,DomainLayer &dom);
+    void updateValues();
     ~PersonScreen();
 
 private slots:
-    void on_btnLoad_clicked();
 
     void on_listWidgetP_itemSelectionChanged();
 
