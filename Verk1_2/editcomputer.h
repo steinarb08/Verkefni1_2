@@ -20,6 +20,8 @@ public:
 private slots:
      void on_btnCancelEditC_clicked();
 
+     void on_btnSaveEditC_clicked();
+
 private:
     Ui::EditComputer *ui;
     DomainLayer d1;
