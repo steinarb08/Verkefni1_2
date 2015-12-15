@@ -63,16 +63,18 @@ void editPerson::on_btnSaveEdit_clicked()
     //d1.updateDbPerson(personList.at(i));
 
 }
-/*
+
 void editPerson::on_checkBoxMale_clicked()
 {
-    ui->checkBoxMale->isChecked(true);
-    ui->checkBoxFemale->isChecked(false);
+    ui->checkBoxMale->setChecked(true);
+
+    ui->checkBoxFemale->setChecked(false);
 }
 
 void editPerson::on_checkBoxFemale_clicked()
 {
-    ui->checkBoxFemale->isChecked(true);
-    ui->checkBoxMale->isChecked(false);
+    QMessageBox::information(NULL,"rawr","rawr");
+    ui->checkBoxFemale->setChecked(true);
+    ui->checkBoxMale->setChecked(false);
 }
-*/
+
