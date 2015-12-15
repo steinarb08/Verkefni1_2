@@ -6,6 +6,7 @@
 #include <person.h>
 #include <cplink.h>
 #include <vector>
+#include <connectionscreen.h>
 namespace Ui {
 class AddConnection;
 }
@@ -15,8 +16,8 @@ class AddConnection : public QMainWindow
     Q_OBJECT
 
 public:
-    AddConnection(QWidget *parent,DomainLayer &dom,Computer c1);
-    AddConnection(QWidget *parent,DomainLayer &dom,Person p1);
+    AddConnection(QWidget *parent,DomainLayer &dom,Computer c1,ConnectionScreen *parentScreen);
+    AddConnection(QWidget *parent,DomainLayer &dom,Person p1,ConnectionScreen *parentScreen);
     ~AddConnection();
 
 private slots:
@@ -30,6 +31,7 @@ private:
     Computer c1;
     Person p1;
     bool scientist;
+    ConnectionScreen *pScreen;
 };
 
 #endif // ADDCONNECTION_H

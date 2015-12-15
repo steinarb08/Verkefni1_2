@@ -8,6 +8,7 @@
 #include <cplink.h>
 #include <vector>
 #include "addcomputerwindow.h"
+#include <editcomputer.h>
 
 namespace Ui {
 class ComputerScreen;

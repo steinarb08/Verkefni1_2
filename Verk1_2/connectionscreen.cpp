@@ -1,5 +1,6 @@
 #include "connectionscreen.h"
 #include "ui_connectionscreen.h"
+#include "addconnection.h"
 #include <qmessagebox.h>
 
 ConnectionScreen::ConnectionScreen(QWidget *parent,DomainLayer &dom) :
@@ -16,6 +17,12 @@ ConnectionScreen::ConnectionScreen(QWidget *parent,DomainLayer &dom) :
 ConnectionScreen::~ConnectionScreen()
 {
     delete ui;
+}
+
+
+void ConnectionScreen::updateFoundValues()
+{
+    on_selectionList_itemSelectionChanged();
 }
 
 void ConnectionScreen::on_selectionList_itemSelectionChanged()
@@ -236,15 +243,22 @@ void ConnectionScreen::on_btnRemoveConnection_clicked()
 
 void ConnectionScreen::on_btnAddConnection_clicked()
 {
-    if(ui->cmbList->currentText() == "Scientist")
+    if(ui->selectionList->selectedItems().empty())
     {
-        AddConnection *addConnectionScreen = new AddConnection(this,d1,personList.at(ui->selectionList->currentRow()));
-        addConnectionScreen->show();
+        QMessageBox::information(NULL,"Remove error","No item selected!");
     }
     else
     {
-        AddConnection *addConnectionScreen = new AddConnection(this,d1,computerList.at(ui->selectionList->currentRow()));
-        addConnectionScreen->show();
+        if(ui->cmbList->currentText() == "Scientist")
+        {
+            AddConnection *addConnectionScreen = new AddConnection(this,d1,personList.at(ui->selectionList->currentRow()),this);
+            addConnectionScreen->show();
+        }
+        else
+        {
+            AddConnection *addConnectionScreen = new AddConnection(this,d1,computerList.at(ui->selectionList->currentRow()),this);
+            addConnectionScreen->show();
+        }
     }
 
 }
