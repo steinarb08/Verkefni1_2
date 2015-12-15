@@ -23,6 +23,8 @@ private slots:
 
     void on_btnAddC_clicked();
 
+    void on_btnCancelC_2_clicked();
+
 private:
     DomainLayer d1;
     Ui::AddComputerWindow *ui;
