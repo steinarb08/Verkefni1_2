@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>727</width>
+    <width>820</width>
     <height>726</height>
    </rect>
   </property>
@@ -16,7 +16,6 @@
     <italic>false</italic>
     <bold>false</bold>
     <underline>false</underline>
-    <strikeout>false</strikeout>
    </font>
   </property>
   <property name="windowTitle">
@@ -28,16 +27,16 @@
      <rect>
       <x>60</x>
       <y>70</y>
-      <width>611</width>
-      <height>331</height>
+      <width>721</width>
+      <height>351</height>
      </rect>
     </property>
    </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>30</y>
+      <x>160</x>
+      <y>10</y>
       <width>201</width>
       <height>16</height>
      </rect>
@@ -45,7 +44,7 @@
     <property name="font">
      <font>
       <family>Akashi</family>
-      <pointsize>16</pointsize>
+      <pointsize>12</pointsize>
       <underline>false</underline>
       <strikeout>false</strikeout>
      </font>
@@ -79,7 +78,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>540</x>
+      <x>630</x>
       <y>450</y>
       <width>141</width>
       <height>28</height>
@@ -95,7 +94,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>420</x>
+      <x>490</x>
       <y>450</y>
       <width>111</width>
       <height>28</height>
@@ -108,7 +107,7 @@
    <widget class="QTextEdit" name="textBoxSearchComp">
     <property name="geometry">
      <rect>
-      <x>476</x>
+      <x>590</x>
       <y>20</y>
       <width>191</width>
       <height>31</height>
@@ -255,14 +254,57 @@
      <string/>
     </property>
    </widget>
+   <widget class="QComboBox" name="sortComputerC">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>40</y>
+      <width>321</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Name</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Type</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Build Year</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Was It Built?</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QCheckBox" name="checkAscendingC">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>40</y>
+      <width>81</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Ascending</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>727</width>
-     <height>22</height>
+     <width>820</width>
+     <height>26</height>
     </rect>
    </property>
   </widget>
