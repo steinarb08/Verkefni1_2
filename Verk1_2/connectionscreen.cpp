@@ -237,14 +237,27 @@ void ConnectionScreen::on_btnRemoveConnection_clicked()
             Computer c1 = linkedComputerList.at(ui->lstFoundValues->currentRow());
             Person p1 = personList.at(ui->selectionList->currentRow());
             d1.deleteFromCPlink(p1,c1);
+            linkedComputerList = d1.loadComputerLinkedWith(p1);
+            ui->lstFoundValues->clear();
+            for(int i=0;i<linkedComputerList.size();i++)
+            {
+                ui->lstFoundValues->addItem(QString::fromStdString(linkedComputerList.at(i).getName()));
+            }
         }
         else
         {
             Computer c1 = computerList.at(ui->selectionList->currentRow());
             Person p1 = linkedPersonList.at(ui->lstFoundValues->currentRow());
             d1.deleteFromCPlink(p1,c1);
+            linkedPersonList = d1.loadPersonLinkedWith(c1);
+            ui->lstFoundValues->clear();
+            for(int i=0;i<linkedPersonList.size();i++)
+            {
+                ui->lstFoundValues->addItem(QString::fromStdString(linkedPersonList.at(i).getName()));
+            }
         }
-        on_cmbSort_currentTextChanged();
+
+
     }
 }
 
