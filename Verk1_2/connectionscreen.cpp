@@ -233,3 +233,18 @@ void ConnectionScreen::on_btnRemoveConnection_clicked()
         on_cmbSort_currentTextChanged();
     }
 }
+
+void ConnectionScreen::on_btnAddConnection_clicked()
+{
+    if(ui->cmbList->currentText() == "Scientist")
+    {
+        AddConnection *addConnectionScreen = new AddConnection(this,d1,personList.at(ui->selectionList->currentRow()));
+        addConnectionScreen->show();
+    }
+    else
+    {
+        AddConnection *addConnectionScreen = new AddConnection(this,d1,computerList.at(ui->selectionList->currentRow()));
+        addConnectionScreen->show();
+    }
+
+}

@@ -8,6 +8,7 @@ PersonScreen::PersonScreen(QWidget *parent,DomainLayer &dom) :
     d1 = dom;
     ui->setupUi(this);
     personList = d1.loadPerson();
+    on_btnLoad_clicked();
 }
 
 PersonScreen::~PersonScreen()
@@ -59,7 +60,7 @@ void PersonScreen::on_textBoxSearchList_textChanged(const QString &arg1)
 
 void PersonScreen::on_btnAddPersonToList_clicked()
 {
-    addNewPerson *addnewperson = new addNewPerson(this, d1);
+    addNewPerson *addnewperson = new addNewPerson(this, d1, this);
     addnewperson->show();
 }
 
@@ -86,6 +87,6 @@ void PersonScreen::on_btnRemove_clicked()
 
 void PersonScreen::on_btnEdit_clicked()
 {
-    editPerson *editperson = new editPerson(this);
+    editPerson *editperson = new editPerson(this, d1, personList.at(ui->listWidgetP->currentRow()));
     editperson->show();
 }
