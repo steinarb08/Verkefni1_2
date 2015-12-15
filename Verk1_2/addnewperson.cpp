@@ -1,13 +1,14 @@
 #include "addnewperson.h"
 #include "ui_addnewperson.h"
 #include "QMessageBox"
-
-addNewPerson::addNewPerson(QWidget *parent, DomainLayer &dom) :
+addNewPerson::addNewPerson(QWidget *parent, DomainLayer &dom, PersonScreen *perscreen) :
     QDialog(parent),
     ui(new Ui::addNewPerson)
 {
     ui->setupUi(this);
     d1 = dom;
+    ps1 = perscreen;
+
 }
 
 addNewPerson::~addNewPerson()
@@ -96,6 +97,7 @@ void addNewPerson::on_Button_ADD_NewScientist_clicked()
 
             Person p1(name, gender, birthYear, deathYear);
             d1.addPersonToDB(p1);
+            //ps1->on_btnLoad_clicked();
 
             this->close();
        }

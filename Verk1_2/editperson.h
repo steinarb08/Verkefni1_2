@@ -2,6 +2,9 @@
 #define EDITPERSON_H
 
 #include <QDialog>
+#include <iostream>
+#include <personscreen.h>
+#include <domainlayer.h>
 
 namespace Ui {
 class editPerson;
@@ -12,7 +15,7 @@ class editPerson : public QDialog
     Q_OBJECT
 
 public:
-    explicit editPerson(QWidget *parent = 0);
+     editPerson(QWidget *parent, DomainLayer &dom, Person &per);
     ~editPerson();
 
 private slots:
@@ -20,8 +23,16 @@ private slots:
 
     void on_btnCancelEdit_clicked();
 
+    void on_btnSaveEdit_clicked();
+
+    void on_checkBoxMale_clicked();
+
+    void on_checkBoxFemale_clicked();
+
 private:
     Ui::editPerson *ui;
+    DomainLayer d1;
+    Person p1;
 };
 
 #endif // EDITPERSON_H
