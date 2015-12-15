@@ -42,7 +42,7 @@ private slots:
     // Searches for a substring (searchString) in the name of each Computer in a list, returns a sublist that has those substrings.
 
     void on_sortComputerC_currentTextChanged();
-    // Sort options.
+    //ComboBox for sort functions. Gives you options to choose from.
 
     void on_checkDescendingC_clicked();
     // Descending order check box.
