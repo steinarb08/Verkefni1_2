@@ -2,6 +2,7 @@
 #include "ui_editcomputer.h"
 #include <QMessageBox>
 
+// Default constructor. Selected scientist appears in edit label boxes
 EditComputer::EditComputer(QWidget *parent,DomainLayer &dom, Computer &com, ComputerScreen *cpuScreen) :
     QMainWindow(parent),
     ui(new Ui::EditComputer)
@@ -29,11 +30,13 @@ EditComputer::~EditComputer()
     delete ui;
 }
 
+// Function for cancel button to close the window
 void EditComputer::on_btnCancelEditC_clicked()
 {
     this->close();
 }
 
+// Function for save button to overwrite computer list
 void EditComputer::on_btnSaveEditC_clicked()
 {
     string name = ui->textEdit_Name->toPlainText().toStdString();

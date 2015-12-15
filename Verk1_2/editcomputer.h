@@ -16,12 +16,16 @@ class EditComputer : public QMainWindow
 
 public:
      EditComputer(QWidget *parent, DomainLayer &dom, Computer &com, ComputerScreen *cpuScreen);
+     // Default constructor. Selected scientist appears in edit label boxes
     ~EditComputer();
 
 private slots:
      void on_btnCancelEditC_clicked();
+     // Function for cancel button to close the window
 
      void on_btnSaveEditC_clicked();
+     // Function for save button to overwrite computer list
+
 
 private:
     Ui::EditComputer *ui;
