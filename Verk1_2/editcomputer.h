@@ -26,7 +26,6 @@ private slots:
      void on_btnSaveEditC_clicked();
      // Function for save button to overwrite computer list
 
-
 private:
     Ui::EditComputer *ui;
     DomainLayer d1;

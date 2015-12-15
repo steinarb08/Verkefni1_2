@@ -2,7 +2,7 @@
 #include "ui_editcomputer.h"
 #include <QMessageBox>
 
-// Default constructor. Selected scientist appears in edit label boxes
+// Default constructor. Selected computer appears in edit label boxes.
 EditComputer::EditComputer(QWidget *parent,DomainLayer &dom, Computer &com, ComputerScreen *cpuScreen) :
     QMainWindow(parent),
     ui(new Ui::EditComputer)
@@ -11,6 +11,7 @@ EditComputer::EditComputer(QWidget *parent,DomainLayer &dom, Computer &com, Comp
     d1 = dom;
     c1 = com;
     cs1 = cpuScreen;
+
     ui->textEdit_Name->setText(QString::fromStdString(c1.getName()));
     ui->textEdit_BuiltYear->setText(QString::number(c1.getBuiltYear()));
     ui->textEdit_Type->setText(QString::fromStdString(c1.getType()));
@@ -22,7 +23,6 @@ EditComputer::EditComputer(QWidget *parent,DomainLayer &dom, Computer &com, Comp
     {
         ui->checkNo->setChecked(true);
     }
-
 }
 
 EditComputer::~EditComputer()
@@ -36,7 +36,7 @@ void EditComputer::on_btnCancelEditC_clicked()
     this->close();
 }
 
-// Function for save button to overwrite computer list
+// Saves edited computer. Error checks.
 void EditComputer::on_btnSaveEditC_clicked()
 {
     string name = ui->textEdit_Name->toPlainText().toStdString();
@@ -44,8 +44,6 @@ void EditComputer::on_btnSaveEditC_clicked()
     int buildYear = ui->textEdit_BuiltYear->toPlainText().toInt();
     string built = "";
     bool success = true;
-
-
 
     if(ui->checkYes->isChecked())
     {
@@ -66,46 +64,43 @@ void EditComputer::on_btnSaveEditC_clicked()
         ui->errorLabelC->setText("<span style = 'color: red'> Invalid Build Year!</span>");
         success = false;
     }
-
     else if(type.empty())
     {
         ui->errorLabelC->setText("<span style = 'color: red'> Empty Type!</span>");
         success = false;
     }
-
     else
-       {
-           if(ui->checkYes->isChecked())
-           {
-               built = "Yes" ;
-           }
-           else if (ui->checkNo->isChecked())
-           {
-               built = "No";
-           }
-           else if (!(ui->checkNo->isChecked()) && !(ui->checkYes->isChecked()))
-           {
-                ui->errorLabelC->setText("<span style='color: red'>Boxes for Was It Built are empty!</span>");
-                success = false;
-           }
-    if (success)
     {
-        int answer = QMessageBox::question(this, "Confirm", "Are you sure?");
-        if(answer == QMessageBox::No)
+        if(ui->checkYes->isChecked())
         {
-            return;
+            built = "Yes" ;
         }
+        else if (ui->checkNo->isChecked())
+        {
+            built = "No";
+        }
+        else if (!(ui->checkNo->isChecked()) && !(ui->checkYes->isChecked()))
+        {
+            ui->errorLabelC->setText("<span style='color: red'>Boxes for Was It Built are empty!</span>");
+            success = false;
+        }
+        if (success)
+        {   //
+            int answer = QMessageBox::question(this, "Confirm", "Are you sure?");
+            if(answer == QMessageBox::No)
+            {
+                return;
+            }
 
-        c1.setName(name);
-        c1.setType(type);
-        c1.setBuiltYear(buildYear);
-        c1.setBuiltComputer(built);
+            c1.setName(name);
+            c1.setType(type);
+            c1.setBuiltYear(buildYear);
+            c1.setBuiltComputer(built);
 
-        d1.updateComputer(c1);
-        cs1->updateComputers();
-        this->close();
+            d1.updateComputer(c1);
+            cs1->updateComputers();
+            this->close();
+        }
     }
-
-}
 }
 

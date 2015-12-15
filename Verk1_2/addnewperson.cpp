@@ -72,7 +72,6 @@ void addNewPerson::on_Button_ADD_NewScientist_clicked()
         ui->labelError->setText("<span style='color: red'>Invalid year of death</span>");
         success = false;
     }
-
     else
     {
         if(ui->checkBox_male->isChecked())
@@ -84,7 +83,7 @@ void addNewPerson::on_Button_ADD_NewScientist_clicked()
             gender = "Female";
         }
         else if (!(ui->checkBox_female->isChecked()) && !(ui->checkBox_male->isChecked()))
-        {    // If neither box is checked.
+        {   // If neither boxes are checked.
             ui->labelError->setText("<span style='color: red'>Boxes for gender are empty</span>");
             success = false;
         }

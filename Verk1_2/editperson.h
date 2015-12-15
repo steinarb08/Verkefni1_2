@@ -16,18 +16,21 @@ class editPerson : public QDialog
 
 public:
      editPerson(QWidget *parent, DomainLayer &dom, Person &per,PersonScreen *perScreen);
+     // Default constructor. Selected scientist appears in edit label boxes.
     ~editPerson();
 
 private slots:
-    //void on_lineEditNewName_textChanged(const QString &arg1);
-
     void on_btnCancelEdit_clicked();
+    // Cancel button.
 
     void on_btnSaveEdit_clicked();
+    // Saves edited scientists. Error checks.
 
     void on_checkBoxMale_clicked();
+    // If one box is checked, you cant check the other one.
 
     void on_checkBoxFemale_clicked();
+    // If one box is checked, you cant check the other one.
 
 private:
     Ui::editPerson *ui;

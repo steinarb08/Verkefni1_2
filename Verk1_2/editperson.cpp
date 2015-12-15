@@ -2,6 +2,7 @@
 #include "ui_editperson.h"
 #include <QMessageBox>
 
+// Default constructor. Selected scientist appears in edit label boxes.
 editPerson::editPerson(QWidget *parent, DomainLayer &dom, Person &per,PersonScreen *perScreen):
     QDialog(parent),
     ui(new Ui::editPerson)
@@ -10,7 +11,6 @@ editPerson::editPerson(QWidget *parent, DomainLayer &dom, Person &per,PersonScre
     d1 = dom;
     p1 = per;
     ps1 = perScreen;
-
 
     ui->textEditNewName->setText(QString::fromStdString(p1.getName()));
     ui->textEditBirthYear->setText(QString::number(p1.getBirthYear()));
@@ -29,12 +29,14 @@ editPerson::~editPerson()
 {
     delete ui;
 }
-//Cancel button.
+
+// Cancel button.
 void editPerson::on_btnCancelEdit_clicked()
 {
     this->close();
 }
-//Saves edited scientists. Error checkers.
+
+// Saves edited scientists. Error checks.
 void editPerson::on_btnSaveEdit_clicked()
 {
     string name = ui->textEditNewName->toPlainText().toStdString();
@@ -84,6 +86,7 @@ void editPerson::on_btnSaveEdit_clicked()
             success = false;
         }
     }
+
     if(success)
     {
         int answer = QMessageBox::question(this, "Confirm", "Are you sure?");
@@ -100,13 +103,15 @@ void editPerson::on_btnSaveEdit_clicked()
         this->close();
     }
 }
-//If one box is checked, you cant check the other one.
+
+// If one box is checked, you cant check the other one.
 void editPerson::on_checkBoxMale_clicked()
 {
     ui->checkBoxMale->setChecked(true);
     ui->checkBoxFemale->setChecked(false);
 }
-//If one box is checked, you cant check the other one.
+
+// If one box is checked, you cant check the other one.
 void editPerson::on_checkBoxFemale_clicked()
 {
     ui->checkBoxFemale->setChecked(true);
