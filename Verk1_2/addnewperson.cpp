@@ -21,6 +21,7 @@ void addNewPerson::on_Button_Cancel_NewScientist_clicked()
     this->close();
 }
 
+// only one box is allowed to be checked
 void addNewPerson::on_checkBox_male_clicked()
 {
     ui->checkBox_male->setChecked(true);
