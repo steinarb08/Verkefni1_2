@@ -29,17 +29,12 @@ editPerson::~editPerson()
 {
     delete ui;
 }
-
-void editPerson::on_lineEditNewName_textChanged(const QString &arg1)
-{
-
-}
-
+//Cancel button.
 void editPerson::on_btnCancelEdit_clicked()
 {
     this->close();
 }
-
+//Saves edited scientists. Error checkers.
 void editPerson::on_btnSaveEdit_clicked()
 {
     string name = ui->textEditNewName->toPlainText().toStdString();
@@ -50,18 +45,18 @@ void editPerson::on_btnSaveEdit_clicked()
 
     if(name.empty())
     {
-         ui->labelError->setText("<span style='color: red'>Empty name</span>");
-         success = false;
+        ui->labelError->setText("<span style='color: red'>Empty name</span>");
+        success = false;
     }
     else if (birthYear == 0)
     {
-         ui->labelError->setText("<span style='color: red'>Empty Birthyear</span>");
-         success = false;
+        ui->labelError->setText("<span style='color: red'>Empty Birthyear</span>");
+        success = false;
     }
     else if (birthYear > 2016)
     {
-         ui->labelError->setText("<span style='color: red'>Invalid year of birth</span>");
-         success = false;
+        ui->labelError->setText("<span style='color: red'>Invalid year of birth</span>");
+        success = false;
     }
     else if (deathYear == 0)
     {
@@ -85,33 +80,33 @@ void editPerson::on_btnSaveEdit_clicked()
         }
         else if (!(ui->checkBoxFemale->isChecked()) && !(ui->checkBoxMale->isChecked()))
         {
-             ui->labelError->setText("<span style='color: red'>Boxes for gender are empty</span>");
-             success = false;
+            ui->labelError->setText("<span style='color: red'>Boxes for gender are empty</span>");
+            success = false;
         }
     }
     if(success)
     {
-         int answer = QMessageBox::question(this, "Confirm", "Are you sure?");
-         if(answer == QMessageBox::No)
-         {
-             return;
-         }
-         p1.setName(name);
-         p1.setGender(gender);
-         p1.setBirthYear(birthYear);
-         p1.setDeathYear(deathYear);
-         d1.updatePerson(p1);
-         ps1->updateValues();
-         this->close();
+        int answer = QMessageBox::question(this, "Confirm", "Are you sure?");
+        if(answer == QMessageBox::No)
+        {
+            return;
+        }
+        p1.setName(name);
+        p1.setGender(gender);
+        p1.setBirthYear(birthYear);
+        p1.setDeathYear(deathYear);
+        d1.updatePerson(p1);
+        ps1->updateValues();
+        this->close();
     }
 }
-
+//If one box is checked, you cant check the other one.
 void editPerson::on_checkBoxMale_clicked()
 {
     ui->checkBoxMale->setChecked(true);
     ui->checkBoxFemale->setChecked(false);
 }
-
+//If one box is checked, you cant check the other one.
 void editPerson::on_checkBoxFemale_clicked()
 {
     ui->checkBoxFemale->setChecked(true);

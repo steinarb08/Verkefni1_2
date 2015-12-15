@@ -3,6 +3,7 @@
 #include <computer.h>
 #include "QMessageBox"
 
+// Default constructor
 AddComputerWindow::AddComputerWindow(QWidget *parent,DomainLayer dom,ComputerScreen *cpuScreen) :
     QMainWindow(parent),
     ui(new Ui::AddComputerWindow)
@@ -17,20 +18,21 @@ AddComputerWindow::~AddComputerWindow()
     delete ui;
 }
 
-
+// Only one box can be checked.
 void AddComputerWindow::on_checkYes_clicked()
 {
     ui->checkNo->setChecked(false);
     ui->checkYes->setChecked(true);
 }
 
-
+// Only one box can be checked.
 void AddComputerWindow::on_checkNo_clicked()
 {
     ui->checkYes->setChecked(false);
     ui->checkNo->setChecked(true);
 }
 
+// Adds new computer to database.
 void AddComputerWindow::on_btnAddC_clicked()
 {
     string name = ui->textNewNameC->toPlainText().toStdString();
@@ -60,49 +62,34 @@ void AddComputerWindow::on_btnAddC_clicked()
         ui->errorLabelC->setText("<span style = 'color: red'> Invalid Build Year!</span>");
         success = false;
     }
-
     else if(type.empty())
     {
         ui->errorLabelC->setText("<span style = 'color: red'> Empty Type!</span>");
         success = false;
     }
+    else if (!(ui->checkNo->isChecked()) && !(ui->checkYes->isChecked()))
+    {
+        ui->errorLabelC->setText("<span style='color: red'>Boxes for Was It Built are empty!</span>");
+        success = false;
+    }
 
-    else
-       {
-           if(ui->checkYes->isChecked())
-           {
-               built = "Yes" ;
-           }
-           else if (ui->checkNo->isChecked())
-           {
-               built = "No";
-           }
-           else if (!(ui->checkNo->isChecked()) && !(ui->checkYes->isChecked()))
-           {
-                ui->errorLabelC->setText("<span style='color: red'>Boxes for Was It Built are empty!</span>");
-                success = false;
-           }
-
-           if(success)
-           {
-                int answer = QMessageBox::question(this, "Confirm", "Are you sure?");
-                if(answer == QMessageBox::No)
-                {
-                    return;
-                }
-
-                Computer c1(name,buildYear,type,built);
-                d1.addComputerToDB(c1);
-                cs1->updateComputers();
-                this->close();
-           }
+    if(success)
+    {
+        // question box when entered "Save"
+        int answer = QMessageBox::question(this, "Confirm", "Are you sure?");
+        if(answer == QMessageBox::No)
+        {
+            return;
         }
+
+        Computer c1(name,buildYear,type,built);
+        d1.addComputerToDB(c1);
+        cs1->updateComputers();
+        this->close();
+    }
 }
 
-
-
-
-
+// Closes the window when entered "Cancel" box
 void AddComputerWindow::on_btnCancelC_2_clicked()
 {
     this->close();
