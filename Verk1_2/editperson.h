@@ -15,7 +15,7 @@ class editPerson : public QDialog
     Q_OBJECT
 
 public:
-     editPerson(QWidget *parent, DomainLayer &dom, Person &per);
+     editPerson(QWidget *parent, DomainLayer &dom, Person &per,PersonScreen *perScreen);
     ~editPerson();
 
 private slots:
@@ -33,6 +33,7 @@ private:
     Ui::editPerson *ui;
     DomainLayer d1;
     Person p1;
+    PersonScreen *ps1;
 };
 
 #endif // EDITPERSON_H

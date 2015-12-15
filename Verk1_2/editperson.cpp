@@ -1,13 +1,15 @@
 #include "editperson.h"
 #include "ui_editperson.h"
+#include <QMessageBox>
 
-editPerson::editPerson(QWidget *parent, DomainLayer &dom, Person &per):
+editPerson::editPerson(QWidget *parent, DomainLayer &dom, Person &per,PersonScreen *perScreen):
     QDialog(parent),
     ui(new Ui::editPerson)
 {
     ui->setupUi(this);
     d1 = dom;
     p1 = per;
+    ps1 = perScreen;
 
 
     ui->textEditNewName->setText(QString::fromStdString(p1.getName()));

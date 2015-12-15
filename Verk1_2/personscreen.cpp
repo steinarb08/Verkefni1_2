@@ -1,5 +1,7 @@
 #include "personscreen.h"
 #include "ui_personscreen.h"
+#include "addnewperson.h"
+#include "editperson.h"
 
 PersonScreen::PersonScreen(QWidget *parent,DomainLayer &dom) :
     QMainWindow(parent),
@@ -87,6 +89,6 @@ void PersonScreen::on_btnRemove_clicked()
 
 void PersonScreen::on_btnEdit_clicked()
 {
-    editPerson *editperson = new editPerson(this, d1, personList.at(ui->listWidgetP->currentRow()));
+    editPerson *editperson = new editPerson(this, d1, personList.at(ui->listWidgetP->currentRow()),this);
     editperson->show();
 }

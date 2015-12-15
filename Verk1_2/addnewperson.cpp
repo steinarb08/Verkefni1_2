@@ -1,14 +1,13 @@
 #include "addnewperson.h"
 #include "ui_addnewperson.h"
 #include "QMessageBox"
-addNewPerson::addNewPerson(QWidget *parent, DomainLayer &dom, PersonScreen *perscreen) :
+addNewPerson::addNewPerson(QWidget *parent, DomainLayer &dom, PersonScreen *perScreen) :
     QDialog(parent),
     ui(new Ui::addNewPerson)
 {
     ui->setupUi(this);
     d1 = dom;
-    ps1 = perscreen;
-
+    ps1 = perScreen;
 }
 
 addNewPerson::~addNewPerson()
@@ -20,7 +19,6 @@ addNewPerson::~addNewPerson()
 void addNewPerson::on_Button_Cancel_NewScientist_clicked()
 {
     this->close();
-
 }
 
 void addNewPerson::on_checkBox_male_clicked()

@@ -7,8 +7,7 @@
 #include <computer.h>
 #include <cplink.h>
 #include <vector>
-#include "addnewperson.h"
-#include "editperson.h"
+
 
 namespace Ui {
 class PersonScreen;
