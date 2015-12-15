@@ -400,6 +400,9 @@
     <property name="text">
      <string>Ascending</string>
     </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QPushButton" name="btnAddConnection">
     <property name="geometry">
