@@ -104,3 +104,15 @@ void EditComputer::on_btnSaveEditC_clicked()
     }
 }
 
+
+void EditComputer::on_checkYes_clicked()
+{
+    ui->checkYes->setChecked(true);
+    ui->checkNo->setChecked(false);
+}
+
+void EditComputer::on_checkNo_clicked()
+{
+    ui->checkNo->setChecked(true);
+    ui->checkYes->setChecked(false);
+}

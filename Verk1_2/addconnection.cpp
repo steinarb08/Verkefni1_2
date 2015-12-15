@@ -12,7 +12,7 @@ AddConnection::AddConnection(QWidget *parent,DomainLayer &dom,Person per,Connect
     scientist = true;
     computerList = d1.loadComputer();
     pScreen = parentScreen;
-    for(int i=0;i<computerList.size();i++)
+    for(unsigned int i=0;i<computerList.size();i++)
     {
         ui->lstConnectItem->addItem(QString::fromStdString(computerList.at(i).getName()));
     }
@@ -29,7 +29,7 @@ AddConnection::AddConnection(QWidget *parent,DomainLayer &dom,Computer com,Conne
     scientist = false;
     ui->lstConnectItem->clear();
     personList = d1.loadPerson();
-    for(int i=0;i<personList.size();i++)
+    for(unsigned int i=0;i<personList.size();i++)
     {
         ui->lstConnectItem->addItem(QString::fromStdString(personList.at(i).getName()));
     }

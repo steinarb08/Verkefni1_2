@@ -242,7 +242,7 @@ void ConnectionScreen::on_btnRemoveConnection_clicked()
             d1.deleteFromCPlink(p1,c1);
             linkedComputerList = d1.loadComputerLinkedWith(p1);
             ui->lstFoundValues->clear();
-            for(int i=0;i<linkedComputerList.size();i++)
+            for(unsigned int i=0;i<linkedComputerList.size();i++)
             {
                 ui->lstFoundValues->addItem(QString::fromStdString(linkedComputerList.at(i).getName()));
             }
@@ -254,7 +254,7 @@ void ConnectionScreen::on_btnRemoveConnection_clicked()
             d1.deleteFromCPlink(p1,c1);
             linkedPersonList = d1.loadPersonLinkedWith(c1);
             ui->lstFoundValues->clear();
-            for(int i=0;i<linkedPersonList.size();i++)
+            for(unsigned int i=0;i<linkedPersonList.size();i++)
             {
                 ui->lstFoundValues->addItem(QString::fromStdString(linkedPersonList.at(i).getName()));
             }
