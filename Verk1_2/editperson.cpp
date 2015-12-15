@@ -44,36 +44,73 @@ void editPerson::on_btnSaveEdit_clicked()
     int deathYear = ui->textEditDeathYear->toPlainText().toInt();
     int birthYear = ui->textEditBirthYear->toPlainText().toInt();
     string gender = "";
+    bool success = true;
 
-    if(ui->checkBoxMale->isChecked())
+    if(name.empty())
     {
-        gender = "Male";
+         ui->labelError->setText("<span style='color: red'>Empty name</span>");
+         success = false;
     }
-    else if(ui->checkBoxFemale->isChecked())
+    else if (birthYear == 0)
     {
-        gender = "Female";
+         ui->labelError->setText("<span style='color: red'>Empty Birthyear</span>");
+         success = false;
+    }
+    else if (birthYear > 2016)
+    {
+         ui->labelError->setText("<span style='color: red'>Invalid year of birth</span>");
+         success = false;
+    }
+    else if (deathYear == 0)
+    {
+        ui->labelError->setText("<span style='color: red'>Deathyear empty</span>");
+        success = false;
+    }
+    else if (birthYear > deathYear && !(deathYear == -1))
+    {
+        ui->labelError->setText("<span style='color: red'>Invalid year of death</span>");
+        success = false;
     }
     else
     {
-        //Some error message!
+        if(ui->checkBoxMale->isChecked())
+        {
+            gender = "Male";
+        }
+        else if(ui->checkBoxFemale->isChecked())
+        {
+            gender = "Female";
+        }
+        else if (!(ui->checkBoxFemale->isChecked()) && !(ui->checkBoxMale->isChecked()))
+        {
+             ui->labelError->setText("<span style='color: red'>Boxes for gender are empty</span>");
+             success = false;
+        }
     }
-
-    //personList.at(i).setName(name);
-
-    //d1.updateDbPerson(personList.at(i));
-
+    if(success)
+    {
+         int answer = QMessageBox::question(this, "Confirm", "Are you sure?");
+         if(answer == QMessageBox::No)
+         {
+             return;
+         }
+         p1.setName(name);
+         p1.setGender(gender);
+         p1.setBirthYear(birthYear);
+         p1.setDeathYear(deathYear);
+         d1.updatePerson(p1);
+         this->close();
+    }
 }
 
 void editPerson::on_checkBoxMale_clicked()
 {
     ui->checkBoxMale->setChecked(true);
-
     ui->checkBoxFemale->setChecked(false);
 }
 
 void editPerson::on_checkBoxFemale_clicked()
 {
-    QMessageBox::information(NULL,"rawr","rawr");
     ui->checkBoxFemale->setChecked(true);
     ui->checkBoxMale->setChecked(false);
 }

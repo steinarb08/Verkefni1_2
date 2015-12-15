@@ -47,27 +47,27 @@ void addNewPerson::on_Button_ADD_NewScientist_clicked()
 
    if(name.empty())
    {
-        ui->labelErrorGender->setText("<span style='color: red'>Empty name</span>");
+        ui->labelError->setText("<span style='color: red'>Empty name</span>");
         success = false;
    }
    else if (birthYear == 0)
    {
-        ui->labelErrorGender->setText("<span style='color: red'>Empty Birthyear</span>");
+        ui->labelError->setText("<span style='color: red'>Empty Birthyear</span>");
         success = false;
    }
    else if (birthYear > 2016)
    {
-        ui->labelErrorGender->setText("<span style='color: red'>Invalid year of birth</span>");
+        ui->labelError->setText("<span style='color: red'>Invalid year of birth</span>");
         success = false;
    }
    else if (deathYear == 0)
    {
-       ui->labelErrorGender->setText("<span style='color: red'>Deathyear empty</span>");
+       ui->labelError->setText("<span style='color: red'>Deathyear empty</span>");
        success = false;
    }
    else if (birthYear > deathYear && !(deathYear == -1))
    {
-       ui->labelErrorGender->setText("<span style='color: red'>Invalid year of death</span>");
+       ui->labelError->setText("<span style='color: red'>Invalid year of death</span>");
        success = false;
    }
 
@@ -83,7 +83,7 @@ void addNewPerson::on_Button_ADD_NewScientist_clicked()
        }
        else if (!(ui->checkBox_female->isChecked()) && !(ui->checkBox_male->isChecked()))
        {
-            ui->labelErrorGender->setText("<span style='color: red'>Boxes for gender are empty</span>");
+            ui->labelError->setText("<span style='color: red'>Boxes for gender are empty</span>");
             success = false;
        }
 
@@ -97,7 +97,7 @@ void addNewPerson::on_Button_ADD_NewScientist_clicked()
 
             Person p1(name, gender, birthYear, deathYear);
             d1.addPersonToDB(p1);
-            //ps1->on_btnLoad_clicked();
+
 
             this->close();
        }
