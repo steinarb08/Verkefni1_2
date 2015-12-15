@@ -85,6 +85,7 @@ void ConnectionScreen::on_selectionList_itemSelectionChanged()
     }
 }
 
+// Shows informations about selected scientist or computer.
 void ConnectionScreen::on_lstFoundValues_itemSelectionChanged()
 {
     int selNum = ui->lstFoundValues->currentRow();
@@ -127,6 +128,7 @@ void ConnectionScreen::on_cmbList_currentTextChanged()
     }
 }
 
+// ComboBox for sort functions. Gives you options to choose from.
 void ConnectionScreen::on_cmbSort_currentTextChanged()
 {
     string sort = ui->cmbSort->currentText().toStdString();
@@ -224,6 +226,7 @@ void ConnectionScreen::on_chkAscending_clicked()
     on_cmbSort_currentTextChanged();
 }
 
+// Remove button. Removes selected computer connections to a scientist or vice versa.
 void ConnectionScreen::on_btnRemoveConnection_clicked()
 {
     if(ui->lstFoundValues->selectedItems().empty())
@@ -256,11 +259,10 @@ void ConnectionScreen::on_btnRemoveConnection_clicked()
                 ui->lstFoundValues->addItem(QString::fromStdString(linkedPersonList.at(i).getName()));
             }
         }
-
-
     }
 }
 
+// Opens add a connection window.
 void ConnectionScreen::on_btnAddConnection_clicked()
 {
     if(ui->selectionList->selectedItems().empty())
@@ -280,5 +282,4 @@ void ConnectionScreen::on_btnAddConnection_clicked()
             addConnectionScreen->show();
         }
     }
-
 }

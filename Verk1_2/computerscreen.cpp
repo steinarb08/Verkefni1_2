@@ -103,7 +103,7 @@ void ComputerScreen::on_textBoxSearchComp_textChanged()
     }
 }
 
-// Sort options.
+//ComboBox for sort functions. Gives you options to choose from.
 void ComputerScreen::on_sortComputerC_currentTextChanged()
 {
     string sort = ui->sortComputerC->currentText().toStdString();
@@ -157,7 +157,7 @@ void ComputerScreen::on_sortComputerC_currentTextChanged()
         }
     }
 
-    // updates order list.
+    // updates ordered list.
     ui->listComputer->clear();
     for(unsigned int i=0;i<computerList.size();i++)
     {

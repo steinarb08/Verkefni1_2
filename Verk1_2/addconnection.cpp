@@ -42,16 +42,16 @@ AddConnection::~AddConnection()
 
 void AddConnection::on_btnAdd_clicked()
 {
-        if(!scientist)
-        {
-            d1.addCPlinkToDb(personList.at(ui->lstConnectItem->currentRow()),c1);
-            pScreen->updateFoundValues();
-            this->close();
-        }
-        else
-        {
-            d1.addCPlinkToDb(p1,computerList.at(ui->lstConnectItem->currentRow()));
-            pScreen->updateFoundValues();
-            this->close();
-        }
+    if(!scientist)
+    {
+        d1.addCPlinkToDb(personList.at(ui->lstConnectItem->currentRow()),c1);
+        pScreen->updateFoundValues();
+        this->close();
+    }
+    else
+    {
+        d1.addCPlinkToDb(p1,computerList.at(ui->lstConnectItem->currentRow()));
+        pScreen->updateFoundValues();
+        this->close();
+    }
 }
