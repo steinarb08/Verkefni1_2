@@ -19,18 +19,21 @@ void MainScreen::on_btnQuit_clicked()
     qApp->quit();
 }
 
+// Scientist button
 void MainScreen::on_btnPerson_clicked()
 {
     PersonScreen *personScreen = new PersonScreen(this,d1);
     personScreen->show();
 }
 
+// Computer button.
 void MainScreen::on_btnComputer_clicked()
 {
     ComputerScreen *computerScreen = new ComputerScreen(this,d1);
     computerScreen->show();
 }
 
+// Connector button.
 void MainScreen::on_btnConnection_clicked()
 {
     ConnectionScreen *connectionScreen = new ConnectionScreen(this,d1);

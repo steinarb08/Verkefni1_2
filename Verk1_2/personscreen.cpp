@@ -3,6 +3,7 @@
 #include "addnewperson.h"
 #include "editperson.h"
 
+// Default Constructor. Loads scientists in list.
 PersonScreen::PersonScreen(QWidget *parent,DomainLayer &dom) :
     QMainWindow(parent),
     ui(new Ui::PersonScreen)
@@ -13,12 +14,12 @@ PersonScreen::PersonScreen(QWidget *parent,DomainLayer &dom) :
     updateValues();
 }
 
-
 PersonScreen::~PersonScreen()
 {
     delete ui;
 }
-//List which displays all scientists
+
+// List which displays all scientists
 void PersonScreen::on_listWidgetP_itemSelectionChanged()
 {
     int i = ui->listWidgetP->currentRow();
@@ -35,7 +36,8 @@ void PersonScreen::on_listWidgetP_itemSelectionChanged()
         ui->labelSetDeathYear->setText(QString::number(personList.at(i).getDeathYear()));
     }
 }
-//Text box for search function.
+
+// Text box for search function.
 void PersonScreen::on_textBoxSearchList_textChanged(const QString &arg1)
 {
     ui-> listWidgetP-> clear();
@@ -50,19 +52,22 @@ void PersonScreen::on_textBoxSearchList_textChanged(const QString &arg1)
 
 
 }
-//Button that opens new window, Add person window.
+
+// Button that opens new window, Add person window.
 void PersonScreen::on_btnAddPersonToList_clicked()
 {
     addNewPerson *addnewperson = new addNewPerson(this, d1, this);
     addnewperson->show();
 }
-//Enables remove and edit buttons
+
+// Enables remove and edit buttons
 void PersonScreen::on_listWidgetP_clicked(const QModelIndex &index)
 {
     ui->btnRemove->setEnabled(true);
     ui->btnEdit->setEnabled(true);
 }
-//Remove button. Removes from list. Pop-up window for confirmation
+
+// Remove button. Removes from list. Pop-up window for confirmation.
 void PersonScreen::on_btnRemove_clicked()
 {
     if(ui->listWidgetP->selectedItems().empty())
@@ -88,7 +93,8 @@ void PersonScreen::on_btnRemove_clicked()
         ui->labelSetDeathYear->clear();
     }
 }
-//Button that opens edit scientist window
+
+// Button that opens edit scientist window.
 void PersonScreen::on_btnEdit_clicked()
 {
     if(ui->listWidgetP->selectedItems().empty())
@@ -101,17 +107,21 @@ void PersonScreen::on_btnEdit_clicked()
         editperson->show();
     }
 }
-//Updateds values when add new scientist and edit scientist are finshed
+
+// Updateds values when add new scientist and edit scientist are finshed.
 void PersonScreen::updateValues()
 {
     ui-> listWidgetP-> clear();
     personList = d1.loadPerson();
     on_comboBoxSort_currentTextChanged();
 }
-//ComboBox for sort functions. Gives you options to choose from
+
+//ComboBox for sort functions. Gives you options to choose from.
 void PersonScreen::on_comboBoxSort_currentTextChanged()
 {
     string sort = ui->comboBoxSort->currentText().toStdString();
+
+    // Sorts the names in alphabetical order (A-Z) or descending alphabetical order(Z-A).
     if(sort == "Name")
     {
         if(ui->checkBoxDescending->isChecked())
@@ -123,6 +133,7 @@ void PersonScreen::on_comboBoxSort_currentTextChanged()
             personList = d1.sortFromAtoZ();
         }
     }
+    // Sorts gender in ascending or descending order
     else if (sort == "Gender")
     {
         if(ui->checkBoxDescending->isChecked())
@@ -134,6 +145,7 @@ void PersonScreen::on_comboBoxSort_currentTextChanged()
             personList = d1.sortGender();
         }
     }
+    // Sorts year of birth in ascending or descending order
     else if(sort == "Year of Birth")
     {
         if(ui->checkBoxDescending->isChecked())
@@ -145,6 +157,7 @@ void PersonScreen::on_comboBoxSort_currentTextChanged()
             personList = d1.sortBirthYear();
         }
     }
+    // Sorts year of death in ascending or descending order
     else if(sort == "Year of Death")
     {
         if(ui->checkBoxDescending->isChecked())
@@ -156,13 +169,16 @@ void PersonScreen::on_comboBoxSort_currentTextChanged()
             personList = d1.sortDeathYear();
         }
     }
+
+    // updates ordered list.
     ui->listWidgetP->clear();
     for(unsigned int i = 0; i < personList.size(); i++)
     {
         ui->listWidgetP->addItem(QString::fromStdString(personList.at(i).getName()));
     }
 }
-//Check Box for sort, if you want descending. Ascending is default
+
+// Check Box for sort, if you want descending. Ascending is default
 void PersonScreen::on_checkBoxDescending_clicked()
 {
     on_comboBoxSort_currentTextChanged();

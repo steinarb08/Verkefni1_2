@@ -23,10 +23,13 @@ private slots:
     void on_btnQuit_clicked();
 
     void on_btnPerson_clicked();
+    // Scientist button.
 
     void on_btnComputer_clicked();
+    // Computer button.
 
     void on_btnConnection_clicked();
+    // Connector button.
 
 private:
     DomainLayer d1;
