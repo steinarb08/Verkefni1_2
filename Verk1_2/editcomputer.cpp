@@ -14,11 +14,11 @@ EditComputer::EditComputer(QWidget *parent,DomainLayer &dom, Computer &com) :
     ui->textEdit_Type->setText(QString::fromStdString(c1.getType()));
     if(c1.getBuiltComputer() == "Yes")
     {
-        ui->checkBox->setChecked(true);
+        ui->checkYes->setChecked(true);
     }
     else
     {
-        ui->checkBox_2->setChecked(true);
+        ui->checkNo->setChecked(true);
     }
 
 }
@@ -38,29 +38,67 @@ void EditComputer::on_btnSaveEditC_clicked()
     string name = ui->textEdit_Name->toPlainText().toStdString();
     string type = ui->textEdit_Type->toPlainText().toStdString();
     int buildYear = ui->textEdit_BuiltYear->toPlainText().toInt();
-
     string built = "";
-    if(ui->checkBox->isChecked())
+    bool success = true;
+    if(ui->checkYes->isChecked())
     {
         built = "Yes";
     }
     else
     {
-        built = "No";
+        ui->checkNo->setChecked(true);
     }
 
-    int answer = QMessageBox::question(this, "Confirm", "Are you sure?");
-    if(answer == QMessageBox::No)
+    if(name.empty())
     {
-        return;
+        ui->errorLabelC->setText("<span style = 'color: red'>Empty Name!</span>");
+        success = false;
+    }
+    else if(buildYear <= 1800)
+    {
+        ui->errorLabelC->setText("<span style = 'color: red'> Invalid Build Year!</span>");
+        success = false;
     }
 
-    c1.setName(name);
-    c1.setType(type);
-    c1.setBuiltYear(buildYear);
-    c1.setBuiltComputer(built);
+    else if(type.empty())
+    {
+        ui->errorLabelC->setText("<span style = 'color: red'> Empty Type!</span>");
+        success = false;
+    }
 
-    d1.updateComputer(c1);
+    else
+       {
+           if(ui->checkYes->isChecked())
+           {
+               built = "Yes" ;
+           }
+           else if (ui->checkNo->isChecked())
+           {
+               built = "No";
+           }
+           else if (!(ui->checkNo->isChecked()) && !(ui->checkYes->isChecked()))
+           {
+                ui->errorLabelC->setText("<span style='color: red'>Boxes for Was It Built are empty!</span>");
+                success = false;
+           }
+    if (success)
+    {
+        int answer = QMessageBox::question(this, "Confirm", "Are you sure?");
+        if(answer == QMessageBox::No)
+        {
+            return;
+        }
 
-    this->close();
+        c1.setName(name);
+        c1.setType(type);
+        c1.setBuiltYear(buildYear);
+        c1.setBuiltComputer(built);
+
+        d1.updateComputer(c1);
+
+        this->close();
+    }
+
 }
+}
+

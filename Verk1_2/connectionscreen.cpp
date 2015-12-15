@@ -50,7 +50,14 @@ void ConnectionScreen::on_selectionList_itemSelectionChanged()
         ui->lblName->setText(QString::fromStdString(personList.at(i).getName()));
         ui->lblGender->setText(QString::fromStdString(personList.at(i).getGender()));
         ui->lblByear->setText(QString::number(personList.at(i).getBirthYear()));
-        ui->lblDyear->setText(QString::number(personList.at(i).getDeathYear()));
+        if(personList.at(i).getDeathYear() == -1)
+        {
+           ui->lblDyear->setText("Alive");
+        }
+        else
+        {
+            ui->lblDyear->setText(QString::number(personList.at(i).getDeathYear()));
+        }
     }
     else
     {
