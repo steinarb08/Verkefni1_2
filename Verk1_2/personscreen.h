@@ -31,13 +31,13 @@ private slots:
     void on_listWidgetP_itemSelectionChanged();
     // List which displays all scientists
 
-    void on_textBoxSearchList_textChanged(const QString &arg1);
+    void on_textBoxSearchList_textChanged();
     // Text box for search function.
 
     void on_btnAddPersonToList_clicked();
     // Button that opens new window, Add person window.
 
-    void on_listWidgetP_clicked(const QModelIndex &index);
+    void on_listWidgetP_clicked();
     // Enables remove and edit buttons
 
     void on_btnRemove_clicked();

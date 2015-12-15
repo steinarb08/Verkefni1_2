@@ -38,7 +38,7 @@ void PersonScreen::on_listWidgetP_itemSelectionChanged()
 }
 
 // Text box for search function.
-void PersonScreen::on_textBoxSearchList_textChanged(const QString &arg1)
+void PersonScreen::on_textBoxSearchList_textChanged()
 {
     ui-> listWidgetP-> clear();
     string userInputSearch = ui->textBoxSearchList->text().toStdString();
@@ -61,7 +61,7 @@ void PersonScreen::on_btnAddPersonToList_clicked()
 }
 
 // Enables remove and edit buttons
-void PersonScreen::on_listWidgetP_clicked(const QModelIndex &index)
+void PersonScreen::on_listWidgetP_clicked()
 {
     ui->btnRemove->setEnabled(true);
     ui->btnEdit->setEnabled(true);
