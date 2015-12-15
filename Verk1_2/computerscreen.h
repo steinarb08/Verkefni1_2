@@ -7,7 +7,7 @@
 #include <computer.h>
 #include <cplink.h>
 #include <vector>
-#include "addcomputerwindow.h"
+
 
 namespace Ui {
 class ComputerScreen;
@@ -21,10 +21,10 @@ public:
     ComputerScreen(QWidget *parent,DomainLayer &dom);
     ~ComputerScreen();
 
+    void updateComputers();
+
 private slots:
     void on_pushButton_clicked();
-
-    void on_pushButton_5_clicked();
 
     void on_listComputer_clicked(const QModelIndex &index);
 
@@ -37,7 +37,7 @@ private slots:
 
     void on_sortComputerC_currentTextChanged();
 
-    void on_checkAscendingC_clicked();
+    void on_checkDescendingC_clicked();
 
 private:
     DomainLayer d1;

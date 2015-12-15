@@ -2,13 +2,14 @@
 #include "ui_editcomputer.h"
 #include <QMessageBox>
 
-EditComputer::EditComputer(QWidget *parent,DomainLayer &dom, Computer &com) :
+EditComputer::EditComputer(QWidget *parent,DomainLayer &dom, Computer &com, ComputerScreen *cpuScreen) :
     QMainWindow(parent),
     ui(new Ui::EditComputer)
 {
     ui->setupUi(this);
     d1 = dom;
     c1 = com;
+    cs1 = cpuScreen;
     ui->textEdit_Name->setText(QString::fromStdString(c1.getName()));
     ui->textEdit_BuiltYear->setText(QString::number(c1.getBuiltYear()));
     ui->textEdit_Type->setText(QString::fromStdString(c1.getType()));
@@ -40,6 +41,9 @@ void EditComputer::on_btnSaveEditC_clicked()
     int buildYear = ui->textEdit_BuiltYear->toPlainText().toInt();
     string built = "";
     bool success = true;
+
+
+
     if(ui->checkYes->isChecked())
     {
         built = "Yes";
@@ -95,7 +99,7 @@ void EditComputer::on_btnSaveEditC_clicked()
         c1.setBuiltComputer(built);
 
         d1.updateComputer(c1);
-
+        cs1->updateComputers();
         this->close();
     }
 

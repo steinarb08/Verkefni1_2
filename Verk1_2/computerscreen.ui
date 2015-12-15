@@ -117,19 +117,6 @@
      <string>Search</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_5">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>450</y>
-      <width>101</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Load List</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
@@ -205,7 +192,7 @@
    <widget class="QLabel" name="lblComputerName">
     <property name="geometry">
      <rect>
-      <x>190</x>
+      <x>140</x>
       <y>500</y>
       <width>281</width>
       <height>21</height>
@@ -218,10 +205,10 @@
    <widget class="QLabel" name="lblBuiltYear">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>550</y>
+      <x>170</x>
+      <y>540</y>
       <width>191</width>
-      <height>21</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -231,10 +218,10 @@
    <widget class="QLabel" name="lblType">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>590</y>
+      <x>130</x>
+      <y>580</y>
       <width>211</width>
-      <height>21</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -244,10 +231,10 @@
    <widget class="QLabel" name="lblBuilt">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>190</x>
       <y>630</y>
       <width>201</width>
-      <height>21</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -284,17 +271,30 @@
      </property>
     </item>
    </widget>
-   <widget class="QCheckBox" name="checkAscendingC">
+   <widget class="QCheckBox" name="checkDescendingC">
     <property name="geometry">
      <rect>
       <x>410</x>
       <y>40</y>
-      <width>81</width>
+      <width>111</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>Ascending</string>
+     <string>Descending</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>51</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Sort by:</string>
     </property>
    </widget>
   </widget>

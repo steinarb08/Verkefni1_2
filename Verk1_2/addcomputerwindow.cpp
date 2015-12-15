@@ -3,12 +3,13 @@
 #include <computer.h>
 #include "QMessageBox"
 
-AddComputerWindow::AddComputerWindow(QWidget *parent,DomainLayer dom) :
+AddComputerWindow::AddComputerWindow(QWidget *parent,DomainLayer dom,ComputerScreen *cpuScreen) :
     QMainWindow(parent),
     ui(new Ui::AddComputerWindow)
 {
     ui->setupUi(this);
     d1 = dom;
+    cs1 = cpuScreen;
 }
 
 AddComputerWindow::~AddComputerWindow()
@@ -92,7 +93,7 @@ void AddComputerWindow::on_btnAddC_clicked()
 
                 Computer c1(name,buildYear,type,built);
                 d1.addComputerToDB(c1);
-
+                cs1->updateComputers();
                 this->close();
            }
         }

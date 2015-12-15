@@ -3,6 +3,7 @@
 #include <domainlayer.h>
 #include <computer.h>
 #include <QMainWindow>
+#include <computerscreen.h>
 
 namespace Ui {
 class AddComputerWindow;
@@ -13,7 +14,7 @@ class AddComputerWindow : public QMainWindow
     Q_OBJECT
 
 public:
-     AddComputerWindow(QWidget *parent,DomainLayer dom);
+     AddComputerWindow(QWidget *parent,DomainLayer dom, ComputerScreen *cpuScreen);
     ~AddComputerWindow();
 
 private slots:
@@ -28,6 +29,8 @@ private slots:
 private:
     DomainLayer d1;
     Ui::AddComputerWindow *ui;
+    ComputerScreen *cs1;
+
 };
 
 #endif // ADDCOMPUTERWINDOW_H

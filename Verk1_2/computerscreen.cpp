@@ -1,6 +1,9 @@
 #include "computerscreen.h"
 #include "ui_computerscreen.h"
 #include "editcomputer.h"
+#include "addcomputerwindow.h"
+#include "QMessageBox"
+
 
 ComputerScreen::ComputerScreen(QWidget *parent,DomainLayer &dom) :
     QMainWindow(parent),
@@ -9,6 +12,7 @@ ComputerScreen::ComputerScreen(QWidget *parent,DomainLayer &dom) :
     ui->setupUi(this);
     d1 = dom;
     computerList = d1.loadComputer();
+    updateComputers();
     on_sortComputerC_currentTextChanged();
 
 }
@@ -20,11 +24,11 @@ ComputerScreen::~ComputerScreen()
 
 void ComputerScreen::on_pushButton_clicked()
 {
-    AddComputerWindow *addcomputerwindow = new AddComputerWindow(this,d1);
+    AddComputerWindow *addcomputerwindow = new AddComputerWindow(this,d1,this);
     addcomputerwindow->show();
 }
 
-void ComputerScreen::on_pushButton_5_clicked()
+void ComputerScreen::updateComputers()
 {
     ui->listComputer->clear();
     computerList = d1.loadComputer();
@@ -49,19 +53,43 @@ void ComputerScreen::on_listComputer_clicked(const QModelIndex &index)
 
 void ComputerScreen::on_btnRemoveC_clicked()
 {
-    int selectedComputerIndex = ui->listComputer->currentRow();
-    d1.deleteFromComputer(computerList.at(selectedComputerIndex));
-    ui->listComputer->clear();
-    computerList = d1.loadComputer();
-    on_pushButton_5_clicked();
+    if(ui->listComputer->selectedItems().empty())
+    {
+        QMessageBox::information(NULL,"Remove error","No item selected!");
+    }
+
+    else
+    {
+            int answer = QMessageBox::question(this, "Confirm", "Are you sure?");
+            if(answer == QMessageBox::No)
+            {
+                return;
+            }
+
+            int selectedComputerIndex = ui->listComputer->currentRow();
+            d1.deleteFromComputer(computerList.at(selectedComputerIndex));
+            ui->listComputer->clear();
+            computerList = d1.loadComputer();
+            updateComputers();
+    }
+
 
 
 }
 
 void ComputerScreen::on_btnEditC_clicked()
 {
-    EditComputer *editcomputer = new EditComputer(this, d1,computerList.at(ui->listComputer->currentRow()));
-    editcomputer->show();
+    if(ui->listComputer->selectedItems().empty())
+    {
+        QMessageBox::information(NULL,"Edit error","No item selected!");
+    }
+
+    else
+    {
+        EditComputer *editcomputer = new EditComputer(this, d1,computerList.at(ui->listComputer->currentRow()), this);
+        editcomputer->show();
+    }
+
 }
 
 void ComputerScreen::on_textBoxSearchComp_textChanged()
@@ -82,49 +110,49 @@ void ComputerScreen::on_sortComputerC_currentTextChanged()
     string sort = ui->sortComputerC->currentText().toStdString();
     if(sort == "Name")
     {
-        if(ui->checkAscendingC->isChecked())
+        if(ui->checkDescendingC->isChecked())
         {
-            computerList = d1.sortFromAtoZ_C();
+            computerList = d1.reverse_C();
         }
         else
         {
-            computerList = d1.reverse_C();
+            computerList = d1.sortFromAtoZ_C();
         }
     }
 
     else if(sort == "Type")
     {
-        if(ui->checkAscendingC->isChecked())
+        if(ui->checkDescendingC->isChecked())
         {
-            computerList = d1.sortType_C();
+            computerList = d1.sortTypeReverse_C();
         }
         else
         {
-            computerList = d1.sortTypeReverse_C();
+            computerList = d1.sortType_C();
         }
     }
 
     else if(sort == "Build Year")
     {
-        if(ui->checkAscendingC->isChecked())
+        if(ui->checkDescendingC->isChecked())
         {
-            computerList = d1.sortYearBuild_C();
+            computerList = d1.sortYearBuildReverse_C();
         }
         else
         {
-            computerList = d1.sortYearBuildReverse_C();
+            computerList = d1.sortYearBuild_C();
         }
     }
 
     else if(sort == "Was It Built?")
     {
-        if(ui->checkAscendingC->isChecked())
+        if(ui->checkDescendingC->isChecked())
         {
-            computerList = d1.sortMade_C();
+            computerList = d1.sortMadeReverse_C();
         }
         else
         {
-            computerList = d1.sortMadeReverse_C();
+            computerList = d1.sortMade_C();
         }
     }
 
@@ -137,7 +165,8 @@ void ComputerScreen::on_sortComputerC_currentTextChanged()
 
 }
 
-void ComputerScreen::on_checkAscendingC_clicked()
+
+void ComputerScreen::on_checkDescendingC_clicked()
 {
     on_sortComputerC_currentTextChanged();
 }
