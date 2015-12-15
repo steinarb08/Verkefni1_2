@@ -54,7 +54,7 @@ void EditComputer::on_btnSaveEditC_clicked()
         ui->errorLabelC->setText("<span style = 'color: red'>Empty Name!</span>");
         success = false;
     }
-    else if(buildYear <= 1800)
+    else if(buildYear < 0)
     {
         ui->errorLabelC->setText("<span style = 'color: red'> Invalid Build Year!</span>");
         success = false;

@@ -8,7 +8,6 @@
 #include <cplink.h>
 #include <vector>
 #include "addcomputerwindow.h"
-#include <editcomputer.h>
 
 namespace Ui {
 class ComputerScreen;
@@ -34,6 +33,11 @@ private slots:
     void on_btnEditC_clicked();
 
     void on_textBoxSearchComp_textChanged();
+
+
+    void on_sortComputerC_currentTextChanged();
+
+    void on_checkAscendingC_clicked();
 
 private:
     DomainLayer d1;
